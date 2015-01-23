@@ -483,7 +483,7 @@ class WgtSelectbox extends WgtInput
     $select = '<select '.$attributes.' '.$placeHolder.' >'.NL;
 
     if (!is_null($this->firstFree))
-      $select .= '<option>'.$this->firstFree.'</option>'.NL;
+      $select .= '<option> </option>'.NL;
 
     $select .= $codeOptions;
 

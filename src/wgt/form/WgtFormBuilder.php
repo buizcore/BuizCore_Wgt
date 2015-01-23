@@ -1621,11 +1621,11 @@ CODE;
       $attributes['id'] = "wgt-input-{$id}";
     }
 
-    if(!isset($attributes['name'])){
+    if (!isset($attributes['name'])) {
     	$attributes['name'] = $name;
     }
 
-    if(!isset($attributes['class'])){
+    if (!isset($attributes['class'])) {
     	$attributes['class'] = 'asgd-'.$this->id;
     } else {
     	$attributes['class'] .= ' asgd-'.$this->id;
