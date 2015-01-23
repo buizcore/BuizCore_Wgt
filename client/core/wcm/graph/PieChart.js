@@ -17,7 +17,7 @@
 
 /**
  * WGT Web Gui Toolkit
- * http://webfrap.net/WGT
+ * http://buizcore.net/WGT
  *
  * @author Dominik Bonsch <db@webfrap.net>
  */

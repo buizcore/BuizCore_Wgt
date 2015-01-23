@@ -5,7 +5,7 @@
 * @date        :
 * @copyright   : Webfrap Developer Network <contact@webfrap.net>
 * @project     : Webfrap Web Frame Application
-* @projectUrl  : http://webfrap.net
+* @projectUrl  : http://buizcore.net
 *
 * @licence     : BSD License see: LICENCE/BSD Licence.txt
 * 

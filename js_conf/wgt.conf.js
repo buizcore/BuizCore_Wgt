@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2009 webfrap.net
  * 
- * http://webfrap.net/WGT
+ * http://buizcore.net/WGT
  * 
  * Depends: 
  *   - jQuery 1.7.2

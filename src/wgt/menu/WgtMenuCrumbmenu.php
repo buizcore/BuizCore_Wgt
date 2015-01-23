@@ -1,11 +1,11 @@
 <?php
 /*******************************************************************************
 *
-* @author      : Dominik Bonsch <dominik.bonsch@webfrap.net>
+* @author      : Dominik Bonsch <d.bonsch@buizcore.com>
 * @date        :
-* @copyright   : Webfrap Developer Network <contact@webfrap.net>
-* @project     : Webfrap Web Frame Application
-* @projectUrl  : http://webfrap.net
+* @copyright   : BuizCore GmbH
+* @project     : BuizCore - The Business Core
+* @projectUrl  : http://buizcore.net
 *
 * @licence     : BSD License see: LICENCE/BSD Licence.txt
 *
@@ -18,7 +18,7 @@
 /**
  * class VobNavmenu
  * Objekt zum generieren des Mainmenus eines Users
- * @package net.webfrap.wgt
+ * @package net.buizcore.wgt
  */
 class WgtMenuCrumbmenu extends WgtAbstract
 {

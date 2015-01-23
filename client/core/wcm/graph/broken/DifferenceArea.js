@@ -18,7 +18,7 @@ date   New York      San Francisco
 
 /**
  * WGT Web Gui Toolkit
- * http://webfrap.net/WGT
+ * http://buizcore.net/WGT
  * 
  * @see original: http://bl.ocks.org/mbostock/3894205
  * 

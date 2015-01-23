@@ -33,7 +33,7 @@ F,.02288
 
 /**
  * WGT Web Gui Toolkit
- * http://webfrap.net/WGT
+ * http://buizcore.net/WGT
  * 
  * Based on: http://bl.ocks.org/mbostock/3885304
  * 
