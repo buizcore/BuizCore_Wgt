@@ -166,7 +166,7 @@ abstract class WgtTemplate
   {
 
     if (!$this->user)
-      $this->user = Webfrap::$env->getUser();
+      $this->user = BuizCore::$env->getUser();
 
     return $this->user;
 
@@ -187,7 +187,7 @@ abstract class WgtTemplate
   {
 
     if (!$this->i18n)
-      $this->i18n = Webfrap::$env->getI18n();
+      $this->i18n = BuizCore::$env->getI18n();
 
     return $this->i18n;
 
@@ -208,7 +208,7 @@ abstract class WgtTemplate
   {
 
     if (!$this->conf)
-      $this->conf = Webfrap::$env->getConf();
+      $this->conf = BuizCore::$env->getConf();
 
     return $this->conf;
 
@@ -291,7 +291,7 @@ abstract class WgtTemplate
   public function subTemplate($file , $type = 'content')
   {
     // use the webfrap template
-    return WebFrap::templatePath( $file , $type, true);
+    return BuizCore::templatePath( $file , $type, true);
 
   }//end public function subTemplate */
 
@@ -308,7 +308,7 @@ abstract class WgtTemplate
   public function templatePath($file , $type = 'content')
   {
     // use the webfrap template
-    return WebFrap::templatePath( $file , $type, $this->tplInCode);
+    return BuizCore::templatePath( $file , $type, $this->tplInCode);
 
   }//end public function templatePath */
 

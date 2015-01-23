@@ -63,7 +63,7 @@ class WgtSimpleListmenu
   {
 
     if (!$view)
-      $view = Webfrap::$env->getTpl();
+      $view = BuizCore::$env->getTpl();
 
     if (is_string($this->listActions))
       $this->listActions = json_decode($this->listActions);

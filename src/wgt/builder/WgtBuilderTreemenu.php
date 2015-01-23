@@ -88,7 +88,7 @@ class WgtBuilderTreemenu
   {
 
     if (!$this->id)
-      $this->id = 'wgt-tree-'.WebFrap::uniqid();
+      $this->id = 'wgt-tree-'.BuizCore::uniqid();
 
     $this->html = '<ul class="'.$this->actionClass.'" >'.NL;
 

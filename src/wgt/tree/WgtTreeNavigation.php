@@ -43,7 +43,7 @@ abstract class WgtTreeNavigation extends WgtAbstract
   {
 
     if (!$this->acl)
-      $this->acl = Webfrap::$env->getAcl();
+      $this->acl = BuizCore::$env->getAcl();
 
     return $this->acl;
 
@@ -55,7 +55,7 @@ abstract class WgtTreeNavigation extends WgtAbstract
   public function getId()
   {
     if (is_null($this->id))
-      $this->id = 'wgtid_'.WebFrap::uniqid();
+      $this->id = 'wgtid_'.BuizCore::uniqid();
 
     return $this->id;
 

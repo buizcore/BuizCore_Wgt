@@ -276,7 +276,7 @@ class LibTemplateAjax extends LibTemplateHtml
   public function buildBody()
   {
 
-    if ($filename = Webfrap::templatePath('ajax', 'index')) {
+    if ($filename = BuizCore::templatePath('ajax', 'index')) {
 
       if ($this->jsCode) {
 
@@ -300,7 +300,7 @@ class LibTemplateAjax extends LibTemplateHtml
     } else {
       
       Error::addError('failed to load the body');
-      $filename = Webfrap::templatePath('ajax_failed', 'index');
+      $filename = BuizCore::templatePath('ajax_failed', 'index');
       
       $this->assembledBody = file_get_contents(
         $filename
@@ -319,7 +319,7 @@ class LibTemplateAjax extends LibTemplateHtml
   public function buildIndex()
   {
 
-    if ($filename = Webfrap::templatePath($this->indexTemplate, 'index')) {
+    if ($filename = BuizCore::templatePath($this->indexTemplate, 'index')) {
 
       if (Log::$levelVerbose)
         Log::verbose(__FILE__ , __LINE__, 'Parsing index: '.$filename);

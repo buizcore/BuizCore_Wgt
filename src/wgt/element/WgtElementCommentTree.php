@@ -114,8 +114,8 @@ class WgtElementCommentTree extends WgtAbstract
       $this->view = $view;
       $this->user = $view->getUser();
     } else {
-      $this->view = Webfrap::$env->getView();
-      $this->user = Webfrap::$env->getUser();
+      $this->view = BuizCore::$env->getView();
+      $this->user = BuizCore::$env->getUser();
     }
 
   } // end public function __construct */

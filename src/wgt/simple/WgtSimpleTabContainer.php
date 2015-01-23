@@ -52,7 +52,7 @@ class WgtSimpleTabContainer
   {
 
     if (!$view)
-      $view = Webfrap::$env->getTpl();
+      $view = BuizCore::$env->getTpl();
 
     $this->view = $view;
 

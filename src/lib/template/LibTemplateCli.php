@@ -113,7 +113,7 @@ class LibTemplateCli extends Pbase
     // load response
     $this->getResponse();
 
-    $this->env = Webfrap::getActive();
+    $this->env = BuizCore::getActive();
     $this->getI18n();
     $this->getAcl();
     $this->getCache();
@@ -163,7 +163,7 @@ class LibTemplateCli extends Pbase
 
     $className = $key.'_View';
 
-    if (!Webfrap::classExists($className))
+    if (!BuizCore::classExists($className))
       throw new LibTemplate_Exception('Requested nonexisting View '.$key);
 
     $this->subView = new $className();
@@ -215,7 +215,7 @@ class LibTemplateCli extends Pbase
 
       $className = $type;
 
-      if (!WebFrap::classExists($className))
+      if (!BuizCore::classExists($className))
         throw new WgtItemNotFound_Exception('Item '.$className.' is not loadable');
 
       $object = new $className($key);
@@ -251,7 +251,7 @@ class LibTemplateCli extends Pbase
     } else {
       $className = 'WgtInput'.ucfirst($type);
 
-      if (!WebFrap::classExists($className)) {
+      if (!BuizCore::classExists($className)) {
         throw new WgtItemNotFound_Exception('Class '.$className.' was not found');
       } else {
         $object = new $className($key);

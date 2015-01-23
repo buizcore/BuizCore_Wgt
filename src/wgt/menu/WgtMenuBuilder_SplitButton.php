@@ -189,7 +189,7 @@ class WgtMenuBuilder_SplitButton extends WgtMenuBuilder
     else if ($this->access)
       $accessLevel = $this->access->level;
     else {
-      $user = Webfrap::$env->getUser();
+      $user = BuizCore::$env->getUser();
 
       $userLevel = $user->getLevel();
 

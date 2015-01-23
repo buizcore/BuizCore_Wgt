@@ -82,7 +82,7 @@ class LibTemplateParser
     $this->fullPath = $fullPath;
     $this->key = $key;
 
-    $this->env = Webfrap::getActive();
+    $this->env = BuizCore::getActive();
 
   }// end public function __construct */
 

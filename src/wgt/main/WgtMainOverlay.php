@@ -99,7 +99,7 @@ class WgtMainOverlay extends LibTemplatePublisher
     if ($env)
       $this->env = $env;
     else
-      $this->env = Webfrap::getActive();
+      $this->env = BuizCore::getActive();
 
     // overwriteable empty init method
     $this->init();

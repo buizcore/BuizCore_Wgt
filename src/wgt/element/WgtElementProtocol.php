@@ -73,7 +73,7 @@ class WgtElementProtocol extends WgtAbstract
       $view->addElement($name, $this);
       $this->view = $view;
     } else {
-      $this->view = Webfrap::$env->getView();
+      $this->view = BuizCore::$env->getView();
     }
 
   } // end public function __construct */

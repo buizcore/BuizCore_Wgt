@@ -300,7 +300,7 @@ abstract class WgtList extends WgtAbstract
   {
 
     if (!$this->conf)
-      $this->conf = Webfrap::$env->getConf();
+      $this->conf = BuizCore::$env->getConf();
 
     return $this->conf;
 
@@ -313,7 +313,7 @@ abstract class WgtList extends WgtAbstract
   {
 
     if (!$this->user)
-      $this->user = Webfrap::$env->getUser();
+      $this->user = BuizCore::$env->getUser();
 
     return $this->user;
 

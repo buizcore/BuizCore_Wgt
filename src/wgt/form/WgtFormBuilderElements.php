@@ -625,7 +625,7 @@ HTML;
       $attributes['id'] = "wgt-input-{$id}";
     }
 
-    if (!Webfrap::classExists($elementKey))
+    if (!BuizCore::classExists($elementKey))
       return '<!-- Missing '.$elementKey.' -->';
 
     $selectBoxNode = new $elementKey();
@@ -697,7 +697,7 @@ HTML;
       $attributes['id'] = "wgt-input-{$id}";
     }
 
-    if (!Webfrap::classExists($elementKey))
+    if (!BuizCore::classExists($elementKey))
       return '<!-- Missing '.$elementKey.' -->';
 
     $selectBoxNode = new $elementKey();

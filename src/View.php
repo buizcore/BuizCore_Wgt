@@ -294,9 +294,9 @@ class View
     $className = 'LibTemplate'.$type;
     self::$instance = new $className($conf);
 
-    Webfrap::$env->setView(self::$instance);
-    Webfrap::$env->setTpl(self::$instance);
-    Webfrap::$env->getResponse()->setTpl(self::$instance);
+    BuizCore::$env->setView(self::$instance);
+    BuizCore::$env->setTpl(self::$instance);
+    BuizCore::$env->getResponse()->setTpl(self::$instance);
 
   } //end public function init */
 

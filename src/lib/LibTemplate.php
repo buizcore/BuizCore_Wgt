@@ -348,7 +348,7 @@ abstract class LibTemplate extends BaseChild
             }
         
         if (! $env) {
-            $env = Webfrap::getActive();
+            $env = BuizCore::getActive();
         }
         
         $this->env = $env;
@@ -534,7 +534,7 @@ abstract class LibTemplate extends BaseChild
     public function getServerAddress($forceHttps = false)
     {
 
-        return Webfrap::$env->getRequest()->getServerAddress($forceHttps);
+        return BuizCore::$env->getRequest()->getServerAddress($forceHttps);
     
     } // end public function getServerAddress */
 
@@ -699,7 +699,7 @@ abstract class LibTemplate extends BaseChild
 
         $className = $key.'_View';
         
-        if (! Webfrap::classExists($className)) {
+        if (! BuizCore::classExists($className)) {
             throw new LibTemplate_Exception('Requested nonexisting View '.$key);
         }
         
@@ -757,7 +757,7 @@ abstract class LibTemplate extends BaseChild
         $uiName = ucfirst($uiName);
         $className = $uiName.'_Ui';
         
-        if (Webfrap::classExists($className)) {
+        if (BuizCore::classExists($className)) {
             
             $ui = new $className($this);
             $ui->setView($this);
@@ -817,7 +817,7 @@ abstract class LibTemplate extends BaseChild
         $modelName = $modelKey.'_Model';
         
         if (! isset($this->models[$key])) {
-            if (Webfrap::classExists($modelName)) {
+            if (BuizCore::classExists($modelName)) {
                 $this->models[$key] = new $modelName($this);
             } else {
                 throw new LibTemplate_Exception('Internal Error', 'Failed to load Submodul: '.$modelName);
@@ -909,7 +909,7 @@ abstract class LibTemplate extends BaseChild
 
         $className = $classKey.'_View';
         
-        if (! Webfrap::classExists($className))
+        if (! BuizCore::classExists($className))
             throw new LibTemplate_Exception("The requested View {$className} not exists");
         
         $area = new $className();
@@ -1052,10 +1052,10 @@ abstract class LibTemplate extends BaseChild
         $className = $type.'_Form';
         $classNameOld = 'WgtForm'.$type;
         
-        if (! Webfrap::classExists($className)) {
+        if (! BuizCore::classExists($className)) {
             // fall back to old name convention
             $className = $classNameOld;
-            if (! Webfrap::classExists($className))
+            if (! BuizCore::classExists($className))
                 throw new LibTemplate_Exception('Requested noexisting form '.$type);
         }
         
@@ -1084,7 +1084,7 @@ abstract class LibTemplate extends BaseChild
         
         $className = $type.'_Form';
         
-        if (! Webfrap::classExists($className)) {
+        if (! BuizCore::classExists($className)) {
             throw new LibTemplate_Exception('Requested noexisting form '.$type);
         }
         
@@ -1116,10 +1116,10 @@ abstract class LibTemplate extends BaseChild
             $className = $type;
             $classNameOld = 'Wgt'.$type;
             
-            if (! WebFrap::classExists($className)) {
+            if (! BuizCore::classExists($className)) {
                 $className = $classNameOld;
                 
-                if (! WebFrap::classExists($className))
+                if (! BuizCore::classExists($className))
                     throw new WgtItemNotFound_Exception('Item '.$className.' is not loadable');
             }
             
@@ -1195,7 +1195,7 @@ abstract class LibTemplate extends BaseChild
             
             $className = $type.'_Element';
             
-            if (! WebFrap::classExists($className))
+            if (! BuizCore::classExists($className))
                 throw new WgtItemNotFound_Exception('Element '.$className.' is not loadable');
             
             $object = new $className($key);
@@ -1254,10 +1254,10 @@ abstract class LibTemplate extends BaseChild
             $className = $type.'_Widget';
             $classNameOld = 'WgtWidget'.$type;
             
-            if (! WebFrap::classExists($className)) {
+            if (! BuizCore::classExists($className)) {
                 $className = $classNameOld;
                 
-                if (! WebFrap::classExists($className))
+                if (! BuizCore::classExists($className))
                     throw new WgtItemNotFound_Exception('Widget '.$className.' is not loadable');
             }
             
@@ -1295,7 +1295,7 @@ abstract class LibTemplate extends BaseChild
         } else {
             $className = 'WgtInput'.ucfirst($type);
             
-            if (! WebFrap::classExists($className)) {
+            if (! BuizCore::classExists($className)) {
                 throw new WgtItemNotFound_Exception('Class '.$className.' was not found');
             } else {
                 $object = new $className($key);
@@ -1330,9 +1330,9 @@ abstract class LibTemplate extends BaseChild
             if ($type) {
                 
                 $className = ucfirst($type).'_Maintab_View';
-                if (! Webfrap::classExists($className)) {
+                if (! BuizCore::classExists($className)) {
                     $className = ucfirst($type).'_Maintab';
-                    if (! Webfrap::classExists($className)) {
+                    if (! BuizCore::classExists($className)) {
                         throw new LibTemplate_Exception('requested nonexisting tab '.$type);
                     }
                 }
@@ -1708,7 +1708,7 @@ abstract class LibTemplate extends BaseChild
     public function getPath($file, $type = 'content')
     {
         // use the webfrap template
-        return WebFrap::templatePath($file, $type, true);
+        return BuizCore::templatePath($file, $type, true);
     
     } // end public function getPath */
 
@@ -1938,9 +1938,9 @@ abstract class LibTemplate extends BaseChild
     {
         // use the webfrap template
         if ('content' === $type || $tplInCode)
-            return WebFrap::templatePath($file, $type, ($this->tplInCode || $tplInCode));
+            return BuizCore::templatePath($file, $type, ($this->tplInCode || $tplInCode));
         else
-            return WebFrap::templatePath($file, $type);
+            return BuizCore::templatePath($file, $type);
     
     } // end public function templatePath */
 

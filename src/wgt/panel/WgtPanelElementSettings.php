@@ -74,7 +74,7 @@ class WgtPanelElementSettings extends WgtPanelElement
     public function __construct($model, $view)
     {
 
-        $this->env = Webfrap::$env;
+        $this->env = BuizCore::$env;
         $this->model = $model;
         $this->view = $view;
         $this->init();

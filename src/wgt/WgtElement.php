@@ -63,7 +63,7 @@ abstract class WgtElement extends WgtAbstract
   {
 
     if (is_null($this->idKey))
-      $this->idKey = Webfrap::uniqKey();
+      $this->idKey = BuizCore::uniqKey();
 
     return $this->idKey;
 

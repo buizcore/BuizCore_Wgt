@@ -101,8 +101,8 @@ class WgtElementKnowhowNode extends WgtAbstract
       $this->view = $view;
       $this->user = $view->getUser();
     } else {
-      $this->view = Webfrap::$env->getView();
-      $this->user = Webfrap::$env->getUser();
+      $this->view = BuizCore::$env->getView();
+      $this->user = BuizCore::$env->getUser();
     }
 
   } // end public function __construct */
@@ -118,7 +118,7 @@ class WgtElementKnowhowNode extends WgtAbstract
   {
 
     if (is_null($this->idKey))
-      $this->idKey = Webfrap::uniqKey();
+      $this->idKey = BuizCore::uniqKey();
 
     return $this->idKey;
 

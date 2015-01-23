@@ -148,7 +148,7 @@ class LibTemplateService extends LibTemplate
   public function buildIndex()
   {
 
-    if ($filename = Webfrap::templatePath($this->indexTemplate, 'index')) {
+    if ($filename = BuizCore::templatePath($this->indexTemplate, 'index')) {
 
       if (Log::$levelVerbose)
         Log::verbose('Parsing index: '.$filename);

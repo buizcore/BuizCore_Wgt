@@ -181,7 +181,7 @@ class WgtElementAttachmentList extends WgtAbstract
   {
 
     if (is_null($this->idKey))
-      $this->idKey = Webfrap::uniqKey();
+      $this->idKey = BuizCore::uniqKey();
 
     return $this->idKey;
 
@@ -425,7 +425,7 @@ HTML;
     // filetypes for the search
     if($this->context->maskFilter){
       /* @var $queryFileTypes WebfrapAttachmentFileType_Selectbox_Query */
-      $queryFileTypes = Webfrap::$env->getDb()->newQuery('WebfrapAttachmentFileType_Selectbox');
+      $queryFileTypes = BuizCore::$env->getDb()->newQuery('WebfrapAttachmentFileType_Selectbox');
       $queryFileTypes->fetchSelectbox($this->context->maskFilter);
       $dataFileTypes = $queryFileTypes->getAll();
 

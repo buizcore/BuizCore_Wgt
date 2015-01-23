@@ -68,7 +68,7 @@ class WgtProcessForm extends WgtAbstract
   public function __construct($view = null, $name = null)
   {
 
-    $this->view = $view?$view:WebFrap::$env->getTpl();
+    $this->view = $view?$view:BuizCore::$env->getTpl();
     $this->name = $name;
     $this->init();
 

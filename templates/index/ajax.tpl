@@ -84,12 +84,12 @@ HTML;
     }
 
 
-    if( Webfrap::$numPhpErrors ){
+    if( BuizCore::$numPhpErrors ){
 
-      if(Webfrap::$numPhpErrors == 1) {
+      if(BuizCore::$numPhpErrors == 1) {
         $errorMsg = 'the last request had one php error';
       } else {
-        $errorMsg = 'the last request had '.Webfrap::$numPhpErrors.' errors';
+        $errorMsg = 'the last request had '.BuizCore::$numPhpErrors.' errors';
       }
     ?>
       <htmlArea selector="img#wgt_status_lasterror" action="replace" ><![CDATA[<img title="<?php echo $errorMsg?>" id="wgt_status_lasterror" class="icon small" alt="no errors" src="<?php echo View::$iconsWeb?>small/desktop/error.png"/>]]></htmlArea>

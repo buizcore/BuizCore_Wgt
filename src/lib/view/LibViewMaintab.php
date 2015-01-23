@@ -197,7 +197,7 @@ class LibViewMaintab extends LibTemplatePublisher
     if ($env)
       $this->env = $env;
     else
-      $this->env = Webfrap::getActive();
+      $this->env = BuizCore::getActive();
     
     $this->getAcl();
     $this->getI18n();
@@ -406,7 +406,7 @@ class LibViewMaintab extends LibTemplatePublisher
 
       $className = ucfirst($type).'_Maintab_Menu';
 
-      if (!Webfrap::classExists($className)) {
+      if (!BuizCore::classExists($className)) {
         throw new LibTemplate_Exception('requested nonexisting menu '.$type);
       }
 

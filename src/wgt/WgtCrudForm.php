@@ -597,7 +597,7 @@ class WgtCrudForm
   {
 
     if (!$this->acl)
-      $this->acl = Webfrap::$env->getAcl();
+      $this->acl = BuizCore::$env->getAcl();
 
     return $this->acl;
 
@@ -610,7 +610,7 @@ class WgtCrudForm
   {
 
     if (!$this->response)
-      $this->response = Webfrap::$env->getResponse();
+      $this->response = BuizCore::$env->getResponse();
 
     return $this->response;
 
@@ -623,7 +623,7 @@ class WgtCrudForm
   {
 
     if (!$this->request)
-      $this->request = Webfrap::$env->getRequest();
+      $this->request = BuizCore::$env->getRequest();
 
     return $this->request;
 
@@ -636,7 +636,7 @@ class WgtCrudForm
   {
 
     if (!$this->db)
-      $this->db = Webfrap::$env->getDb();
+      $this->db = BuizCore::$env->getDb();
 
     return $this->db;
 
@@ -649,7 +649,7 @@ class WgtCrudForm
   {
 
     if (!$this->db)
-      $this->db = Webfrap::$env->getDb();
+      $this->db = BuizCore::$env->getDb();
 
     return $this->db->getOrm();
 
@@ -662,7 +662,7 @@ class WgtCrudForm
   {
 
     if (!$this->user)
-      $this->user = Webfrap::$env->getUser();
+      $this->user = BuizCore::$env->getUser();
 
     return $this->user;
 

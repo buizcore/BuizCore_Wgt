@@ -308,7 +308,7 @@ class Wgt
   {
     $className = 'Wgt'.ucfirst($type);
 
-    if (!WebFrap::classExists($className)) {
+    if (!BuizCore::classExists($className)) {
       Error::addError
       (
         'Class '.$className.' was not found',
@@ -543,7 +543,7 @@ class Wgt
 
     $className = 'WgtSelectbox'.$name;
 
-    if (!Webfrap::classExists($className)) {
+    if (!BuizCore::classExists($className)) {
       Error::addError
       (
       'Class '.$className.' is not loadable'

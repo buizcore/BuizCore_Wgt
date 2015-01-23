@@ -110,7 +110,7 @@ class WgtPanelElementSearch_Overlay extends WgtPanelElement
   public function __construct($table = null)
   {
 
-  	$this->env = Webfrap::$env;
+  	$this->env = BuizCore::$env;
     if ($table) {
       $this->tableId = $table->id;
       $this->searchForm = $table->searchForm;

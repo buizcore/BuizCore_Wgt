@@ -71,7 +71,7 @@ abstract class WgtWidget extends PBase
     {
 
         if (is_null($this->idKey))
-            $this->idKey = Webfrap::uniqKey();
+            $this->idKey = BuizCore::uniqKey();
         
         return $this->idKey;
     
@@ -105,7 +105,7 @@ abstract class WgtWidget extends PBase
         $modelName = $modelKey . '_Model';
         
         if (! isset($this->models[$key])) {
-            if (! Webfrap::classExists($modelName)) {
+            if (! BuizCore::classExists($modelName)) {
                 throw new Controller_Exception('Internal Error', 'Failed to load Submodul: ' . $modelName);
             }
             

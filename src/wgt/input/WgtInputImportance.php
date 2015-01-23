@@ -148,7 +148,7 @@ class WgtInputImportance extends WgtSelectboxHardcoded
     public static function getKeyLabel($key)
     {
 
-        $i18n = Webfrap::$env->getI18n();
+        $i18n = BuizCore::$env->getI18n();
         
         return isset(self::$labels[$key]) ? $i18n->l(self::$labels[$key], 'wbfsys.base') : null;
     

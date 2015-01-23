@@ -67,7 +67,7 @@ abstract class WgtTree extends WgtAbstract
   public function getId()
   {
     if (is_null($this->id))
-      $this->id = 'wgt-tree-'.WebFrap::uniqid();
+      $this->id = 'wgt-tree-'.BuizCore::uniqid();
 
     return $this->id;
 

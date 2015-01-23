@@ -54,7 +54,7 @@ class LibTemplateHtmlView extends LibTemplate
     $this->tplConf = $conf;
 
     if (!$env) {
-      $env = Webfrap::getActive();
+      $env = BuizCore::getActive();
     }
 
     $this->env = $env;

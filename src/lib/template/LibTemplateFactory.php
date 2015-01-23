@@ -28,7 +28,7 @@ class LibTemplateFactory
   public function item($className, $key)
   {
 
-    if (!WebFrap::classExists($className)) {
+    if (!BuizCore::classExists($className)) {
       throw new WgtItemNotFound_Exception('Class '.$className.' was not found');
     } else {
 

@@ -57,7 +57,7 @@ class WgtButtonBuilder
   public function __construct()
   {
 
-    $this->view = Webfrap::$env->getTpl();
+    $this->view = BuizCore::$env->getTpl();
 
   }//end public function __construct */
 

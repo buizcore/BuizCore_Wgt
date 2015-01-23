@@ -506,7 +506,7 @@ class WgtForm
   {
 
     if (!$this->acl)
-      $this->acl = Webfrap::$env->getAcl();
+      $this->acl = BuizCore::$env->getAcl();
 
     return $this->acl;
 
@@ -519,7 +519,7 @@ class WgtForm
   {
 
     if (!$this->response)
-      $this->response = Webfrap::$env->getResponse();
+      $this->response = BuizCore::$env->getResponse();
 
     return $this->response;
 
@@ -532,7 +532,7 @@ class WgtForm
   {
 
     if (!$this->request)
-      $this->request = Webfrap::$env->getRequest();
+      $this->request = BuizCore::$env->getRequest();
 
     return $this->request;
 
@@ -545,7 +545,7 @@ class WgtForm
   {
 
     if (!$this->db)
-      $this->db = Webfrap::$env->getDb();
+      $this->db = BuizCore::$env->getDb();
 
     return $this->db;
 
@@ -558,7 +558,7 @@ class WgtForm
   {
 
     if (!$this->db)
-      $this->db = Webfrap::$env->getDb();
+      $this->db = BuizCore::$env->getDb();
 
     return $this->db->getOrm();
 

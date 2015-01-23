@@ -169,7 +169,7 @@ class WgtFormBuilder
   {
 
     if (!$this->db)
-      $this->db = Webfrap::$env->getDb();
+      $this->db = BuizCore::$env->getDb();
 
     return $this->db->newQuery($key);
 
@@ -1635,7 +1635,7 @@ CODE;
         $attributes['class'] .= ' is-standalone ';
     }
 
-    if (!Webfrap::classExists($elementKey))
+    if (!BuizCore::classExists($elementKey))
       return '<!-- Missing '.$elementKey.' -->';
 
     $selectBoxNode = new $elementKey();
@@ -1718,7 +1718,7 @@ CODE;
         $attributes['placeholder'] = $label;
     }
 
-    if (!Webfrap::classExists($elementKey))
+    if (!BuizCore::classExists($elementKey))
       return '<!-- Missing '.$elementKey.' -->';
 
     $selectBoxNode = new $elementKey();

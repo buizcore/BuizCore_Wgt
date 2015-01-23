@@ -63,7 +63,7 @@ abstract class WgtDesktopNavigation extends WgtDesktopElement
 
     $modelName = 'Model'.$modelName;
     if (!isset($this->models[$key]  )) {
-      if (Webfrap::classExists($modelName)) {
+      if (BuizCore::classExists($modelName)) {
         $this->models[$key] = new $modelName();
       } else {
         throw new Controller_Exception('Internal Error','Failed to load Submodul: '.$modelName);

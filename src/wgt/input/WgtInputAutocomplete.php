@@ -88,7 +88,7 @@ class WgtInputAutocomplete extends WgtInput
       $this->attributes = array_merge($this->attributes,$attributes);
 
     if (!isset($this->attributes['id']))
-      $this->attributes['id'] = 'wgtid_item-'.Webfrap::uniqid();
+      $this->attributes['id'] = 'wgtid_item-'.BuizCore::uniqid();
 
     if (isset($this->attributes['class']))
       $this->attributes['class'] .= ' wcm wcm_ui_autocomplete';

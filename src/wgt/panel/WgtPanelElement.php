@@ -86,7 +86,7 @@ class WgtPanelElement
     public function __construct()
     {
 
-        $this->env = Webfrap::$env;
+        $this->env = BuizCore::$env;
         $this->getI18n();
     
     } // end public function __construct */

@@ -43,7 +43,7 @@ class WgtProcessFormSlice
 
   public function getI18n()
   {
-    return Webfrap::$env->getI18n();
+    return BuizCore::$env->getI18n();
   }//end public function getI18n */
 
 }//end class WgtProcessFormSlice

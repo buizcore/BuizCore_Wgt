@@ -132,7 +132,7 @@ class WgtList_Element extends WgtList
             
         } else {
             
-            $this->i18n = Webfrap::$env->getI18n();
+            $this->i18n = BuizCore::$env->getI18n();
         }
         
         if (! $parentKey && $this->view) {
