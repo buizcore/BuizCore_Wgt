@@ -1,0 +1,233 @@
+/*//////////////////////////////////////////////////////////////////////////////
+// Wgt Menu
+//////////////////////////////////////////////////////////////////////////////*/
+
+div.wgt-menu{
+    
+  p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Folder Menu
+//////////////////////////////////////////////////////////////////////////////*/
+
+div.wgt-menu{
+  
+  &.folder {
+    width:100%;
+    padding:3px;
+  
+    &>div.wgt-entry {
+      text-align:center;
+      padding:4px;
+      float:left;
+      width:90px;
+      height:90px;
+      margin-bottom:30px;
+      border:2px solid transparent !important;
+      border-radius: 4px;
+  
+      &:hover{
+        border:2px solid silver !important;
+        border-radius: 3px;
+        background-color:#DFEFFC;
+        -moz-box-shadow:3px 3px 3px #666;
+        -webkit-box-shadow:3px 3px 3px #666;
+        box-shadow:3px 3px 3px #666;  
+      }
+      p {
+        text-align:center;
+        vertical-align:bottom;
+        height:28px;
+      }
+      
+      a {
+        display:block;
+        text-decoration:none;
+      }
+      
+      img {
+        border:none;
+        margin:4px 0px 4px 0px;
+      }
+      
+    }
+    
+  }
+  
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// List Menu
+//////////////////////////////////////////////////////////////////////////////*/
+
+ul.wgt-menu.list {
+  
+  border:none;
+  margin:4px 0px 4px 0px;
+  
+  li {
+    padding:3px;
+  }
+    
+  a {
+    display:block;
+  }
+  
+  img {
+    border:0px;
+    margin-right:5px;
+    display:block;
+    float:left;
+  }
+  
+  ul.wgt-menu.list span  {
+    display:inline-block;
+  }
+  
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Menubar
+//////////////////////////////////////////////////////////////////////////////*/
+
+/*div.wgt-menu.bar,*/
+div.wgt-menu{
+  
+  &.bar  {
+
+    .icon_bar {
+      height:33px;
+      padding-left:5px;
+      padding-right:5px;
+    }  
+    
+    ul {
+    
+      width:100%;
+    
+       li {
+        padding-top:8px;
+        padding-left:3px;
+        list-style:none;
+        display:inline;
+        float:left;
+      }
+    
+    }
+    
+    .entry {
+      padding-top:8px;
+      padding-left:3px;
+      float:left;
+      font-weight:bold;
+      
+      a {
+        border-bottom:0px;
+      }
+      
+    }
+  
+  }
+  
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Crumb Menu
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+.wgt-panel.crumb {
+ 
+    padding:0px;
+    background-color:white;
+    backrground-image:none;
+    
+    div.wgt-panel-menu{
+        padding-top:5px;
+    }
+
+  
+}
+
+ul.wgt-menu.crumb {
+  
+  padding:0px;
+  min-width:450px;
+  text-align:left;
+  margin-left:5px;
+  height:36px;
+  line-height:36px;
+  font-size:14px;
+  vertical-align:center;
+  
+  li {
+    list-style:none;
+    display:inline;
+    padding:10px 0px 10px 5px;
+    text-align:left;
+    display:inline-box;
+  
+    height:36px;
+    line-height:36px;
+    font-size:14px;
+    vertical-align:center;  
+  
+    //background-image: url("<?php echo $images ?>wgt/crumb_sep.png");
+    //background-repeat:no-repeat;
+    //background-position:right;
+
+
+  
+    a.active {
+      color:@wgt-main-col-1;
+    }
+  }
+  
+  
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Splitbutton Dropdown
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+div.wgt-split-button {
+  //position:relative;
+  
+  &.listnav .wgt-button.append {
+    margin-left:-58px;
+  }
+}
+
+
+
+ul.wgt-split-drop {
+  
+   padding:3px;
+  
+  .wgt-button{
+    width:99%;
+    margin-bottom:1px;
+    text-align:left;  
+  }
+  
+  a.wgt-button {
+    width:95% !important;    
+  }
+}
+
+
+.miniMenuCloseButton {
+  padding:7px 4px 5px 4px ;
+}
+
+
+

@@ -1,0 +1,122 @@
+
+
+
+
+.menu-tagmenu-entry{
+    position: relative;    
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    .controls-box-bg();  
+    .controls-box-shadow();
+    border-bottom: 1px solid rgb(195,195,190); 
+
+    
+    &:hover {
+        background: rgba(255,255,255, 0.5);
+    }
+
+}
+
+.menu-tagmenu-entry-content{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;    
+    height: 40px;
+    line-height: 40px;   
+    padding-left: @padding-y-xs;
+    
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;    
+    
+}
+
+.menu-tagmenu-entry-check{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;    
+    border-right: 1px solid rgb(195,195,190);  
+    text-align:center;
+    
+    input{
+        vertical-align:center;
+    }
+
+}
+
+.menu-tagmenu-entry-menu{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;    
+    border-left: 1px solid rgb(195,195,190);  
+    text-align:center;
+
+}
+
+.menu-tagmenu-container{
+    border: 1px solid rgb(195,195,190); 
+    z-index: 1000;   
+    width: (@block-width * 2)-1px; 
+    
+    &.is-checkable,
+    &.has-menu-left{
+        .menu-tagmenu-entry-content{
+            left: 40px;
+        }
+    }
+    
+    &.is-checkable-right,
+    &.has-menu{
+        .menu-tagmenu-entry-content{
+            right: 40px;
+        }
+    }
+    
+    &.is-checkable-right{
+        .menu-tagmenu-entry-check{
+            left: auto;
+            right: 0px;     
+            border-left: none;    
+            border-right: 1px solid rgb(195,195,190);     
+        }
+    }
+    
+    &.has-menu-left{
+        .menu-tagmenu-entry-menu{
+            right: auto;
+            left: 0px;        
+            border-right: none;    
+            border-left: 1px solid rgb(195,195,190);    
+        }
+    }
+}
+
+
+
+
+/*
+.menu-tagmenu-submenu{
+    display:none;
+    z-index: 1000;    
+    position: absolute;
+    margin-left: (@block-width * 2)-7px;
+    margin-top: -15px;    
+    width: (@block-width * 4);
+}
+
+.menu-tagmenu-entry:hover .menu-tagmenu-submenu{
+    display:block;
+}*/
+
+.menu-tagmenu-entry:last-child{
+    border-bottom: none;    
+}

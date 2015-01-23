@@ -1,0 +1,132 @@
+// Custom Editable list
+
+
+
+
+.widget{
+  
+  .controls{
+    display:none;  
+    &.a-control{
+      display:block;
+    }  
+  }
+
+  &.edit-mode{
+    .e-control{
+      display:block;
+    }
+    .a-control{
+      display:block;
+    }  
+  }
+  
+  &.view-mode{
+    .v-control{
+      display:block;    
+    }   
+    .a-control{
+      display:block;
+    }  
+  }
+  
+  &.wid-ced_list{
+    width:420px;
+    margin-top:15px;
+
+    h3{
+      border-bottom:1px solid #D1D3D3;  
+    }
+  
+    h3 a{
+      font-size: 12px;
+      font-weight: normal;
+    }
+    
+    li.entry{
+      float:left;
+      display:block;
+      width:420px;
+      padding-bottom:10px;
+      margin-bottom:5px;
+      
+      div.wgt-label{
+        width:190px;
+        color: @wgt-txt-clr;
+        font-weight: bold;
+        font-family: @text-font-family;
+        font-size:@font-size-base;      
+        text-align:left;
+        white-space: normal;
+        text-align:right;
+      }
+      
+      div.content{
+        width:300px;
+      }
+    }
+    
+    span.check input{
+      width:auto;
+      height:auto;      
+      line-height:32px;      
+    }
+    
+    div.wrapper{
+      padding:0px  !important;
+      margin:0px !important;      
+    }
+    
+    div.block.controls{
+      position:absolute;
+      left:0px;
+      bottom:0px;
+      height:auto !important;
+      margin:0px;
+      padding:0px;
+    }
+    
+    &.single-line{
+  
+       li.entry{
+         padding-bottom:7px;
+         margin-bottom:7px;      
+       }
+       
+       div.block.controls{
+         padding-top:0px;
+         height:17px;
+       }   
+       
+      div.block.controls{
+        position:static;
+      }
+    }
+    
+  }
+  
+}
+
+// anpassung an single col layout
+div.single{
+  .widget{
+    
+    &.wid-ced_list{
+      width:@block-size-single;
+      
+      li.entry{
+        width:@block-size-single;
+  
+
+        div.wgt-label{
+          width:190px;
+          padding-right:10px;
+        }
+        
+        div.content{
+          width:500px;
+        }  
+      }
+    }
+  }
+}

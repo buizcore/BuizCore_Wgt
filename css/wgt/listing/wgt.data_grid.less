@@ -1,0 +1,844 @@
+/*//////////////////////////////////////////////////////////////////////////////
+// List Elements
+//////////////////////////////////////////////////////////////////////////////*/
+
+div.wgt-grid,
+div.wgt-grid-head,
+div.wgt-grid-body
+{
+}
+
+
+/* Definieren der verschiedenen Höhen */
+div.wgt-grid.full,
+div.wgt-grid.half {
+  
+  div.wgt-grid-body {
+    height:auto;
+  }
+  
+  div.wgt-grid-head{
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    height:31px;    
+  }
+  
+  div.wgt-grid-body{
+    position:absolute;
+    top:33px;
+    bottom:38px;
+    left:0px;
+    right:0px;
+  }
+  
+  &.create-bar,
+  &.search-bar{
+    div.wgt-grid-head{
+      height:56px;    
+    }
+    
+    div.wgt-grid-body{
+      top:58px;
+    }
+  }
+  
+  &.create-bar.search-bar{
+    div.wgt-grid-head{
+      height:71px;    
+    }
+    
+    div.wgt-grid-body{
+      top:73px;
+    }
+  }  
+  
+  &.sub-panel {
+    
+    div.wgt-grid-head{
+      top:40px;   
+    }
+  
+    div.wgt-grid-body{
+      top:73px;
+    }
+    
+    &.create-bar,
+    &.search-bar{
+      div.wgt-grid-head{
+        top:36px;
+      }
+      
+      div.wgt-grid-body{
+        top:93px;
+      }
+    }
+    
+    &.create-bar.search-bar{
+      div.wgt-grid-head{
+        top:36px;    
+      }
+      
+      div.wgt-grid-body{
+        top:110px;
+      }
+    }  
+  }
+  
+  &.no-foot{
+    div.wgt-grid-body{
+      bottom:0px;
+    }
+  }  
+  
+  div.wgt-panel.footer{
+    position:absolute;
+    bottom:0px;
+    height:38px;
+    left:0px;
+    right:0px;
+    
+    .border-radius(0px);
+  }  
+  
+}
+
+
+/* Tables inside a grid container */
+div.wgt-grid {
+  
+  /*
+  position:relative;
+  overflow:hidden;
+  */
+  
+  div.body-scroll {
+    /*
+    position:relative;
+    overflow:hidden;
+    */
+  }
+  
+  &.categorized td:first-child {
+    padding-left:20px;
+    .panel-bg();
+  }
+  
+  /* Drag & Drop for Resize */
+  
+  div.resize {
+    display:block;
+    
+    &>div {
+      position:absolute;
+    }
+  }
+  
+  div.wgt-drag {
+    
+    position:absolute;
+    top:1px;
+    z-index:3;
+    overflow:visible;
+    
+    &>div {
+      position:absolute;
+      float:left;
+      width:5px;
+      cursor: col-resize;
+    
+      &.dissabled {
+        position:absolute;
+        float:left;
+        width:5px;
+        cursor: default !important;
+        background:none !important;
+      }
+      
+      &:hover,
+      &.dragged,
+      &.helper {
+        background: url(<?php echo $images ?>wgt/line.gif) repeat-y 2px center;
+      }
+    }
+  }
+  
+  /*
+  table.hide-head {
+    margin-top:-29px;  
+    thead {
+      line-height:0px;
+      font-size:0px;
+      height:14px;
+    }
+  }
+  */
+    
+  div.wgt-grid-body {
+    
+    height:450px;
+    overflow:auto;
+    clear:both;
+    //background-color:#F0EFF5;    //.element-bg();
+    
+    table {
+      
+      table-layout:fixed;
+    
+      tbody td {
+        padding: 7px !important;
+    
+        ul {
+          margin-left:15px;
+    
+          &.wgt-list {
+            list-style-type:decimal;
+    
+            li {
+              border-bottom: 1px dotted silver;
+            }
+          }
+        }
+        
+        option {
+          background-color:white;
+        }
+        
+        select{
+          padding:0px;
+        }
+        
+        &.nav {
+          padding-top:0px !important;
+          padding-bottom:0px !important;
+        }
+      }
+    }
+    
+    td {
+      //border-bottom: @border-box;
+      //border-right: none;  
+      
+      overflow:hidden;
+      
+      &.pos.checked {
+        background-color:@wgt-controls-bgc;
+        font-weight: bold;
+        color: #FFFFFF;
+        text-align:left;
+      }
+    }
+    
+    td.date,
+    td.time,
+    td.number,
+    td.money,
+    td.rtext {
+      text-align:right;
+    }
+    
+    &.xxsmall {
+      height:100px;
+    }
+    
+    &.xsmall {
+      height:150px;
+    }
+    
+    &.small {
+      height:200px;
+    }
+    
+    &.medium {
+      height:300px;
+    }
+    
+    &.large {
+      height:450px;
+    }
+    
+    &.huge {
+      height:600px;
+    }
+    
+    &.xlarge {
+      height:600px;
+    }
+    
+    &.xxlarge {
+      height:700px;
+    }
+  }
+  
+  div.wgt-grid-body,
+  div.wgt-grid-foot,
+  div.wgt-grid-body,
+  div.wgt-grid-head {
+    table {
+      
+      //border-right: @border-box;
+    
+      tbody td {
+        overflow: hidden !important;
+        //border-right: @border-box;
+        border-right: none;
+        padding:0px;
+      }
+      
+      thead th{
+        overflow: hidden !important;
+        //border-right: @border-box;
+        border-right: none;        
+        padding: 7px;      
+      }
+    }
+  
+  }
+  
+  div.wgt-grid-body table thead th,
+  div.wgt-grid-head table thead th {
+    white-space: nowrap;
+  }
+  
+  div.wgt-grid-head table thead th {
+    
+    &>div{
+      position:relative;
+    
+      div.drag{
+        background:inherit;
+        position:absolute;
+        height:30px;
+        right:0px;
+        top:0px;
+        bottom:0px;
+        width:1px;
+        border-right:1px solid silver;
+        cursor: col-resize;
+      }
+    }
+    
+
+  }
+  
+  footer {
+    height: @panel-height;
+    border: @border-box;  
+    background-color: #000;  
+    .panel-bg();  
+  }
+  
+}
+
+
+
+.wgt-grid-head table,
+table.wgt-grid {
+  min-width:100%;
+}
+
+// generat table / grid element
+.wgt-table tbody tr,
+.wgt-grid tbody tr {
+
+  &:nth-of-type(even) {
+    background-color:#F9F9F9;
+    //.background-image(~"linear-gradient(bottom, #f7f7f9 0%, #f7f7f7 26.32%, #f5f7f7 52.17%, #f5f5f7 85.82%, #f5f5f5 100%)");
+  }
+
+  &:nth-of-type(odd) {
+    background-color:#DDD;    
+  }
+  
+  .ui-sortable td.pos {
+    cursor:move;
+  }
+
+}
+
+.wgt-table tbody tr.row-0,
+.wgt-grid tbody tr.row-0 {
+
+  background-color:#F9F9F9;
+}
+
+.wgt-table tbody tr.row-1,
+.wgt-grid tbody tr.row-1 {
+  background-color:#DDD;    
+}
+
+div.wgt-grid-body td,
+table.wgt-grid.simple tbody tr td {
+	
+    border-bottom:1px solid  #fafbfb;
+    padding-left:3px;
+    padding-right:2px;
+    overflow: hidden;
+    vertical-align: top;
+    
+    &.changed {
+        border-bottom:1px solid #FF7746;
+        background-color:#FFECD0;
+    }
+  
+}
+
+
+table.wgt-grid.simple{
+  
+    border-left:1px solid  #fafbfb;
+    border-right:1px solid  #fafbfb;
+
+}
+
+div.wgt-grid-body td.pos,
+table.wgt-grid.simple tbody tr td.pos,
+div.wgt-grid-head table tbody td.pos,
+div.wgt-grid-foot table tbody td.pos {
+  text-align:right;
+  cursor:pointer;  
+}
+
+
+
+.wgt-editlayer {
+  
+  cursor:text;
+	overflow:auto;
+  
+  select{
+    width:100%;
+    border:0px;
+  }
+  
+  &.number,
+  &.money {
+    text-align:right;
+  }
+}
+
+
+/* Head */
+
+div.wgt-grid-head {
+  
+  height: 30px;
+  
+  &>div {
+    float:left;
+  }
+  
+  table {
+    
+    border-spacing:0px;
+    //border-bottom:1px solid @table-boc-head;    
+    
+    thead {
+      //.background-image(~"linear-gradient(bottom, #f5f5f5 0%, #f7f7f7 26.32%, #f7f7f7 52.17%, #f7f7f7 85.82%, #f5f5f5 100%)");
+      background-color: #F6F6F6; // @table-bgc-head;
+      //border-bottom: 1px solid @table-boc-head;
+      //border-top: 1px solid @table-boc-head;
+      //border-right: @border-box;
+      th {
+        //font: normal 13px @font-family-base;
+        font-size: 13px;
+        //background: #f5f5f5;
+        height: 14px;  
+        padding: 7px;  
+        margin:0px;
+        //border-right: @border-box;    
+        //border-right: 1px solid white;
+        border-right: none;    
+  	
+  	     p {
+	       padding: 0px;
+  	       margin: 0px;
+  	     }
+      }
+    }
+
+    tbody {
+      
+      .background-image(~"linear-gradient(bottom, #f7f7f9 0%, #f7f7f7 26.32%, #f5f7f7 52.17%, #f5f5f7 85.82%, #f5f5f5 100%)");
+      //border-right: @border-box;
+      &.editor {
+        height: 30px;
+        
+        td {
+          cursor:text;
+          height: 30px;      
+        }
+      }
+    }
+    
+  
+    th div {
+      text-align:left;
+      padding:0px 0px 0px 5px;
+      cursor: default;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    td {
+      //border-right: @border-box;      
+      text-overflow: ellipsis;      
+      
+      input,
+      select {
+        height:24px;
+        width:100%;
+        font: 500 13px @font-family-base;
+        
+        color: #656565;
+      
+        border: none;      
+        //border-top: 2px groove @wgt-border-color;
+        .box-shadow(~"0 0 3px rgba(0,0,0,.13)");
+        
+        &:focus {
+      	   border: 1px solid #90c6e9 !important;
+          .box-shadow(0 0 5px rgba(0, 159, 228, 0.3)) !important;
+        }
+      }    
+    }
+  }
+}
+
+.wgt-grid {
+  
+  .label {
+    float:left;
+    height:18px;
+    padding:0px;
+    margin:0px;
+    font-weight:bold;
+    font-size: @wgt-label-font-size;
+    line-height: @wgt-label-font-size;  
+    color: @wgt-label-font-color;  
+  }
+  
+  .order {
+    float:right;
+    width:20px;
+    margin-top:-4px;  	
+    text-align:center;
+  	cursor:pointer;
+  }
+}
+
+
+div.wgt-grid-head tbody.editor td.required,
+div.wgt-grid td.required {
+	border-bottom: 1px solid #FF7B2F;
+	background-color:#E2FFDD;
+}
+
+/* @TODO da muss es was besseres geben */
+div.wgt-grid-head tbody.editor td.unique {
+  border-left: 1px solid #FF7B2F;
+  border-right: 1px solid #FF7B2F;	
+}
+
+table.wgt-table,
+table.wgt-grid {
+  
+  padding:0px;
+  margin:0px;
+  clear:both;
+  border-spacing:0px;
+  display:table;
+    
+  //border-bottom: @border-box; 
+  //border-right: @border-box; 
+    
+}
+
+table.wgt-table tbody,
+table.wgt-grid tbody{
+    
+  li {
+    list-style:circle;
+  }
+  
+  input,
+  select,
+  textarea {
+    margin:0px !important;
+    padding:0px;
+    border:0px;
+    background-color:inherit;
+    height:21px !important;
+    line-height:21px;
+    
+    &.displ {
+      margin:0px;
+      padding:1px;
+      margin-right:3px;
+      border:1px dotted silver;
+    
+      &:hover {
+        background-color:#EBEFF2;
+        border:1px ridge silver;
+      }
+    }
+  }
+}
+
+.wgt-table thead tr,
+.wgt-grid thead tr,
+.wgt-table tfoot tr,
+.wgt-grid tfoot tr{
+    height: 32px;  
+    line-height: 32px;
+}
+
+.wgt-table tbody tr,
+.wgt-grid tbody tr{
+    height: 30px;  
+    line-height: 30px;
+}
+
+table.wgt-table tbody tr,
+table.wgt-grid tbody tr{
+    
+    &.title {              
+        background-color: #000;  
+        .panel-bg();
+        color: black;
+        font-weight: bold;
+        
+        a {
+          font-weight: bold;  
+        }      
+          
+        a:hover {
+          font-weight: bold;  
+        }
+    } 
+        
+    &.warn{
+       background-color: #FFD3A0;
+    }
+    
+    &.subtitle {
+        background-color:#C3C3C3 !important;
+        color:white;
+        
+        td.child {
+          padding-left:6px;
+        }
+    }
+}   
+
+.on_demand {
+    display:none;
+}
+
+table.wgt-table tbody td,
+table.wgt-grid tbody td {
+    
+    min-height:30px;   
+    padding: 3px;     
+    line-height: 1.2;
+    
+    &.child {
+      padding-left:12px;
+    }
+    
+    &.nav_split {
+        white-space: nowrap;
+        .wgt-grid_menu,             
+        .wgt-button {
+            color: #C1C1C1 !important;
+            
+            i,
+            a,
+            a:visited,   
+            a:link {
+                color: #C1C1C1 !important;
+            }
+        }
+    }
+
+}
+
+table.wgt-table tbody tr,
+table.wgt-grid tbody tr{
+  
+    &:hover,
+    .hover {
+    
+        background-color:#EEE;
+    
+        .on_demand {
+          display:inline;
+          text-indent:10px;
+        }
+        
+        .wgt-grid_menu,
+        .wgt-button  {
+            color: #444444 !important;
+          
+            i,
+            a,
+            a:visited,   
+            a:link {
+                color: #444444 !important;
+            }
+        }
+        
+        td.nav_split {
+            .wgt-grid_menu,
+            .wgt-button{
+                color: #444444 !important;
+                
+                i,
+                a,
+                a:visited,   
+                a:link {
+                    color: #444444 !important;
+                }
+            }
+        }  
+    }
+}
+
+table.wgt-table.no-hover tbody tr,
+table.wgt-grid.no-hover tbody tr{
+    &:hover,
+    .hover {
+        &.row-0 {
+          background-color:#F9F9F9;
+        }
+        
+        &.row-1 {
+          background-color:#DDD;    
+        }
+    }
+}
+
+
+div.wgt-grid-body table.wgt-grid tfoot input,
+div.wgt-grid-body table.wgt-grid tfoot select,
+div.wgt-grid-body table.wgt-grid tfoot textarea {
+  border:1px solid black;
+  background-color:white;
+}
+
+/*
+table.wgt-grid thead input,
+table.wgt-grid thead select,
+table.wgt-grid thead textarea {
+  padding:0px !important;
+  margin:2px !important;
+  width:98%;
+  border:0px;
+  background-color:white;
+  border:1px solid black;
+}
+*/
+
+td{
+  
+  &.ind1 {
+    padding-left:10px !important;
+  }
+  
+  &.ind2 {
+    padding-left:20px  !important;
+  }
+  
+  &.ind3 {
+    padding-left:30px  !important;
+  }
+}
+
+/* Col Styles */
+
+td.type_text,
+td.type_select,
+td.type_splitb {
+  text-align: left;
+}
+
+td.type_date,
+td.type_time,
+td.type_timestamp,
+td.type_number,
+td.type_money {
+  text-align: right;
+}
+
+td.type_buttonset,
+td.type_check {
+  text-align: center;
+}
+
+td.edit_mode {
+  border:2px solid #0000FF;
+}
+
+td.no_oflw {
+  white-space: nowrap;
+}
+
+/* menu */
+
+.wgt-grid_menu {
+  height:20px;
+  /*width:40px;*/
+  float:left;
+  
+  a{
+    &:hover{
+      border-bottom: 1px dotted #379DBB;  
+      color:#379DBB;      
+      i{
+        color:#379DBB;
+      }      
+    }
+  }
+  
+  button.wgt-button {
+    height:20px;
+    margin:0px;
+    padding:2px;
+    //width:35px;
+    border:1px solid transparent;
+    background:transparent !important;
+    background-color:transparent  !important;
+    box-shadow:none;
+    .border-radius(0px);
+    
+    color:#428bca;
+    i{
+      color:#428bca;
+    }
+  
+    &:hover{
+      box-shadow:none;  
+      border-bottom: 1px dotted #379DBB;      
+      
+      color:#379DBB;      
+      i{
+        color:#379DBB;
+      }      
+    }
+  }
+}
+
+
+/* THEME STYLES */
+
+/* Matrix stuff */
+
+table.wgt-matrix td
+{
+  vertical-align: top;
+}
+
+
+

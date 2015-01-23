@@ -1,0 +1,43 @@
+
+// rounded corners on the sidebar when given
+
+
+// Sidebar 
+#wgt-sidebar {
+    
+    
+    width: @main-block-width;
+    background-color: @sidebar-bg;
+    padding-bottom: @sidebar-content-space;    
+
+    
+    .sidebar-custom();
+    
+    // base elements
+    
+    p,i,strong,span{
+        color: @text-color;
+    }
+    
+    h2,h3{
+        color: @headings-color;
+        font-family: @headings-font-family;
+        font-weight: @headings-font-weight;        
+        line-height: @headings-line-height;   
+        
+        &.text{
+            color: @text-color;
+        }
+    }
+    
+    h2{
+        font-size: @font-size-h2;
+    }
+    h3{
+        font-size: @font-size-h3;    
+    }
+    
+    div.wgt-block{
+        margin-bottom: @margin-base;
+    }
+}

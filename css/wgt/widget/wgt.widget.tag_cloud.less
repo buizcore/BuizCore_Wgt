@@ -1,0 +1,66 @@
+/*//////////////////////////////////////////////////////////////////////////////
+// Tag Cloud
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+section.wgt-tag-cloud {
+
+  header {
+  
+    h2 {
+      padding:0px;
+      padding-top:9px;
+      padding-left:15px;
+    }
+  
+    input {
+      position:relative;
+      top:5px;
+      height: 30px;
+      width:210px;
+      border:@wgt-border;
+    }
+   
+  }
+  
+  &>div.content{ 
+    
+    span.tag {
+      line-height:20px;
+      display: block;
+      float: left;
+      padding-right:11px;
+      padding-left:12px;
+      margin-top:5px;
+      margin-bottom:5px;
+      border-right:1px solid #ddd;
+    
+      &:hover {
+        /*font-size:14px;*/
+        padding-right:11px;
+        padding-left:12px;
+        background-color: #ddd;
+        cursor: default;
+      }
+    }
+    
+    button {
+    
+      padding:0 !important;
+      margin:0 !important;
+      width:65px;
+      height:35px;
+      position:absolute;
+      display:inherit;
+      margin-top:-50px !important;
+      margin-left: -5px !important;
+      z-index:5000;
+      border:none;
+      background: transparent url('<?php echo $icons ?>/xsmall/control/delete_hover.png') no-repeat center top !important;
+    
+      img {
+        display:none;
+      }
+    }
+  }
+}

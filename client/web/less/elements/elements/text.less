@@ -1,0 +1,195 @@
+/* layout content */
+
+a { 
+  text-decoration: none; 
+  color:@link-color;
+  //transition: color 0.5s;  
+    
+  &:link,
+  &:visited {
+    color: @link-color;    
+  }
+    
+  &:hover,
+  &:active{
+    color: @link-hover-color;
+    text-decoration: none;    
+  }
+
+  
+  &.imp{
+    font-weight:bold;
+  }
+}
+
+// link der initial die farbe des textes hat
+a.text { 
+  text-decoration: none; 
+  color: @text-color;
+  //transition: color 0.5s;  
+    
+  &:link,
+  &:visited{
+    color: inherit;
+  }
+  
+  &:hover{
+    color: @link-hover-color;
+    //text-shadow: @text-shadow;
+    text-decoration: none;    
+  }
+    
+  &.active,
+  &:active{
+    color: @link-active-color;
+  }
+
+}
+
+
+
+a.important{
+    font-weight:bold;
+}
+
+.def-text,
+.wgt-f-text {
+
+    .def-text();
+    
+    p,
+    span {
+        .def-text();  
+    }
+    
+}
+
+a.block{
+    display:block;
+}
+
+a.in-text{
+    color: @text-color;
+    
+    &:hover{
+        color: @link-active-color;
+    }
+}
+
+.fat,
+.is-strong {
+    font-weight:bold;
+}
+
+.fc {
+    color: @text-color;        
+}
+
+.hc {
+    color: @headings-color;      
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin-top: 0px;
+    color: @headings-color;
+    line-height: 1;
+    
+    font-family: @headings-font-family;
+    font-weight: @headings-font-weight;
+
+    span{
+        color: @text-color;
+        font-family: inherit;
+        font-weight: inherit;
+        font-size: inherit;            
+    }
+    
+    &.is-sub {
+        font-family: @font-family-base;
+        font-weight: bold;        
+    }
+}
+
+
+h2{
+    font-size: @font-size-h2;
+}
+
+h3{
+    font-size: @font-size-h3;
+    color: @text-color;        
+    
+    &.is-sub{
+        font-size: @font-size-h3 - 3px;
+    }
+    
+    &.is-sub-header{
+        font-family: @font-family-base;
+        font-weight: bold;        
+        font-size: @font-size-h3 - 3px;
+        line-height: 18px;
+        margin-bottom: 5px;
+    }
+}
+
+h3.has-text-size {
+    font-size: @font-size-base;
+    font-family: @font-family-base;
+    font-weight: bold;    
+    line-height: 18px;
+}
+
+
+h4,h5,h6{
+    font-size: @font-size-h4;
+    color: @text-color;
+    margin-bottom: @margin-xs;
+}    
+
+/*
+h3 {
+    font-weight: bold;
+}
+*/
+
+// seiten überschrift
+header>h1,
+h1.header {
+    font-size: @font-size-h1;
+    margin-bottom: @margin-base-horizontal;
+    
+    font-family: @content-main-header-font-family;
+    font-weight: @content-main-header-font-weight;
+}
+
+div.wgt-text {
+    margin-bottom: @margin-base-horizontal;   
+}
+
+main#wgt-main-content {
+    
+    // fliestext
+    .def-text();  
+    
+    strong, b{
+        .def-text();    
+        font-weight:bold;
+        
+        a,span{
+            font-weight:inherit;    
+        }
+    }  
+  
+    p {
+        font-family: @font-family-base;
+        color: @text-color;
+        font-size: @font-size-base;    
+        font-weight: normal;
+    }
+    
+
+}
+
+
+
+

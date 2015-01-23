@@ -1,0 +1,254 @@
+/*//////////////////////////////////////////////////////////////////////////////
+// Error , Warning and Message Boxes
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+div.wgt-container {
+    .floatInline();
+    height:100%;
+    div.wgt-block {
+        .floatInline();  
+    }
+}
+
+.wgt-box {
+    .full {
+        padding:7px;  
+    }
+}
+
+
+.wgt-box.space,
+div.space{
+    padding:4px;
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Error , Warning and Message Boxes
+//////////////////////////////////////////////////////////////////////////////*/
+
+div.wgt-box.info,
+div.wgt-box.message {
+    border:5px solid white;
+    background-color:#C2DDA4;
+    padding:4px;
+    margin-bottom:5px;
+    color:#530000;
+    //.border-radius(10px);
+}
+
+div.wgt-box.warning {
+    width:98%;
+    margin:3px;
+    padding:4px;
+    //.border-radius(10px);  
+}
+
+div.wgt-box.error {
+    border:5px solid #003466;
+    background-color:#C00000;
+    padding:4px;
+    margin-bottom:5px;
+    color:white;
+    //.border-radius(10px);  
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Content Boxes
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+section.wgt-news-box {
+  
+  background: white;
+  border: 1px solid rgba(0,0,0,.15);
+
+  height:  auto;  
+  margin: 25px 0 0 0;
+  
+  // für listenelemente in formularen
+  &.full {
+    margin: 0px;  
+    min-width:1000px;
+  }
+  
+  &.pad{
+    padding-top:12px;
+    padding-bottom:12px;
+  }
+  
+  &>header {
+  
+    border-bottom: 1px solid #d1d3d3;
+    .border-radius(~"5px 5px 0 0");
+    background-color: #000;
+    .box-shadow(~"inset 0 1px 0 #fff");
+    .background-image(~"linear-gradient(bottom, #f1f1f3 0%, #f3f3f3 50.34%, #f3f3f5 100%)");
+
+    width: 100%;
+    height: 40px;
+
+    position: relative;
+
+    h2 {
+      font: normal 18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: @wgt-gray;
+      text-shadow: 0 1px 1px #fff;
+      padding: 9px 15px;
+    }
+    
+    div.search {
+      width:170px;
+      float:right;
+      margin:0px;
+      padding:0px;
+    }
+
+  }
+
+  &div.content {
+    padding:3px;
+    padding-top:6px;
+    padding-bottom:6px;
+    overflow: auto;
+  }
+  
+}
+
+div.content.single
+div.single {
+  
+  section.wgt-content_box{
+    
+    // für listenelemente in formularen
+    &.s1,
+    &.s2,
+    &.single,  
+    &.full,
+    &.wgt-attchment_list,
+    &.wgt-comment_tree {
+      min-width:@block-size-single;
+      width:@block-size-single;      
+    }
+    
+  }
+  
+}
+
+section.wgt-content_box{
+  
+  height: auto;  
+  margin: 0px;  
+
+  &.s2{
+    width:490px;
+  }
+  
+  &.bw-1{
+	  min-width:@block-size-single;
+	  width:@block-size-single;   
+  }
+  
+  // für listenelemente in formularen
+  &.s1,
+  &.full,
+  &.wgt-attchment_list,
+  &.wgt-comment_tree {
+    min-width:1000px;
+  }
+  
+  &.single {
+      min-width:@block-size-single;
+      width:@block-size-single;      
+  }
+  
+  &.pad{
+    padding-top:12px;
+    padding-bottom:12px;
+  }
+  
+  &>header {
+  
+    border-bottom: 1px solid #d1d3d3;
+
+    width: 100%
+    margin:0px auto;
+    height: 40px;
+
+    position: relative;
+
+    h2 {
+      font: normal 18px @header-font-family;
+      color: @wgt-gray;
+      text-shadow: 0 1px 1px #fff;
+      padding: 9px 0px;
+    }
+    
+    div.search {
+      width:170px;
+      float:right;
+      margin:0px;
+      padding:0px;
+    }
+
+  }
+  
+  &.list {
+      &>header {
+        padding-left:25px;
+        padding-right:25px;    
+        width:100%;
+  	     background-color:white;
+      }
+  }
+  
+
+  &>div.content {
+    /*
+    padding:3px;
+    padding-top:6px;
+    padding-bottom:6px;
+    */
+    //overflow: auto;  // checken wo das gebraucht wurde
+
+  }
+  
+  // attachments
+
+  
+}
+
+
+/* Widget */
+
+section.wgt-content_box.wgt-widget {
+  width:405px;
+}
+
+section.wgt-content_box.wgt-widget.w2x {
+  width:820px !important;
+}
+
+
+section.wgt-content_box.wgt-widget>div.content,
+section.wgt-content_box.wgt-tag-cloud>div.content,
+section.wgt-news-box>div.content {
+  height:200px;
+  padding:7px;
+}
+
+
+section.wgt-content_box.wgt-widget.w2y>div.content {
+  height:452px !important;
+}
+
+
+/* Lists*/
+section.wgt-content_box ul li {
+  vertical-align:middle;
+  line-height:1.5;
+
+}
+

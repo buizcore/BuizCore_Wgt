@@ -1,0 +1,56 @@
+// Block für eine Tabelle
+// Blöcke nehmen automatisch die volle Breite
+
+div.block-list--table>table,
+table.block-list--table{
+     
+    border-top: 1px dotted #ccc;    
+    width: 100%;
+    
+    &.white-bg {
+        tr {
+            border-bottom: none;    
+        }
+    }
+    
+    /*
+    border-collapse: separate;
+    border-spacing: 5px 5px;
+    */
+    
+    &.borders {
+        tr {
+            border-bottom: 1px dotted #ccc;     
+        }
+    }
+    
+    &.no-borders{
+        border-top: none;    
+    }
+    
+    &>tbody>tr:hover{
+        background-color: #F3F3F3;
+    }
+    
+    &>tbody>tr>td,
+    &>thead>tr>th,
+    &>tfoot>tr>td {
+        padding:3px;
+        vertical-align:top;
+        padding-top:5px;
+        padding-bottom:5px;  
+    }
+
+
+}
+
+div.block-list--table.is-left-aligned>table,
+table.block-list--table.is-left-aligned {
+
+    &>tbody>tr>td,
+    &>thead>tr>th,
+    &>tfoot>tr>td {
+        text-align: left; 
+    }
+
+}

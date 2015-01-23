@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="ie crap" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"  > <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"  > <![endif]-->
+<!--[if !(IE)]><!--><html lang="en"  > <!--<![endif]-->
+	<head>
+		<!-- get ie > 9 -->
+		<!--[if !IE]><!--><script>
+		if (/*@cc_on!@*/false) {
+		    document.documentElement.className+=' ie iemodern';
+		}
+		</script><!--<![endif]-->
+		<title>Example</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-script-type" content="application/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="X-UA-Compatible" value="IE=edge" />
+		
+	    <link type="text/css" href="../../../vendor/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+	    <link type="text/css" href="../../css/style.css" rel="stylesheet" />
+	    
+		<script src="../../../vendor/jquery/jquery.js" ></script>
+	    <script src="../../../vendor/jquery.ui/jquery-ui.min.js" ></script>
+	    <script src="../../core/jquery.helper.js" ></script>
+	    
+	    
+		<script src="./dropdown.js" ></script>
+	</head>
+	<body>
+	
+	<div style="margin-top:100px;margin-left:100px;" >
+		<button
+		  class="wgt-button"
+		  id="bcp-dropdown-example"
+		  tabindex="-1"
+		  data-drop_box="example-cruddropbox"
+		    ><i class="fa fa-angle-down" ></i> Menu</button>
+		
+		<div class="bcp-dropdownbox" id="example-cruddropbox" >
+		  <ul id="example-cruddrop-menu"  >
+		    <li><a><i class="fa fa-save" ></i> Menu</a></li>
+	        <li><a><i class="fa fa-save" ></i> Menu</a></li>
+	        <li><a><i class="fa fa-save" ></i> Menu</a></li>
+		  </ul>
+		</div>
+	</div>
+	
+	<script>
+	$('#bcp-dropdown-example').dropdown();
+	</script>
+	
+	</body>
+
+</html>

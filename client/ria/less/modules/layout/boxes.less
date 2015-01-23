@@ -1,0 +1,49 @@
+
+.wgt-block-content{
+    background-color: white;  
+}
+
+.wgt-block-seperator{
+    clear: both;
+    height: 1px;
+    line-height: 1px;
+    border-bottom: @default-border;
+    margin-top: @margin-x-base;
+    margin-bottom: @margin-x-base;    
+}
+
+.wgt-block-content,
+.wgt-container-content {
+    
+    overflow: auto;
+    
+    &.is-left{
+        border-right: @default-border;
+    }
+    &.is-right{
+        border-left: @default-border;
+    }
+    &.is-top{
+        border-bottom: @default-border;
+    }    
+    &.is-bottom{
+        border-top: @default-border;
+    }    
+}
+
+
+/*
+    Template welches für absolut positinierte Boxen verwendet wird
+    wird bei den editable grid overlays verwendet
+*/
+.box-template {
+  display: none;
+  position:absolute;
+  z-index:1000;
+  background-color:white;
+}
+
+.box-template.border {
+  border:2px solid #C0FFFF;
+}
+

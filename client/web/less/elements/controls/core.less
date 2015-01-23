@@ -1,0 +1,106 @@
+/**
+ * Controll elements
+ */
+
+// crumbs panel
+.wgt-crumbs{
+    width: 100%;
+    ul{
+       &>li{
+           display: block;
+           float: left;
+           height: @navbar-height-small;
+           line-height: @navbar-height-small;
+           &>a{
+               height: @navbar-height-small;
+               line-height: @navbar-height-small;   
+               padding-left: @padding-base-vertical;
+               padding-right: @padding-base-vertical;
+           }
+           
+           &.first{
+               a{
+                   padding-left: 0px;
+               }
+           }
+       }
+    }
+}
+
+// pager for the tables
+.list-pager { 
+    margin-bottom:20px;   
+    margin-top:20px;    
+    width:500px;
+    float:left;
+}// end .pager
+
+// mask switcher element to switch between several mask variants
+.switcher {
+    width: 110px;
+    float:right;
+    margin-bottom: 20px;   
+    margin-top: 20px;             
+    
+    span{
+        display:inline-block;
+        float:right;
+        padding: @padding-small;
+        .border-radius(@border-radius-base);        
+
+    
+        &.active{
+            background-color: #ed8e0b;
+    
+            a:hover {
+                color:white;
+            }
+        }
+    }
+}// end .switcher
+
+
+main#wgt-main-content {
+    
+    // panel box für controls elemente wie buttons
+    .wgt-navbar {
+        display: block;
+        width: 100%;
+        height: @navbar-height;
+        line-height: @navbar-height;
+        padding-left: @margin-base;
+        background-color: @navbar-default-bg;
+        border-bottom: 1px solid @navbar-default-border;
+    }
+    
+
+    
+    // die published / unpublished boxen in den artikeln
+    .box-published {
+    
+        background-color: #FFF9E2;
+        padding:20px;
+        border: 1px solid silver;
+        margin-bottom:20px;
+        
+        a{
+            font-size: 20px;
+            i{
+                font-size: 20px;    
+            }
+        }
+        
+        &.published{
+            background-color: #F1FFEE;    
+        }
+    
+    }
+    
+    a.act-edit{
+        color: @brand-success;
+    }
+    a.act-delete{
+        color: @brand-danger;
+    }
+    
+}

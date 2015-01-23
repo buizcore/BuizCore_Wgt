@@ -1,0 +1,72 @@
+.wid-tree {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.wid-tree ul,
+.wid-tree li {
+  padding-left: 5px;
+  margin: 0;
+  list-style: none;
+}
+.wid-tree li {
+  border-left: 1px dotted silver;
+}
+.wid-tree input {
+  position: absolute;
+  opacity: 0;
+}
+.wid-tree input + label + ul {
+  margin: 0 0 0 22px;
+}
+.wid-tree input ~ ul {
+  display: none;
+}
+.wid-tree input ~ label > i.fa-folder-open-o {
+  display: none;
+}
+.wid-tree label,
+.wid-tree label::before {
+  cursor: pointer;
+}
+.wid-tree input:disabled + label {
+  cursor: default;
+  opacity: .6;
+}
+.wid-tree input:checked:not(:disabled) ~ ul {
+  display: block;
+}
+.wid-tree input:checked:not(:disabled) ~ label > i.fa-folder-open-o {
+  display: inline;
+}
+.wid-tree input:checked:not(:disabled) ~ label > i.fa-folder-o {
+  display: none;
+}
+.wid-tree label,
+.wid-tree a,
+.wid-tree label::before {
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+}
+.wid-tree label::before {
+  width: 16px;
+  margin: 0 22px 0 0;
+  vertical-align: middle;
+  background-position: 0 -32px;
+}
+/* webkit adjacent element selector bugfix */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .wid-tree {
+    -webkit-animation: webkit-adjacent-element-selector-bugfix infinite 1s;
+  }
+  @-webkit-keyframes webkit-adjacent-element-selector-bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+}

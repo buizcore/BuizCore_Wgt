@@ -1,0 +1,113 @@
+
+
+main#wgt-main-content form{
+    
+    input,
+    select, 
+    textarea{
+        width:350px;  
+        border: 1px solid #BDC7D8;
+        text-indent: 7px;
+        .border-radius(@border-radius-base);
+        margin-bottom:7px;
+        font-size:18px;
+        color:#1F1C1B;
+        background-color:white;
+    }
+    
+    textarea{
+        text-indent: 0px;
+        padding-left:7px;
+    }
+    
+    input,
+    select{
+        height:34px;
+        line-height:34px;    
+    }
+    
+    select{
+        text-indent:0px;
+        padding-left:5px;
+        padding-top:3px;
+      
+        option{ 
+            text-indent: 7px;            
+            vertical-align:middle;  
+        }
+    }
+    
+    input[type="radio"],
+    input[type="checkbox"] {
+        width:auto !important;
+    }
+    
+    
+    input[type="checkbox"] {
+        margin-right:6px;
+    }    
+
+}
+
+main#wgt-main-content {
+    
+    form.inline {
+        display:inline;
+    }  
+  
+}
+
+main#wgt-main-content .wgt-form-box .wgt-input,
+.wgt-form-box .wgt-input {
+
+    &>label {
+        width: 120px;
+        display:block;
+        line-height:38px;
+        height:38px;
+        float:left;
+    }
+ 
+    input,
+    select,
+    textarea {
+        float:left;     
+        display:block;   
+        width: 250px;
+        padding-left: @padding-small-vertical;
+    }
+    
+    input,
+    select{
+        line-height:38px;
+        height:38px;            
+    }
+    
+    textarea{
+        height:120px;
+    }
+   
+    
+}
+
+main#wgt-main-content .wgt-form-box.large .wgt-input,
+.wgt-form-box.large .wgt-input{
+    input,
+    select,
+    textarea {
+        width: 450px;
+    }
+}
+
+main#wgt-main-content .wgt-form-box.full,
+.wgt-form-box.full{
+    input,
+    select,
+    textarea {
+        width: 620px;
+    }
+}
+
+
+
+

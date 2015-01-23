@@ -1,0 +1,33 @@
+
+// der standard header block über textabschnitten oder content blöcken
+.content--head-panel{
+    
+    margin-bottom: @margin-small;    
+    &>h2{
+        margin: 0px;
+        padding: 0px;
+        color: @content-header-font-color;
+    }
+}
+
+// liste mit h3 header und p tag für den content
+// verwendet standard h3 und p styles wenn nicht anders definiert
+.content--headed-list {
+    
+    li{
+        padding-bottom: @padding-xs-horizontal;    
+        margin-bottom: @margin-small; 
+        border-bottom: 1px dotted #adb1b5;
+    
+        &:last-child{
+            border-bottom: none;    
+        }
+    }
+    
+    &.has-no-sep{
+        li {
+            border-bottom: none;        
+        }
+            
+    }
+}

@@ -1,0 +1,339 @@
+/* @imutable */
+.template,
+.meta,
+.hidden,
+.settings,
+var {
+  /* Markierungsklasse für Vorlagen, wir vor dem Anzeigen gelöscht */
+  display: none;
+}
+
+
+.pointer,
+.is-clickable,
+.cursor {
+  cursor:pointer;
+}
+
+.has-clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+.do-clear,
+.do-clear.xxsmall {
+  clear:both;
+  width:100%;
+  height:1px;
+  line-height:0;
+}
+.do-clear.small {
+  height:1em;
+}
+
+.do-clear.medium {
+  height:1.5em;
+}
+
+.do-clear.big,
+.do-clear.large {
+  height:2em;
+}
+
+.do-clear.sep-bottom
+{
+  border-bottom: @border-default;
+  margin-botom:7px;
+}
+
+.is-block {
+    .has-clearfix();
+}
+
+.align-left { 
+  display:block;
+  clear: both;
+  float: left;
+  zoom: 1; /* FU IE */
+}
+
+.align-inline,
+.do-align {
+  clear:none;
+  display:block; /* sicher ? */
+  float:left;
+  zoom: 1; /* FU IE */
+}
+
+.align-right{ 
+  display:block;
+  float:right;
+  display:block;
+  zoom: 1; /* FU IE */
+}
+
+.align-rightline{
+  float:right;
+  display:inline-block;
+  zoom: 1; /* FU IE */
+}
+
+
+// absolute positionierung von elementen per klasse
+.pos-left-full{
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+.pos-right-full{
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.pos-left{
+    position:absolute;
+    left: 0px;
+}
+
+.pos-right{
+    position:absolute;
+    right: 0px;
+}
+
+.pos-top-full{
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.pos-bottom-full{
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;    
+}
+
+.pos-top{
+    position:absolute;
+    top: 0px;
+}
+
+.pos-bottom{
+    position:absolute;
+    bottom: 0px;
+}
+
+.left-bw-1{
+    left: @block-width;
+}
+
+.left-bw-2{
+    left: (@block-width * 2);
+}
+
+.left-bw-3{
+    left: (@block-width * 3);
+}
+
+.left-bw-4{
+    left: (@block-width * 4);
+}
+
+.left-bw-5{
+    left: (@block-width * 5);
+}
+
+.left-bw-6{
+    left: (@block-width * 6);
+}
+
+.right-bw-1{
+    right: @block-width;
+}    
+
+.right-bw-2{
+    right: (@block-width * 2);
+}    
+
+.right-bw-3{
+    right: (@block-width * 3);
+}   
+
+.right-bw-4{
+    right: (@block-width * 4);
+}   
+
+.right-bw-5{
+    right: (@block-width * 5);
+}   
+
+.right-bw-6{
+    right: (@block-width * 6);
+}
+
+.top-bh-1{
+    top: @block-height;
+}
+
+.top-bh-2{
+    top: (@block-height * 2);
+}
+
+.top-bh-3{
+    top: (@block-height * 3);
+}
+
+.top-bh-4{
+    top: (@block-height * 4);
+}
+
+.top-bh-5{
+    top: (@block-height * 5);
+}
+
+.top-bh-6{
+    top: (@block-height * 6);
+}
+
+.bottom-bh-1{
+    bottom: @block-height;
+}
+
+.bottom-bh-2{
+    bottom: (@block-height * 2);
+}
+
+.bottom-bh-3{
+    bottom: (@block-height * 3);
+}
+
+.bottom-bh-4{
+    bottom: (@block-height * 4);
+}
+
+.bottom-bh-5{
+    bottom: (@block-height * 5);
+}
+
+.bottom-bh-6{
+    bottom: (@block-height * 6);
+}
+
+
+
+.bw-1 {
+  width:@block-width !important;
+}
+
+.bw-2 {
+  width:(@block-width * 2) !important;
+}
+
+.bw-3 {
+  width:(@block-width * 3) !important;
+}
+
+
+.bw-4 {
+  width:(@block-width * 4) !important;
+}
+
+.bw-5 {
+  width:(@block-width * 5) !important;
+}
+
+.bw-6 {
+  width:(@block-width * 6) !important;
+}
+
+.bw-7 {
+  width:(@block-width * 7) !important;
+}
+
+.bw-8 {
+  width:(@block-width * 8) !important;
+}
+
+
+.bw-9 {
+  width:(@block-width * 9) !important;
+}
+
+
+
+.bh-1 {
+  height: (@block-height * 1) !important;
+}
+
+.bh-2 {
+  height: (@block-height * 2) !important;
+}
+
+.bh-3 {
+  height: (@block-height * 3) !important;
+}
+
+.bh-4 {
+  height: (@block-height * 4) !important;
+}
+
+.bh-5 {
+  height: (@block-height * 5) !important;
+}
+
+.bh-6 {
+  height: (@block-height * 6) !important;
+}
+
+
+.margin-small{
+    margin: @margin-x-xs;
+}
+
+.margin-base{
+    margin: @margin-x-base;
+}
+
+.padding-small{
+    padding: @padding-x-xs;
+}
+
+.padding-y-small{
+    padding-left: @padding-x-xs;
+    padding-right: @padding-x-xs;    
+}
+
+.padding-x-small{
+    padding-left: @padding-x-xs;
+    padding-right: @padding-x-xs;    
+}
+
+.padding-base{
+    padding: @padding-x-base;
+}
+
+.padding-y-base{
+    padding-left: @padding-x-base;
+    padding-right: @padding-x-base;    
+}
+
+.padding-x-base{
+    padding-left: @padding-x-base;
+    padding-right: @padding-x-base;    
+}
+
+.b-marg{
+    margin-bottom: @margin-x-base;
+}
+    
+.t-marg{
+    margin-top: @margin-x-base;
+}
+
+

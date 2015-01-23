@@ -1,0 +1,201 @@
+h1,h2,h3{
+    &>a{
+        color:inherit;
+        font-size:inherit;
+        font-family:inherit;           
+        font-weight: inherit;
+        
+        &:link,
+        &:visited{
+            color:inherit;
+            font-size:inherit;
+            font-family:inherit;       
+            font-weight: inherit;
+        }
+        
+        &:active,
+        &:hover{
+            color: @link-hover-color;
+        }
+        
+        &.text{
+            color: @text-color;
+        }
+    }
+    
+}
+
+figure{
+    padding:0px;
+    margin:0px;    
+}
+
+/// TODO  lassen wir das so?
+.block{
+    margin-bottom: @margin-base;
+}
+
+
+.align-left{
+  display:block;
+  clear: both;
+  float: left;
+  zoom: 1; /* FU IE */
+}
+
+.align-inline {
+  clear:none;
+  display:block; /* sicher ? */
+  float:left;
+  zoom: 1; /* FU IE */
+}
+
+.do-align {
+  clear:none;
+  display:block; /* sicher ? */
+  float:left;
+  zoom: 1; /* FU IE */
+}
+
+.align-right {
+  display:block;
+  float:right;
+  display:block;
+  zoom: 1; /* FU IE */
+}
+
+
+.do-clear {
+    clear: both;
+    height: 1px;
+    line-height: 1px;
+    
+    &.x-small{
+        margin-bottom: 5px;
+    }
+    
+    &.small{
+        margin-bottom: @margin-x-s;
+    }
+    
+    &.medium{
+        margin-bottom: @margin-x-base;
+    }   
+    
+    &.large{
+        margin-bottom: @margin-x-large;
+    }       
+    
+    &.x-large{
+        margin-bottom: @margin-x-large * 2;
+    }  
+}
+
+.text-left{
+    text-align: left;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.clear-left{
+    clear: left;
+}
+
+.clear-right{
+    clear: right;
+}
+
+.pad-y-base{
+    padding-left: @margin-base-vertical;
+    padding-right: @margin-base-vertical;    
+}
+
+.pad-x-base{
+    padding-top: @padding-base;
+    padding-bottom: @padding-base;    
+}
+
+.pad-base{
+    padding: @padding-base;
+}
+
+.marg-x-base{
+    margin-top: @margin-base-horizontal;    
+    margin-bottom: @margin-base-horizontal;    
+}
+
+.has-clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+.size-half,
+.size-2th {
+  width:49.9%;
+}
+
+.size-half-b,
+.size-2th-b
+{
+  width:49%;
+}
+
+.size-third,
+.size-3th
+{
+  width:33.2%;
+}
+
+.size-6th
+{
+  width:16.6%;
+}
+
+.size-5-6th
+{
+  width:83.2%;
+}
+
+.size-two_third
+{
+  width:66.5%;
+}
+
+.size-fourth,
+.size-4th
+{
+  width:24.9%;
+}
+
+.size-tree_fourth,
+.size-3-4th
+{
+  width:74.9%;
+}
+
+.size-fith,
+.size-5th
+{
+  width:19.9%;
+}
+
+.size-two_fith,
+.size-2-5th
+{
+  width:39.8%;
+}
+
+.size-tree_fith,
+.size-3-5th
+{
+  width:59.7%;
+}
+
+.size-four_fith,
+.size-4-5th
+{
+  width:79.6%;
+}

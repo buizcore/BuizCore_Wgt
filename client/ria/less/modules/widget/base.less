@@ -1,0 +1,22 @@
+
+// Widget
+
+.wgt-widget {
+    
+    margin-top: @margin-x-base;
+    margin-left: @margin-y-base;    
+    background-color:@wgt-widget-bg-color;
+    
+    border: @border-default;
+    .border-radius(@border-radius-base);
+
+    &.no-border {
+        border: none;
+        .border-radius(0px);
+    }
+    
+    table.table {
+        margin-bottom: 0px;
+        border-top: none;
+    }
+}

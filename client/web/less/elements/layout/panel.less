@@ -1,0 +1,48 @@
+
+
+main#wgt-main-content .wgt-head-panel {
+
+    width: 100%;
+    height: @content-header-height;
+    background-color: @content-header-bg-color;
+    
+    .content-header-custom();
+    
+    h1 {
+        height: @content-header-height;
+        line-height: @content-header-height;
+        padding-left: @margin-base-vertical;
+        color: @content-header-font-color;
+        width: 205px;
+        float: left;
+        
+        // take the full with of the content
+        &.full{
+            width:400px;
+        }
+    }
+    
+    ul {
+        width:440px;
+        float:right;    
+        overflow: hidden;     
+        margin-top: @padding-small;
+        height: @content-header-height - (@padding-small*2) ;
+        li{
+            display:block;
+            float:left;
+            padding-right:7px;
+            color: @content-header-font-color;
+            
+            a{
+                color: @content-header-font-color;
+                line-height:0.9;
+                
+                &.active,
+                &:hover{
+                    color: @content-header-font-hover-color;   
+                }    
+            }
+        }
+    }
+}

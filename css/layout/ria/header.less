@@ -1,0 +1,86 @@
+/*******************************************************************************
+* Layout Boxes Mainpage
+*******************************************************************************/
+
+
+
+
+#wgt-main-panel {
+
+  //background: url('<?php echo $images ?>/wgt2/ui-panel-bg.png') repeat-x;
+  //.box-shadow(~"0 -1px 3px rgba(0,0,0, 0.2);");
+  background-color: #334454;
+  height: 45px;
+  min-width: @block-size-single;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 200;
+  
+  .left-menu-bar,
+  .right-info-bar{
+  
+    button, figure{
+      min-width:45px;
+      height:45px;
+      text-align:center;
+      line-height:45px;
+      background-color:#334454;
+      float:left;
+      color:white;
+      border:none;
+      border-right:1px solid #293744;
+      .onePxRShadow(61; 81; 100; 1);    
+      border-left:1px solid #3d5164;
+      
+      &.has-text{
+        min-width: 85px;
+      }
+  
+      /*&.first {
+        border-left: none;
+        border-right:1px solid #293744;
+      }*/
+      &:first-child {
+        border-left: none;
+        border-right:1px solid #293744;
+      }
+      &:last-child {
+        border-right: none;
+        border-left:1px solid #3d5164;
+      }
+
+      i{
+        font-size: 15px;
+      }
+    }
+    
+  }
+  
+  .right-info-bar{
+    float:right;
+    margin-right:280px;
+    
+    button{
+      position:relative;
+      
+      span.badge{
+        position:absolute;
+        top:3px;
+        right:3px;
+        .opacity(0.8);
+      }
+    }
+    
+  }
+  
+
+  
+}
+
+
+
+
+
+
+

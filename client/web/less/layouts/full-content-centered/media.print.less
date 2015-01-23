@@ -1,0 +1,54 @@
+/* print */
+
+@media print {
+
+    a[href]:after {
+        content: none !important;
+    }
+    
+    #wgt-print-header,
+    .do-print {
+        display: block;
+    }
+    
+    body,
+    #wgt-main-body,
+    #wgt-content-wrapper{
+        height: 227mm;
+        width: 170mm;
+        background-color: #fff;
+        border:none;
+    }
+    
+    main#wgt-main-content{
+        height: 227mm;
+        width: 170mm;
+        background-color: #fff;
+        margin: 15mm;
+        border:none;
+        box-shadow: none !important;
+        border-right:none;
+    }
+    
+    .wgt-head-panel ul{
+        display:none;
+    }
+    
+    #wgt-main-header,
+    #navigation,
+    #main-footer,
+    #wgt-sidebar,
+    #wgt-partner-list,
+    .sorter,
+    .social,
+    .pager,
+    .search,
+    .no-print,
+    .control-panel {
+    
+        display:none;
+    }
+
+
+
+}

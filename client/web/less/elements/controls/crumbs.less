@@ -1,0 +1,86 @@
+/*
+<div class="crumbs">
+    <ul class="controls--crumbs-body" >
+        <li class="controls--crumbs-node" ><a href="#1">One</a></li>
+        <li class="controls--crumbs-node" ><a href="#2">Two</a></li>
+        <li class="controls--crumbs-node" ><a href="#3">Three</a></li>
+        <li class="controls--crumbs-node" ><a href="#4">Four</a></li>
+        <li class="controls--crumbs-node" ><a href="#5">Five</a></li>
+    </ul>
+</div>
+ */
+
+.controls--crumbs {
+    text-align: center;
+}
+
+.controls--crumbs-body {
+    list-style: none;
+    display: inline-table;
+}
+
+.controls--crumbs-node {
+    display: inline;
+}
+
+.controls--crumbs-node a {
+    display: block;
+    float: left;
+    height: 50px;
+    background: #3498db;
+    text-align: center;
+    padding: 30px 40px 0 80px;
+    position: relative;
+    margin: 0 10px 0 0;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.controls--crumbs-node a:after {
+    content: "";
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid #3498db;
+    position: absolute;
+    right: -40px;
+    top: 0;
+    z-index: 1;
+}
+
+.controls--crumbs-node a:before {
+    content: "";
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid #d4f2ff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.controls--crumbs-node:first-child a {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.controls--crumbs-node:first-child a:before {
+    display: none;
+}
+
+.controls--crumbs-node:last-child a {
+    padding-right: 80px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.controls--crumbs-node:last-child a:after {
+    display: none;
+}
+
+.controls--crumbs-node a:hover {
+    background: #fa5ba5;
+}
+
+.controls--crumbs-node a:hover:after {
+    border-left-color: #fa5ba5;
+}

@@ -1,0 +1,177 @@
+// Button
+
+/* example markup
+
+// simple text button
+<button class="wgt-button" >Text</button>
+
+// Button with fa icons
+// can be set before or after
+<button class="wgt-button" ><i class="fa fa-icon" ></i> Text <i class="fa fa-icon" ></i></button>
+
+*/
+
+.wgt-button {
+  
+    font-weight: 400;
+    white-space: nowrap;   
+    vertical-align: baseline;     
+    
+    border-radius: 4px;
+    .wgt-button-bg();
+    
+    cursor:pointer;
+    margin: 0px;
+    padding-left: 15px;
+    padding-right: 15px;    
+    
+    height: @button-height;
+    line-height: @button-height;
+    min-width:30px;
+    
+    i{
+        color: @wgt-button-color;
+    }
+
+    /* brauchen wir das?
+    a {
+        display:inline;
+        vertical-align:middle;
+    }
+    */
+    
+    // brauchen wir das?
+    &.button-text { // should be .has-text
+        height:20px;
+        padding:2px;
+        padding-left:5px;
+        padding-right:5px;
+    }
+  
+    &.save_first,
+    &.state-save-first { // should be .state-save-first
+        background-image:none;
+        background-color:@state-warning-bg;
+        color: @state-warning-text;
+        border: 1px solid @state-warning-border;  
+    }
+  
+    &.append,
+    &.append-inp,
+    &.inline {
+        //margin-left:-4px;        
+        min-width:@wgt-button-append-width;
+        padding-left: 5px;
+        padding-right: 5px;
+        height:@button-height;
+    }
+
+    &.append,
+    &.append-inp {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        
+        &:hover{
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;        
+        }
+    }
+    
+    &.append-inp{
+        margin-left:-4px;
+    }
+    
+    // uploads
+    &.wgt-overlay{
+        position: absolute;
+        top: 0px;
+        left: 300px;
+        margin-left:0px;
+        z-index: 1;
+        cursor:pointer;  
+        
+        &.small{
+          top: 0px;
+          left: 90px;
+        }
+        
+        &.large {
+          left: 222px;
+        }
+        
+        &.xlarge {
+          left: 222px;
+        }
+    }
+  
+
+  
+    &.inline {
+        /* clear borders */
+        border-radius: 0px;
+        
+        &:hover{
+          border-radius: 0px;
+        }
+    }
+  
+    // splitted is deprecated use .is-splitted
+    &.splitted,
+    &.is-splitted {
+        margin-left: 0px;
+        //padding-right:10px;      
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    
+    &.icon-only {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    &.just-annotate {
+        cursor:default;
+    }
+
+}
+
+// höhe in tabellen
+td .wgt-button {
+    height: 20px;
+    line-height: 20px;
+}
+
+
+a.wgt-button{
+    text-align:center; 
+    display:block-inline;
+}
+
+a.wgt-button,
+a:link.wgt-button,
+a:visited.wgt-button{
+    color: @wgt-button-color;  
+}
+
+a.wgt-button:hover{
+    color: @fontHighlight;
+}
+
+// was ist das?!
+span.wgt-button {
+  
+  padding:26px;  
+  padding:3px;
+  
+  span,
+  input,
+  img {
+    vertical-align:middle;
+    border:0px;
+  }
+  
+  input {
+    margin-left:3px;
+    margin-right:0px;
+  }
+}

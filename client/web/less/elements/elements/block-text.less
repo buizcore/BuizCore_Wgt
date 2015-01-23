@@ -1,0 +1,59 @@
+div.wgt-text{
+    
+    p,
+    span,
+    a,
+    li,
+    strong,
+    i,
+    b{
+        line-height: 1.5;
+    }
+    
+    h2{
+        margin-top: floor(@margin-xs * 1.5) ;
+        margin-bottom: floor(@margin-xs * 1.5);      
+        &.first{
+            margin-top:0px;
+        }  
+    }
+    
+    h3{
+        margin-top: @margin-xs;        
+        margin-bottom: @margin-xs;           
+        &.first{
+            margin-top:0px;
+        }     
+    }    
+    
+    p{
+        margin-bottom: @margin-xs;        
+    }
+    
+    figure{
+        &.left{
+            float:left;
+        }
+        &.right{
+            float:right;
+        }        
+    }
+    
+    ul{   
+        margin-bottom: @margin-xs;
+        li{
+            margin-left: @padding-base * 2;
+            list-style-type:disc;    
+    
+            ul li{
+                list-style-type: circle;    
+            }
+        }
+    }
+    
+    ol li{
+            margin-left: @padding-base * 2;
+            list-style-type: decimal;   
+    }
+   
+}

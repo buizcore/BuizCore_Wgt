@@ -1,0 +1,276 @@
+/*******************************************************************************
+* Layout Boxes Mainpage
+*******************************************************************************/
+
+/**/
+section#wgt-body {
+
+  margin:0px;
+  padding:0px;
+  height:auto;
+}
+
+body,
+section#wgt-body {
+
+  //overflow-y:hidden;
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%;
+  background-color:@wgt-body-bg-color;  
+}
+
+  
+
+section#wbf-content {
+
+  position:absolute;
+  top:45px;
+  bottom: 0px;
+  overflow:hidden;
+  background-color:f0eff5;
+  
+  /*
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;  
+  */
+  //.border-radius(5px);  
+  
+  &.open{
+    //top: 195px;
+  }
+  
+}
+
+#wgt-ui-desktop{
+  //background-color:@wgt-body-bg-color;
+}
+
+div#wgt-main-menu {
+  position:absolute;  
+  left:44px;
+  top:49px;
+  bottom:0px;
+  right:0px;
+  
+  &:hover{
+    .opacity(1);
+  }
+  
+  nav.wgt-main-menu {
+    height:100%;
+    background-color:#f7f7f7; 
+  }
+}
+
+
+div#wgt-maintab {
+  
+  overflow:hidden;
+  margin:0px;
+  position:relative;
+  width:100%;
+  height:100%;
+  
+  div.wgt-maintab{
+    width:100%;
+    height:100%;  
+    //border: 1px solid @wgt-border-color;
+    //.border-radius(5px);  
+  
+    &#wgt-ui-desktop{
+      //.border-radius(0px);  
+      border: none;  
+    }
+  }
+  
+  /*
+  position:absolute;
+  top:0px;
+  right:0px;
+  left:0px;
+  bottom:0px;
+  */
+  
+  /*
+  div.wgt-panel.maintab{
+    position:absolute;
+    top:1px;
+    left:1px;
+    right:1px;
+    //height:(@panel-height * 2);
+    height:(@panel-height);
+    padding:0px !important;
+    z-index:2;
+    border-bottom:@wgt-border;    
+  
+    &.p1{
+      height:@panel-height;  
+      left:200px;  
+    }
+  }
+  */
+  
+  div.wgt-panel.maintab{
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    //height:(@panel-height * 2);
+    height:(@panel-height);
+    padding:0px !important;
+    z-index:2;
+    border-bottom:@wgt-border;    
+  
+    &.p1{
+      height:@panel-height;  
+      left:200px;  
+    }
+  }
+
+
+  section.wgt-content.maintab {
+    position:absolute;
+    //top:(@panel-height * 2);
+    margin: 0px;
+    margin-top: 0;
+    top: 137px; // 157px;
+    left: 0px; //1px;
+    right: 0px; //1px;
+    bottom: 0px; //1px;
+    z-index:0;
+    background-color: #f6f6f6;
+    border-top: 1px solid #d8d8d8;
+    //border: 1px solid #d8d8d8;
+    //border-bottom-left-radius: 4px;
+    //border-bottom-right-radius: 4px;
+    
+    &.p1{
+      left:px;    
+    }
+    
+    div.wrapper{
+      position:relative;
+      width:100%;
+      height:100%;
+      //border-top: 1px solid @wgt-border-color;    
+      padding: 20px;      
+    }
+  }
+  
+  div#wgt-maintab-body,
+  div#wgt-maintab-body .wgt_tab_content.wgt-maintab {
+    padding:0px !important;
+    /*height:100%;*/
+  }
+  
+}
+
+
+div.main-acc .ui-accordion,
+div.main-acc.ui-accordion{
+  
+  .ui-accordion-header.ui-state-default.ui-state-active{
+    border-top:0px;
+    border-left:0px;
+  }
+  
+  .ui-accordion-header.ui-state-default{
+    border-top:0px;
+    border-left:0px;
+  }  
+  
+  .ui-accordion-content{
+    border-left:0px;      
+  }
+    
+  .link-list{
+    
+    margin-bottom:25px;
+    ul{
+      li{
+        border-bottom:1px dotted silver;
+        a{
+          line-height:2;
+        }
+      }
+    }
+    
+  }
+  
+  .filter-list{
+    
+    margin-bottom:25px;
+    ul{
+      li{
+        height:30px;
+        border-bottom:1px dotted silver;    
+      }
+    }
+    
+  }
+
+} 
+
+
+.wgt-dashboard-header,
+.wgt-dashboard-message {
+  display: block;
+  padding: 5px;
+  margin:  5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.wgt-dashboard-header {
+  color: @text-color-head;
+  font-family:  Arial Black;
+  border: 1px solid #cdcdcd;
+  border-radius: @cornerRadius;
+}
+
+.wgt-dashboard-message {
+  border-radius: @cornerRadius;
+  
+  h3 {
+    color: #fff;
+    font-weight:bold;
+    font-size:16px;
+  }
+  
+}
+
+div#wgt-maintab-head div.wgt-container-controls
+{
+  text-align:left !important;
+}
+
+div#wgt-maintab-head div.wgt-container-controls .wgt-container-buttons
+{
+  width:3px !important;
+  margin-right:0px;
+}
+
+/* panel */
+
+#desktop-panel-message
+{
+  background-image: url('<?php echo $icons; ?>/small/desktop/message.png');
+  background-repeat:no-repeat;
+  background-position:10% 90%;
+  /*background: inherit url('<?php echo $icons; ?>/small/desktop/message.png') fixed no-repeat;*/
+  width:25px;
+  padding: 1px 3px 11px 10px;
+}
+
+#desktop-panel-message span
+{
+  display:block;
+  padding-bottom:10px;
+  color:#C0FFC0;
+  font-weight:bold;
+  width:25px;
+  text-align:right;
+}
+
+
+

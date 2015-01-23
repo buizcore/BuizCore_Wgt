@@ -1,0 +1,601 @@
+/*//////////////////////////////////////////////////////////////////////////////
+// Formular Settings
+//////////////////////////////////////////////////////////////////////////////*/
+
+// allgemeine styles
+fieldset {
+  border:0px;
+  legend {
+    padding:0px 3px 0px 3px;
+  }  
+}
+
+// die form box
+.wgt-content_box {
+	
+	&.b-marg{
+		margin-bottom:25px;
+	}
+	
+	&.t-marg{
+        margin-top:25px;
+	}  
+	
+	.wgt-input pre{
+        border:none;
+	}
+	
+	.wgt-input {
+        line-height: 32px;
+    }
+  
+  
+	input,
+	select,
+	.wgt-fake-input {
+        padding-left: @input-padding;  
+	} 
+  
+	textarea {
+        height:100px;
+        padding: @input-padding; 
+	}
+  
+}
+
+
+.wgt-content_box.form {
+	
+    margin-top:25px;
+    margin-left:25px;
+    margin-right:25px;      
+    
+	h2,
+	h3{
+		height: 48px;
+		padding-top: 10px;
+		font-family: @font-family-head;
+		font-size: @font-size-header-2;
+	}
+	
+	header{
+	    h2,
+	    h3{
+	        margin:0px;
+            padding:0px;	
+            height:38px;	
+		    height:38px;
+	    }
+	}
+  
+	.spacer,
+	.block{
+		height:48px;    
+		
+		&.small {
+            height:25px;
+		}
+	}
+
+	.spacer.textarea,  
+	.block.textarea{
+        height:144px;    
+	}  
+  
+	.inp-1-2{
+        width: 148px;
+	}
+  
+	.inp-3-4{
+        width: 218px;
+	}
+  
+	.inp-1-4{
+        width: 78px;
+	}  
+  
+  .inp-2-3{
+    width: 198px;
+  }
+  
+  .inp-1-3{
+    width: 98px;
+  }  
+      
+  // fullsized textareas
+  .full-textarea{
+    height:160px;    
+    padding-top:10px;    
+    textarea{
+      width:100%;
+      height:130px;
+      margin:0px;
+    }
+    
+    pre{
+      padding:0px;
+      font-family:@text-font-family;
+      border:none;
+    }
+  }
+  
+  
+  &.single{
+    width:@block-size-single;
+    min-width:@block-size-single;
+    margin-left:25px;    
+    
+    .full-textarea{
+      width:@block-size-single;
+      min-width:@block-size-single;    
+    }
+    
+    header{
+      width: 100%;
+    }
+  }
+
+  
+  &.wysiwyg{
+    .full-textarea{
+      height:290px !important;        
+      textarea{
+        height:260px  !important;
+      }
+    }
+  }
+  
+  .wgt-box {
+
+    
+    &.input{
+      
+      padding:1px;    
+      
+      .wgt-label{
+        padding:0px 10px 0px 0px;
+        
+        margin:0px;
+        text-align:right;
+        display:block;    
+        line-height: @input-height;
+        float:left;
+        width:100px;
+        white-space: nowrap;
+    
+        label,
+        a {
+          font-weight:bold;
+          height: @input-height;
+          line-height: @input-height;
+          text-align:right;
+        }
+        
+        .help{
+          text-indent: @input-padding;  
+        }
+    
+      }
+      
+      &.aligned{
+        
+        margin-top:10px;
+        
+        .wgt-label{
+          display:inline-block;
+        }        
+        .wgt-input{
+          clear:left;
+          float:left;
+        }
+      }
+      
+      
+      .wgt-input.check-box{
+        width: 35px;
+        height: @input-height;
+        line-height: @input-height;
+        float:left;
+        margin-left:100px;
+        
+        input{
+          width:auto;
+          height:auto;
+          font-size:20px;
+        }
+      }
+      .wgt-label.check-box{
+        clear:none;
+      }      
+      
+      .wgt-input.rating{
+        width: 200px;
+        margin-left:100px;
+      }
+
+    }
+    
+  }
+	
+    &.no-pad {
+      margin-left:0px;  
+    }
+    
+    &.no-gap{
+      margin-top:-3px;
+      .border-radius(0px);  
+      border-top:0px;
+    }
+}
+
+section.wgt-content_box.form.menu {
+  width:880px; 
+  margin-left:0px;
+  
+  .content{
+    background-color:white;
+    padding-bottom:12px;
+  }
+  
+  .n-cols-2{
+    width:420px;
+    
+    .wgt-box.input{
+      width:420px;
+    }     
+    
+    input,
+    select,
+    textarea,
+    .wgt-fake-input{
+      width:260px;
+    }
+    
+    select.behind {
+      width: 240px;
+    }
+    
+  }// end .n-cols-2 
+}
+
+// form wizard
+section.wgt-content_box.form.wizard {
+
+	width:840px; 
+	margin-left:0px;
+
+	.content{
+		background-color:white;
+		padding-bottom:12px;
+	}
+
+	.n-cols-2{
+		width:400px;
+		
+		.wgt-input{
+			width:400px;
+		}    
+		
+		input,
+		select,
+		textarea,
+		.wgt-fake-input{
+			width:240px;
+		}
+		
+		button.wgt-overlay.append.embed{
+			left:240px;
+		}       
+		
+		select.behind {
+			width: 220px;
+		}
+	     
+	}
+}
+
+section.wgt-content_box.textarea {
+	
+	textarea{
+		width:100%;
+		height:150px;
+	}
+}
+
+section.wgt-content_box  .wgt-box.kv {
+	
+	height: 28px;
+	
+	label, 
+	label a{
+		font-weight:bold; 
+		width:120px;
+		display:block;
+		float:left;
+		white-space: nowrap;
+		overflow: hidden;
+		margin-right: 10px;
+		text-align:right;
+	}
+	
+	&>div{
+		width:300px;
+		display:block;
+		float:left;
+	}
+}
+	
+section.wgt-content_box {
+
+  
+  .wgt-box.input {
+	
+    margin-top:10px;
+	
+    .wgt-input {
+      float:left;
+      /*
+      width:100%;
+      position:relative;
+      */
+    }
+
+  }
+
+  
+  .wgt-box-thumb {
+    margin-top:7px;
+  }
+  
+  .n-cols-1,
+  .n-cols-2 {
+    .block{
+      padding-bottom:7px;
+    }
+
+  }
+  
+  
+  // block mit einem fullsize input
+  .n-cols-1 {
+  
+    width:950px;
+    margin-left:12px;    
+  
+    .wgt-box.input{
+      width:950px;
+    }
+  
+    input,
+    select,
+    textarea,
+    .wgt-fake-input{
+      width:772px;
+    }
+
+    
+  }//end .n-cols-1
+  
+  // 2 spalten nebeneinander
+  .n-cols-2 {
+    
+    width:460px;   
+  
+    .wgt-box.input{
+      width:460px;
+    }    
+	    
+    &.left{
+      margin-right:25px;
+    }
+    
+  }//end .n-cols-2 {
+   
+  .n-cols-1,
+  .n-cols-2 {
+  	
+    input,
+    select,
+    textarea,
+    .wgt-fake-input{
+      width:280px;
+    }
+        
+    input[type="radio"],
+    input[type="checkbox"]{
+      width: auto;
+      height: auto;
+      line-height: auto;
+    }    
+    
+    select.behind {
+      width: 280px;
+    }
+    
+    input.first {
+        //margin-right:15px;
+    }
+    
+    // thwo third 1
+    input.two_s {
+        width: 76px;
+    }
+    
+    // thwo third 2
+    input.two_b {
+        width:205px;
+    }  
+    
+    // half
+    input.two_h {
+      width:142px;      
+      &.first {
+          //margin-right:14px;
+      }      
+      &.ap-btn {
+        width: 115px;
+      }
+    }    
+  }
+  	
+}
+
+
+
+
+.content.displ{
+  section.wgt-content_box.form .block {
+    height: 25px;
+    span{
+      line-height:@input-height;
+    }
+  }
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Formatierung der Formulare mit Tabellen
+//////////////////////////////////////////////////////////////////////////////*/
+
+table.wgt-form {
+  border-spacing:3px;
+  
+  td {
+    padding:3px;
+    padding-right:5px;
+    vertical-align:top;
+  }
+}
+
+
+
+// styles in a single row tab
+.content.single {
+	
+	section.wgt-content_box,
+	section.wgt-content_box.textarea textarea {
+	   width: @block-size-single;
+	}
+	
+    // eine formbox die nur eine textare enthält
+    section.wgt-content_box.textarea textarea{
+        height:150px;
+    }
+
+}
+
+.content.single section.wgt-content_box.form,
+section.wgt-content_box.form.single{
+	
+  &>.content{
+    margin-top:15px;
+  }
+  
+  .n-cols-1,
+  .n-cols-2 {
+  
+    width: @block-size-single;
+    margin-left:0px;      
+
+    .wgt-box.kv{
+  
+      width: @block-size-single;    
+      label, 
+      label a{
+        width:180px;
+      }
+      
+      &>div {
+        width:490px;
+      }
+    }
+
+    
+    .wgt-box {
+      
+      width:@block-size-single;      
+    
+      &.input{
+    
+        .wgt-label{
+          width:190px;
+        }
+        
+        .wgt-input{
+          width: 490px;
+          float: left;
+        }
+      }
+      
+      input,
+      select,
+      textarea,
+      .wgt-fake-input{
+          width:450px;
+          
+          &.two_s {
+              width: 76px;
+          }
+          
+          &.two_b {
+              width:205px;
+          }  
+          
+          &.two_h {
+            width:202px;       
+            &.ap-btn {
+              width: 202px;
+            }
+          } 
+          
+      }
+      
+      input.one_third,
+      select.one_third,
+      textarea.one_third{
+        width: 146px;
+        
+        &.ap-btn{
+          width: 126px;
+        }
+      }
+      
+      input.two_third,
+      select.two_third,
+      textarea.two_third{
+        width: 296px;
+      }        
+      
+      input.one_half,
+      select.one_half,
+      textarea.one_half{
+          width: 223px;
+      	
+	      &.ap-btn{
+	           width: 206px;
+	      }
+      }  
+
+      input[type="radio"],input[type="checkbox"]{
+        width: auto;
+      height: auto;
+      line-height: auto;
+      }
+    }
+  }
+  
+	// textarea
+	.full-textarea{
+	  
+	    width:@block-size-single;
+	    min-width:@block-size-single;  
+	    //overflow-y:auto;
+	
+	    textarea {
+	        width:@block-size-single;
+	        min-width:@block-size-single;    
+	    }
+	}
+}
+
+
+

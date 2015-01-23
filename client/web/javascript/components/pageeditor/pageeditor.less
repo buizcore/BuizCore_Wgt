@@ -1,0 +1,86 @@
+#wgt-upload-preview {
+	background-color: white;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+    bottom: 0px;	
+	width: 200px;
+	display: none;
+}
+
+.ec, 
+.ecl{
+    
+    .clearfix();
+    
+    &:hover{
+        background-color: #FFFEB2;
+    }
+}
+
+
+#wgt-cms_edit-panel{
+    
+    position: fixed;
+    background-color: @admin-panel-bg;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: @admin-panel-width;
+    padding: @padding-small;
+    
+    z-index: 10;
+    
+    button{
+        .border-radius(@border-radius-base);
+        color: @admin-panel-fc;
+        background-color: @admin-panel-button-bg;
+        border: @admin-panel-button-border;    
+        width: @admin-panel-width - 10px;
+        height: @admin-panel-width - 10px;    
+        line-height: @admin-panel-width - 10px;   
+        i{
+            font-size: 30px;
+            line-height: @admin-panel-width - 10px;    
+        }
+    }
+    
+}
+
+.wgt-cms_edit-panel-bottom{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: @admin-panel-width;
+    padding: @padding-small;    
+}
+
+// controls in figures
+figure.wgt-image-editor {
+    position: relative;
+}
+
+.wgt-image-editor-controls {
+    position: absolute;
+    background-color: grey;
+    margin: 0px;
+    padding: @padding-base;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    .opacity(0.6);
+    text-align:right;
+    
+    &:hover{
+        .opacity(1);
+    }
+}
+
+.text-content-row{
+    .clearfix();    
+}
+
+.text-content-row:hover{
+    border: 1px dotted silver;
+}
+

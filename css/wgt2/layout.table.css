@@ -1,0 +1,5 @@
+NameError: .border-radius is undefined in /var/www/workspace/WebFrap_Wgt2/css/wgt2/layout.table.less on line 7, column 3:
+6   border: 1px solid rgba(0,0,0,.15);
+7   .border-radius(~"5px 5px 0 0");
+8 
+

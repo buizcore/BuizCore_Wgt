@@ -1,0 +1,47 @@
+
+// rounded corners on the sidebar when given
+
+#wgt-sidebar when not (@page-top-right-radius = false) {
+    .border-top-right-radius(@page-top-right-radius);
+}
+
+#wgt-sidebar when not (@page-bottom-right-radius = false) {
+    .border-bottom-right-radius(@page-bottom-right-radius);
+}
+
+
+// Sidebar 
+#wgt-sidebar {
+    
+    
+    width: @main-block-width;
+    background-color: @sidebar-bg;
+    padding-bottom: @sidebar-content-space;    
+
+    
+    .sidebar-custom();
+    
+    // base elements
+    
+    p,i,strong,span{
+        color: @text-color;
+    }
+    
+    h2,h3{
+        color: @headings-color;
+        font-family: @headings-font-family;
+        font-weight: @headings-font-weight;        
+        line-height: @headings-line-height;   
+    }
+    
+    h2{
+        font-size: @font-size-h2;
+    }
+    h3{
+        font-size: @font-size-h3;    
+    }
+    
+    div.wgt-block{
+        margin-bottom: @margin-base;
+    }
+}

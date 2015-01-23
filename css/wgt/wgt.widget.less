@@ -1,0 +1,190 @@
+/*//////////////////////////////////////////////////////////////////////////////
+// Container Types
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+
+
+
+
+// css3 content flipper
+// sizes have to be set by the size classes
+
+.wgt-widget-flip {
+  position: relative;
+  z-index: 1;
+  .perspective(1000);
+  
+  &.active,
+  &.flag-hover:hover{
+    .flipper{
+      .transform(rotateY(180deg));
+    }
+  }
+ 
+  .flipper {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.3s linear;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.3s;
+    -moz-transform-style: preserve-3d;
+    -moz-transition: 0.3s;
+    -ms-transform-style: preserve-3d;
+    -ms-transition: 0.3s;
+    -o-transform-style: preserve-3d;
+    -o-transition: 0.3s;
+    
+    
+    .box {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      .backfaceVisibility(hidden);
+    
+      &.back {
+        display: block;
+      .transform(rotateY(180deg));    
+      }
+    }
+  }
+}
+
+// presenter widget
+
+.wgt-widget-presenter{
+  
+  height:220px;
+  margin:0px;
+  border: @wgt-widget-border;
+ 
+  header{
+    margin:0px;  
+    height:40px;
+    line-height:40px;
+    font-size:16px;
+    text-indent:5px;
+    padding-left:5px;
+    padding-right: 5px;
+
+    button{
+      float:right;
+      margin-top:5px;
+    }
+  
+    h3{
+      font-size:16px;
+      line-height:40px;  
+      font-weight:bold;  
+    }
+  
+  }
+  
+  div.content{
+    height:178px;     
+    background-color:@wgt-widget-bg-color;
+    line-height:1.5;  
+    overflow-y:auto;  
+  }
+  
+    
+  &.bh_4{
+    .content{
+      height:423px;    
+    }   
+  }
+  
+  &.big_header{
+    header{
+      padding: @wgt-space;
+      margin:0px;  
+      height:140px;
+      margin:0px auto;
+    
+      h3{
+        font-size:24px;
+        line-height:30px;    
+        font-weight:bold;  
+      }
+      
+      p{
+        line-height:0.8;
+        font-size:20px;
+      }
+    
+    }
+    
+    div.content{
+      padding:25px;  
+      height:78px;  
+      margin:0px auto;       
+    }
+  }
+
+  &.cs-dg{
+    header{
+      .wgt-cs-dg();
+      h3{
+        .wgt-cs-dg();    
+      }
+    }
+  }  
+
+  &.cs-d1{
+    header{
+      .wgt-cs-d1();
+      h3{
+        .wgt-cs-d1();    
+      }
+    }
+  }
+  
+  &.cs-d2{
+    header{
+      .wgt-cs-d2();
+      h3{
+        .wgt-cs-d2();    
+      }    
+      
+    }    
+  }    
+  
+  &.cs-d3{
+    header{
+      .wgt-cs-d3();
+      h3{
+        .wgt-cs-d3();    
+      }    
+    }    
+  }    
+  
+  &.cs-d4{
+    header{
+      .wgt-cs-d4();
+      h3{
+        .wgt-cs-d4();    
+      }    
+    }    
+  }   
+  
+  &.cs-d5{
+    header{
+      .wgt-cs-d5();
+      h3{
+        .wgt-cs-d5();    
+      }    
+    }    
+  }  
+  
+  &.cs-d6{
+    header{
+      .wgt-cs-d6();
+      h3{
+        .wgt-cs-d6();    
+      }    
+    }    
+  }
+  
+}
+

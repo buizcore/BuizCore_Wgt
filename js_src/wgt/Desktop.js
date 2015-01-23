@@ -1,0 +1,632 @@
+/* jshint forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true, strict:true, undef:true, unused:true, curly:true, browser:true, devel:true, jquery:true, indent:4, maxerr:50 */
+/*
+ * WGT Web Gui Toolkit
+ *
+ * Copyright (c) 2009 webfrap.net
+ *
+ * http://webfrap.net/WGT
+ *
+ * @author Dominik Bonsch <db@webfrap.net>
+ *
+ * Depends:
+ *   - jQuery 1.7.2
+ *   - jQuery UI 1.8 widget factory
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ * @license http://www.opensource.org/licenses/mit-license.php
+ * @license http://www.gnu.org/licenses/gpl.html
+ */
+
+
+;(function( $S, window,undefined){
+
+  "use strict";
+
+  /**
+   * @author dominik alexander bonsch <db@webfrap.net>
+   */
+  var WgtDesktop = function( ){
+
+    /**
+     * make it extendable
+     */
+    this.fn = WgtDesktop.prototype;
+
+    /**
+     * timestamp
+     */
+    this.timestamp = Date.now();
+
+    /**
+     * Array mit Closures welche clear funktionen implementieren
+     */
+    this.clearCall = {};
+
+    /**
+     * Der aktive Maincontainer
+     */
+    this.actMainCont = null;
+
+    /**
+     * self reference
+     */
+    var self = this;
+
+    /**
+     * Schliesen des aktiven Menüs
+     * Wird gesetzt um alle möglichen menüs
+     */
+    this.requestCloseMenu = function(){};
+
+    /**
+     * Schliesen des aktiven Menüs
+     * Wird gesetzt um alle möglichen menüs
+     */
+    this.globalCloseMenu = function(){};
+
+    /**
+     */
+    this.scrollEvents = {};
+
+    /**
+     * Actions für einen globalen klick
+     * Nur on demand befüllen wenn etwas aktiv ist
+     * ansonsten muss geleert werden.
+     *
+     * Key muss ein valider Selector sein.
+     * Es wird regelmäßig gecheckt ob die elemente noch vorhanden sind ansonsten
+     * wird die action rausgeworfen
+     */
+    this.globalClick = {};
+
+    /**
+     * global click triggern
+     */
+    this.triggerGlobalClick = function( event ){
+
+      for (var prop in this.globalClick) {
+        if( this.globalClick.hasOwnProperty( prop ) ) {
+          if( undefined !== this.globalClick[prop] && this.globalClick[prop] ){
+            this.globalClick[prop]( event );
+          }
+        }
+      }
+
+      return true;
+
+    };//end this.triggerGlobalClick */
+
+    /**
+     * global click triggern
+     * @var event
+     */
+    this.scrollTrigger = function( ){
+
+      for ( var prop in this.scrollEvents ) {
+
+        if( this.scrollEvents.hasOwnProperty( prop ) ) {
+          if( undefined !== this.scrollEvents[prop] ){
+            this.scrollEvents[prop]( );
+          }
+        }
+
+      }
+
+      this.scrollEvents = {};
+
+      return true;
+
+    };//end scrollTrigger */
+
+
+    /**
+     * Schliesen des aktiven Menüs
+     * Wird gesetzt um alle möglichen menüs
+     */
+    this.closeView = function(){
+
+      $S('.wgt-tip').remove();
+      this.setTitle( $C.windowTitle );
+    };
+
+    /**
+     * Shortcut für Save on Strg + S
+     */
+    this.shortCutSave = function(){};
+
+    /**
+     * aktivieren und deaktivieren der lightbox
+     * @param activate boolean
+     */
+    this.lightBox = function( activate ){
+      ///TODO implement a lighbox here
+    };
+
+    /**
+     * Den Desktop aufräumen,
+     * Tooltips, schliesen, offenen Menüs schliesen etc.
+     */
+    this.clear = function(  ){
+      ///TODO implement a lighbox here
+    };
+
+   /**
+     * Den Desktop aufräumen,
+     * Tooltips, schliesen, offenen Menüs schliesen etc.
+     */
+    this.setTitle = function( title ){
+
+      //window.document.title = title;
+
+    };
+
+    /**
+     * Den Desktop neu laden
+     */
+    this.refresh = function( ){
+      
+      // nur wenn der desktop da ist
+      if($S('#desktop-panel-message').is('a')){
+        var tmp = this.timestamp;
+        this.timestamp = Date.now();
+        $R.get( 'ajax.php?c=Webfrap.Desktop.refresh&timestamp='+tmp, {}, true );
+      }
+
+    };
+
+    /**
+     * create an error window
+     * use this function instead of ulgy alert windows
+     * @param title
+     * @param message
+     */
+    this.errorWindow = function( title, message ){
+
+      if( console.trace ){
+        console.trace();
+      }
+
+      if( typeof title === 'string' ){
+        // den 2ten parameter optional machen we
+        if( !message ){
+          message = title;
+          title = 'Error';
+        }
+      }
+      else if( undefined === message ){
+
+        // ok sieht so aus als ob wir eine exception bekommen haben
+        message = title.message;
+        title = title.name;
+      }
+
+      var template = this.template( $S("#wgt-template-dialog").html(), {'title':title,'message':message}, false );
+
+      $S(template).dialog({
+        bgiframe: false,
+        resizable: true,
+        height:200,
+        modal: true,
+        overlay:{
+          backgroundColor: '#000',
+          opacity: 0.5
+        },
+        buttons:{
+          confirm : function(){$S(this).dialog('close');}
+        }
+      });
+
+
+    };
+
+    /**
+     * @param title the title for the dialog
+     * @param message the message content for the dialog
+     * @param Confirm
+     * @param callBack function to be called on confirm
+     */
+    this.confirmWindow = function( title, message, Confirm, callBack ){
+
+      var templateNode = this.template(
+        $S("#wgt-template-dialog").html(),
+        {'title':title,'message':message}
+      );
+
+      $S(templateNode).dialog({
+        bgiframe  : false,
+        resizable : true,
+        height    : 200,
+        modal     : true,
+        overlay   :{
+          backgroundColor: '#000',
+          opacity: 0.5
+        },
+        buttons:{
+          Confirm : function(){
+            callBack();
+            $S(this).dialog('close');
+          },
+          Cancel : function(){
+            $S(this).dialog('close');
+          }
+        }
+      });
+
+    };
+
+
+    /**
+     * open a new dialog window
+     * @param content
+     * @param params
+     */
+    this.openWindow = function( content , params ){
+
+      // umschreiben auf extends
+      if( params === undefined  ){
+        params = {};
+      }
+      if( params.resizable === undefined  ){
+        params.resizable = true;
+      }
+      if( params.height === undefined  ){
+        params.height = 300;
+      }
+      if( params.width === undefined ){
+        params.width = 400;
+      }
+
+      $S(content).dialog(params);
+
+    };//end this.openWindow
+
+    /**
+     * open an new browser window / popup
+     * @param params
+     * @return
+     */
+    this.openBrowserWindow = function( params ){
+
+      // check for required parameters
+      if( typeof params === 'undefined' || typeof params.src === 'undefined'  ){
+        throw new WgtException('Tried to open Windows without source');
+      }
+
+      // check optional Parameters
+      if( typeof params.title === 'undefined' ){
+        params.title = 'WebFrap Wgt Window';
+      }
+      if( typeof params.width === 'undefined' ){
+        params.width = 1000;
+      }
+      if( typeof params.height === 'undefined' ){
+        params.height = 600;
+      }
+
+      var windowParam = "width="+params.width+",height="+params.height;
+      windowParam += ",scrollbars=yes,locationbar=false,menubar=false";
+
+      var newWindow = window.open(params.src, params.title, windowParam );
+      newWindow.focus();
+
+    };//end this.openBrowserWindow
+
+
+
+    /**
+     * Dateidownload über ein popup initialisieren
+     * @param params
+     * @return
+     */
+    this.startDownload = function( fileName ){
+
+
+      var windowParam = "width=100,height=100,scrollbars=false,locationbar=false,menubar=false";
+
+      var newWindow = window.open(fileName, 'Download', windowParam );
+      newWindow.focus();
+
+    };//end this.startDownload
+
+    /**
+    *
+    * @param params
+    * @return
+    */
+   this.openImageWindow = function( params ) {
+
+     // check for required parameters
+     if( typeof params === 'undefined' || typeof params.src === 'undefined'  ){
+       throw new WgtException('Tried to open Windows without source');
+     }
+
+     // check optional Parameters
+     if ( typeof params.title === 'undefined' ){
+       params.title = 'Image Viewer';
+     }
+     if ( typeof params.width === 'undefined' ){
+       params.width = 1000;
+     }
+     if ( typeof params.height === 'undefined' ){
+       params.height = 600;
+     }
+     if ( typeof params.alt === 'undefined' ){
+       params.alt = 'Some Image';
+     }
+
+     var windowParam = "width="+params.width+",height="+params.height;
+       windowParam += ",scrollbars=yes,locationbar=false,menubar=false";
+
+     var newWindow = window.open('', params.title, windowParam );
+     newWindow.document.writeln('<html><head><title>'+params.title+'</title></head><body><img onclick="window.close()" src="'+params.src+'" alt="'+params.src+'" /></body></html>');
+     newWindow.focus();
+
+   };//end this.openBrowserWindow
+
+    /**
+     * show the progress bar
+     */
+    this.showProgressBar = function(){
+
+
+      // sicher stellen, dass der z-index auch ganz oben ist
+      var zIndex = window.$B.getNextHighestZindex();
+
+      var progBar = $S('#wgt_progress_bar');
+      progBar.show();
+
+      progBar.css( 'z-index', zIndex );
+
+    };//end this.showProgressBar
+
+    /**
+     * hide the pogress bar
+     */
+    this.hideProgressBar = function(){
+
+      $S('#wgt_progress_bar').hide();
+    };
+
+  
+
+    /**
+     * @param template
+     * @param data
+     * @param asObject
+     * @deprecated use angular.js
+     */
+    this.template = function( template, data, asObject ){
+
+      //if as Object ist 'undefined' return the data as object
+      if( typeof asObject === 'undefined' ){
+        asObject=true;
+      }
+
+      for( var key in data ){
+        template = str_replace( '{$'+key+'}', data[key], template );
+      }
+
+      // return string or $S object
+      if (asObject === false){
+        return template;
+      } else {
+        return $S(template);
+      }
+
+    };//end this.template
+
+    /**
+     * @param tplId string
+     * @deprecated use angular.js
+     */
+    this.getTemplate = function( tplId  ){
+
+      var tmp = $S( "#"+tplId ).clone();
+      tmp.attr('id','');
+
+      return tmp;
+
+    };//end this.getTemplate
+    
+    
+    /**
+     * aktivieren und deaktivieren der lightbox
+     * @param boolean activate
+     */
+    this.resetForm = function( formId ){
+      
+      // reset also assigned elements
+      var elements = $S('.asgd-'+formId+',.fparam-'+formId);//.not('input[type="checkbox"],input[type="radio"]');
+      //elements.val('');
+      $R.cleanFormParams( formId );
+      
+      elements.each(function(){
+    	  var iNode = $S(this);
+    	  
+    	  if (iNode.is('input[type="checkbox"]')) {
+    		  
+    		  iNode.attr('checked',false);
+    		  iNode.trigger('changed');
+    		  
+    	  } else if (iNode.is('input[type="radio"]')) {
+
+    		  iNode.attr('selected',false);
+
+    	  } else if (iNode.attr('data-def-value')) {
+    		  iNode.val(iNode.attr('data-def-value'));
+    	  } else {
+    	      iNode.val('');
+    	  }
+    	  
+      });
+      
+      $S('form#'+formId).each(function(){
+        this.reset();
+      });
+      
+    };
+
+    /**
+     *
+     * @param tc
+     * @return
+     * @deprecated drop no replace
+     */
+    this.getTabsWidth = function( tc ){
+
+      return ( tc.find('.tab:last').position().left - tc.find('.tab:first').position().left + tc.find('.tab:last').outerWidth(true) + 6 );
+
+    };//end this.getTabsWidth
+
+    /**
+     *
+     * @param tc
+     * @param offset
+     * @return
+     * @deprecated drop no replace
+     */
+    this.scrollTabs = function(tc, offset){
+
+      tc
+      .find('.tab_scroll')
+      .animate(
+        {scrollLeft: offset},
+        500,
+        'swing',
+        function(){self.checkTabButtonVisibility($S(this));}
+      );
+    };
+
+    /**
+     *
+     * @param tc
+     * @return
+     * 
+     * @deprecated drop no replace
+     */
+    this.checkTabButtonVisibility = function(tc){
+
+      var tabOuterContainer = tc.parents('.tab_outer_container');
+      var leftVisible = (tc.scrollLeft() === 0);
+      var rightVisible = (
+            ( tc.scrollLeft() + tc.outerWidth(true) ) === self.getTabsWidth(tabOuterContainer.find('.tab_container'))
+      );
+
+      if(tabOuterContainer.find('.tab_left').is(':visible')){
+        tabOuterContainer.find('.tab_left').fadeTo(1000, leftVisible ? 0.4 : 1);
+      }
+
+      if(tabOuterContainer.find('.tab_right').is(':visible')){
+        tabOuterContainer.find('.tab_right').fadeTo(1000, rightVisible ? 0.4 : 1);
+      }
+
+    };//end this.checkTabButtonVisibility
+
+    /**
+     * @param message
+     * @param content
+     */
+    this.console = function( message, content ){
+
+      var timeStamp = new Date;
+
+      var consoleHtml = '<h3 style="cursor: pointer;" onclick="$S(\'#wgtIdDebug_'+timeStamp+'\').toggle()">'+message+'</h3>';
+      consoleHtml += '<pre id="wgtIdDebug_'+timeStamp+'" style="display: none;">'+var_dump(content)+'</pre>';
+
+      $S('#wgt_debug_console').append(consoleHtml);
+
+    };//end this.console
+
+
+  };//end function WgtDesktop( )
+
+  // create instance
+  window.$D = new WgtDesktop();
+
+  // short cuts
+  $S(window).keypress(function(event) {
+
+    //console.log( "pressed "+event.which );
+
+    /*
+    if ( (event.which === 115 && event.ctrlKey) || (event.which === 19) ){
+      // context element speichern
+      alert("Ctrl-S pressed");
+      event.preventDefault();
+      return false;
+    }
+    else if ( (event.which === 110 && event.ctrlKey) || (event.which === 19) ){
+      // context element new
+      alert("Ctrl-N pressed");
+      event.preventDefault();
+      return false;
+    }
+    else if ( (event.which === 101 && event.ctrlKey) || (event.which === 19) ){
+      // soll globales event sein
+      alert("Ctrl-E pressed");
+      event.preventDefault();
+      return false;
+    }
+    */
+
+    return true;
+  });
+
+  // global click
+  $S(window).mouseup(function(event) {
+    return $D.triggerGlobalClick(event);
+  });
+  
+  // refresh auf den desktop
+  setInterval( function(){ $D.refresh(); }, 150000  );
+  
+
+  $S('#btn-main-search-box').on('click',function() {
+      var box = $S('#wgt-main-search-box');
+      box.show();
+      box.find('input').focus();
+  });
+
+  window.toogleMenu = function() {
+      if ($('section#wgt-main-menu').is(':hidden')){
+          /*
+          $S('section#wbf-content').animate({
+              'top': '195px'
+          }, 300);*/
+          $S('section#wgt-main-menu').slideToggle(300);
+          $S('#wgt-main-menu-content-closer').fadeIn(350);
+      } else {
+          /*
+          $S('section#wbf-content').animate({
+              'top': '45px'
+          }, 100);*/
+          $S('section#wgt-main-menu').slideToggle(100);
+          $S('#wgt-main-menu-content-closer').fadeOut(350);
+      } //if
+  };
+
+  window.showMenu = function() {
+      if ($('section#wgt-main-menu').is(':hidden')){
+          /*$S('section#wbf-content').animate({
+              'top': '195px'
+          }, 300);*/
+          $S('section#wgt-main-menu').slideToggle(300);
+          $S('#wgt-main-menu-content-closer').fadeIn(350);
+      } 
+  };
+
+  window.hideMenu = function() {
+
+      if (!$('section#wgt-main-menu').is(':hidden')){
+          /*$S('section#wbf-content').animate({
+              'top': '45px'
+          }, 100);*/
+          $S('section#wgt-main-menu').slideToggle(100);
+          $S('#wgt-main-menu-content-closer').fadeOut(350);
+      } 
+
+  };
+  
+  $S('#btn-main-opennav, #wgt-main-menu-content-closer').on('click',toogleMenu);
+
+})( jQuery, window);

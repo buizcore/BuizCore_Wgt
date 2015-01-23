@@ -1,0 +1,25 @@
+#tooltip
+{
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: @wgt-main-col-1;
+	padding: 10px;
+	opacity: 0.95;
+}
+
+#tooltip h3, #tooltip div
+{
+	margin: 0;
+	color:@wgt-gray;
+	font-size:12px;
+}
+
+#tooltip.boxed {
+  border: none;
+  width: 210px;
+  padding:20px;
+  height: 135px;
+  /*opacity: 0.8;*/
+  background: url(<?php echo $images ?>wgt/shadow.png);
+}

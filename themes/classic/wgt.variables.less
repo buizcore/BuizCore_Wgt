@@ -1,0 +1,219 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+
+// general
+
+@wgt-gray: #4d4d4d;
+@wgt-dark-gray: #DCDCDD;
+@wgt-brown: #444444; //#732C2C;
+@bg-highlight: #F1E7C4;
+@brown: #cd8c52;
+
+// dunkle farbe 1
+// hintergründe, header font col... etc
+// ist die hauptfarbe
+@wgt-main-col-1: #334454;
+
+
+@btn-primary-bg: @wgt-controls-bgc;
+@btn-primary-border: @wgt-controls-bgc;
+
+@header-font-family: @font-family-serif;
+@text-font-family: @font-family-base;
+
+@wgt-space: 25px;
+
+@wgt-corner-radius: 0px;
+
+// texts
+
+@wgt-txt-head-lgt-clr: @wgt-main-col-1;
+
+@wgt-label-font-size : 12px;
+@wgt-label-font-color: @wgt-main-col-1;
+
+@wgt-txt-clr: @wgt-gray;
+
+// colors
+
+@wgt-body-bg-color: #f0eff5;// #DFDFDF;
+
+// buttons & forms
+
+
+
+
+// BODY Layout 
+@bgContentLight: #FFFFFF;
+@bgContentDark: #F6F6F6;
+
+// größen von blöcken
+
+@block-size-single: 750px;
+
+
+// borders 
+
+@wgt-border-color: #D8D8D8;
+@wgt-border: 1px solid @wgt-border-color;
+
+@wgt-border-color2: rgba(0, 0, 0, 0.15);
+@wgt-border-2: 1px solid @wgt-border-color2;
+
+@wgt-controls-bgc: #428bca;
+
+@border-layout2: 1px solid @wgt-border-color2;
+
+@border-box: 1px solid @wgt-border-color;
+
+// boxes & widgets
+
+@wgt-widget-border: @wgt-border;
+@wgt-widget-bg-color: white;
+
+// controls
+
+@wgt-controls-bg-color: #334454;
+
+.panel-bg (){
+  //.gradient(~"linear-gradient(bottom, #f1f1f3 0%, #f3f3f3 50.34%, #f3f3f5 100%)");
+  background-color:white;
+}
+
+// data-grid
+
+// color schemes
+
+// dark bg color with light font
+
+
+.wgt-cs-dg(){
+  background-color:@wgt-controls-bgc;
+  color:white;
+}
+.wgt-cs-transition() {
+  -moz-transition:color 0.35s, background-color 0.35s;
+  -webkit-transition:color 0.35s, background-color 0.35s;
+  -o-transition:color 0.35s, background-color 0.35s;
+  transition:color 0.35s, background-color 0.35s;
+}
+.wgt-cs-d() {
+  color:white;
+  box-shadow:0 1px 2px rgba(0,0,0,0.4);
+  border: none;
+  .wgt-cs-transition();
+}
+
+// http://www.dtelepathy.com/blog/inspiration/24-flat-designs-with-compelling-color-palettes
+
+@col-1: #16A085 ; //  GREEN SEA 
+@col-d-1: darken(@col-1, 10%);
+
+@col-2: #2ECC71; // EMERLAND
+@col-d-2: darken(@col-2, 10%);
+
+@col-3:  #27AE60 ; //  NEPHRITIS 
+@col-d-3: darken(@col-3, 10%);
+
+@col-4: #3498DB; //  PETER RIVER 
+@col-d-4: darken(@col-4, 10%);
+
+@col-5: #2980B9; //  BELIZE HOLE 
+@col-d-5: darken(@col-5, 10%);
+
+@col-6:  #34495E ; //  WET ASPHALT 
+@col-d-6: darken(@col-6, 10%);
+
+@col-7:  #2C3E50 ; //  NIGHT SHADE 
+@col-d-7: darken(@col-7, 10%);
+
+@col-8:    #C7B29B   ; //   BEIGE
+@col-d-8: darken(@col-8, 10%);
+
+@col-9:    #E74C3C   ; //  ALIZARIN 
+@col-d-9: darken(@col-9, 10%);
+
+@col-10:  #C0392B ; // POMEGRANATE
+@col-d-10: darken(@col-10, 10%);
+
+@col-11:  #95A5A6 ; // CONCRETE 
+@col-d-11: darken(@col-11, 10%);
+
+@col-12:  #7F8C8D ; //  ASBESTOS
+@col-d-12: darken(@col-12, 10%);
+
+
+.wgt-cs-d1(){
+  .wgt-csbg(@col-1, @col-d-1);
+}
+.wgt-cs-d2(){
+  .wgt-csbg(@col-2, @col-d-2);
+}
+.wgt-cs-d3(){
+  .wgt-csbg(@col-3, @col-d-3);
+}
+.wgt-cs-d4(){
+  .wgt-csbg(@col-4, @col-d-4);
+}
+.wgt-cs-d5(){
+  .wgt-csbg(@col-5, @col-d-5);
+}
+.wgt-cs-d6(){
+  .wgt-csbg(@col-6, @col-d-6);
+}
+.wgt-cs-d7(){
+  .wgt-csbg(@col-7, @col-d-7);
+}
+.wgt-cs-d8(){
+  .wgt-csbg(@col-8, @col-d-8);
+}
+.wgt-cs-d9(){
+  .wgt-csbg(@col-9, @col-d-9);
+}
+.wgt-cs-d10(){
+  .wgt-csbg(@col-10, @col-d-10);
+}
+.wgt-cs-d11(){
+  .wgt-csbg(@col-11, @col-d-11);
+}
+.wgt-cs-d12(){
+  .wgt-csbg(@col-12, @col-d-12);
+}
+
+.wgt-cs-new(){
+  .wgt-csbg(#62c462, #51a351);
+}
+
+.wgt-cs-def(){
+  .wgt-csbg(#457393, #365B74);
+}
+
+.wgt-cs-warn(){
+  .wgt-csbg(#ffa84c, #ff7b0d);
+}
+
+
+.wgt-cs-danger(){
+  .wgt-csbg(#ff3019, #cf0404);
+}
+
+
+// light bg color with dark font
+.wgt-cs-l1{
+  background-color:#ecf0f1;
+  color:#4D4D4D;
+}
+.wgt-cs-l2{
+  background-color:#bdc3c7;
+  color:#4D4D4D;
+}
+.wgt-cs-l3{
+  background-color:#95a5a6;
+  color:#4D4D4D;
+}
+
+
+

@@ -1,0 +1,431 @@
+/*//////////////////////////////////////////////////////////////////////////////
+// Userinput Fields
+//////////////////////////////////////////////////////////////////////////////*/
+
+input, 
+select, 
+textarea{
+    
+    height: @input-height;
+    line-height: @input-height;
+    font-size: @input-fs;    
+    padding-left: @input-padding;
+    .border-radius(@input-border-radius);
+    //box-shadow: inset 0 0 5px rgba(0,0,0,.1);
+    background: @input-bg;
+    color: @input-fc;
+    border: @input-border-definition;
+    outline: 0 none;
+    
+    &.ar{
+        text-align: right;
+        padding-right: @input-padding;
+    }
+    
+    &.has-button,
+    &.has_button  { // deprecated use has-button
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    
+    
+    &:focus {
+        border: 1px solid #90c6e9 !important;
+        .box-shadow(1px 1px 5px rgba(0, 159, 228, 0.4)) !important;
+    }
+    
+    
+    &.is-readonly,  
+    &.wgt-readonly, // deprecated
+    &.readonly { // deprecated
+        background-color:#DCDCDC;
+        cursor: not-allowed !important;
+    }
+          
+    &.state-ok {
+        &.not-unique {
+            -webkit-box-shadow: 2px 2px 3px 1px rgba(255, 128, 0, 0.7); /* WebKit */
+            -moz-box-shadow: 2px 2px 3px 1px rgba(255, 128, 0, 0.7); /* Firefox */
+            box-shadow: 2px 2px 3px 1px rgba(255, 128, 0, 0.7); /* Standard */      
+        }
+    }
+  
+
+    &.state-ok,
+    &.state-completed,
+    &.state-warn,
+    &.state-bad,
+    &.state-frozen {
+        color: @input-fc;
+        background-color: @input-bg;      
+    }
+
+
+
+  
+  &.state-invalid {
+    -webkit-box-shadow: 2px 2px 3px 1px rgba(255, 0, 0, 0.7); /* WebKit */
+    -moz-box-shadow: 2px 2px 3px 1px rgba(255, 0, 0, 0.7); /* Firefox */
+    box-shadow: 2px 2px 3px 1px rgba(255, 0, 0, 0.7); /* Standard */    
+    border: 1px dashed red !important;
+  }
+  
+  &.state-warn,
+  &.not-unique {
+    .box-shadow(0 0 5px rgba(255, 128, 0, 0.7));
+  }
+  
+  &.is-negativ, 
+  &.wgt-negativ { // deprecated use .is-negativ
+    color:red;
+  }
+  
+}
+
+input.type-search,
+input.input-search { // deprecate use type-search
+    width: 320px;
+}
+
+
+
+/*
+Wird in den Listenelementen verwedent um die Elemente dezent
+als editierbar zu markieren
+*/
+input.emphasize,
+textarea.emphasize,
+select.emphasize,
+.wgt-fake-input.emphasize{
+  border:1px dotted silver !important;
+}
+
+textarea{
+  line-height:1.2;
+}
+
+/*
+Standard Selectbox
+*/
+
+select{
+  
+  &.multi {
+    height:80px !important;
+  }
+  
+  padding-left: @input-padding;  
+  text-indent:0px !important;
+  .border-radius(@input-border-radius);
+  box-shadow: inset 0 0 5px rgba(0,0,0,.1);
+  background: @input-bg;
+  color: @input-fc;
+  border: @input-border;
+  outline: 0 none;
+  height: @input-height;
+  line-height: @input-height;
+  
+  option {
+    border-bottom:1px solid rgba(0,0,0,0.2);
+    border-left:1px solid rgba(0,0,0,0.2);    
+    height: @input-height;
+    line-height: @input-height;
+    text-indent: @input-padding;  
+    
+    &:focus {
+      color: @wgt-main-col-1;
+      background-color: @wgt-main-col-1;
+      border: 1px dotted #530000;
+    }
+  }
+}
+
+/*
+ Breite der Form Elemente
+*/
+
+textarea{
+  outline: 0 none;
+  padding: @input-padding;
+  height:130px;
+}
+
+textarea.full_edit,
+input.full_edit{
+  margin:0px !important;
+  padding:0px !important;
+  border:0px !important;
+  width:100%;
+  overflow:visible;
+}
+
+
+
+/* Höhe von Textareas */
+
+
+textarea.input {
+  height: @input-height;
+}
+
+textarea.small-height {
+  height: @input-height * 2;
+}
+
+textarea.medium-height {
+  height: @input-height * 4;
+}
+
+textarea.large-height
+{
+  height: @input-height * 6;
+}
+
+textarea.xlarge-height
+{
+  height: @input-height * 10;
+}
+
+textarea.xxlarge-height
+{
+  height: @input-height * 14;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Fancy Selectboxes and Upload Elements
+//////////////////////////////////////////////////////////////////////////////*/
+
+input.wgt-overlay,
+select.wgt-overlay{
+  position: absolute;
+  top: 0px;
+  left: 0px;  
+  z-index: 1;
+  cursor:pointer;
+  
+  &.embed{
+    top: 0px;
+    left: 0px;
+  }
+  
+}
+
+input.wgt-behind,
+select.wgt-behind {
+  position: relative;
+  opacity: 0;
+  width:185px;
+  z-index: 2;
+  cursor:pointer;
+  
+  &.small{
+    width:185px;
+  }
+  
+  &.large{
+    width:225px;
+  }
+  
+  &.medium{
+    width:165px;
+  }
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Hintergrund Icons in Inputelementen und Selectbox options
+//////////////////////////////////////////////////////////////////////////////*/
+
+input.icon,
+select.icon {
+  background-repeat:no-repeat;
+  padding-left:16px;
+}
+
+select.icon option {
+  background-repeat:no-repeat;
+  padding-left:16px;
+}
+
+select option.missing {
+    background-color:#C00000;
+    color:white;
+}
+
+select option.inactive {
+  background-color:#FFA858;
+  color:white;
+}
+
+select option.active {
+  background-color:#C0FFC0;
+  color:#585858;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Userinput Fields
+//////////////////////////////////////////////////////////////////////////////*/
+
+/* Standard Abstände */
+input.search,
+.wgt-fake-input.search,
+select.search {
+
+
+}
+
+
+
+
+// single row tabs 
+
+
+.wgt-header-form-3 {
+    margin-left:5px;
+    margin-top:20px;    
+    margin-bottom:10px;
+    height: 32px;
+    line-height: 32px;  
+    //margin-bottom:10px;     
+    font-size: @font-size-header-3;
+    
+    &.first{
+        margin-top:0px;    
+    }
+}
+
+
+.box-form,
+.wgt-box-form {
+    margin-top:25px;
+    margin-left:25px;
+    margin-right:25px; 
+}
+
+.box-form-content,
+.wgt-box-form-content {
+    
+    margin-top:15px;
+    
+    width: @block-size-single;
+    margin-left:0px;   
+    
+    input,
+    select,
+    textarea,
+    .wgt-fake-input {
+    
+        width:475px;
+
+    }
+    
+    input.one-third,
+    select.one-third,
+    textarea.one-third {
+        width: 146px;
+        
+        &.has-button{
+            width: 126px;
+        }
+    }
+    
+    input.two-third,
+    select.two-third,
+    textarea.two-third {
+        width: 296px;
+        
+        &.has-button{
+            width: 276px;
+        }
+    }        
+    
+    input.one-half,
+    select.one-half,
+    textarea.one-half {
+        width: 223px;
+        
+        &.has-button{
+            width: 190px;
+        }
+    }
+    
+}
+
+
+
+.box-form-node,
+.wgt-box-form-node {
+    .has-clearfix();
+    width:@block-size-single;
+    padding-bottom: @padding-x-s;    
+}
+
+.box-form-node.is-standalone,
+.wgt-box-form-node.is-standalone{
+}
+
+.box-form-node-label,
+.wgt-box-form-node-label {
+    width: 190px;
+    display: block;
+    float: left;
+    font-weight: bold;
+    line-height: @input-height;    
+    text-align: right;
+    white-space: nowrap;
+    padding-right: @padding-y-base;
+    label{
+        line-height: @input-height;
+        text-align: right;    
+    }
+}
+        
+.box-form-node-element,
+.wgt-box-form-node-element {
+    width: 490px;
+    float: left;
+    line-height: @input-height;    
+}
+
+
+
+.is-vertical {
+    .box-form-node-element{
+        float: none;
+        clear: left;
+    }
+}
+
+.box-form-seperator,
+.wgt-box-form-seperator {
+    font-size: @font-size-header-3;
+    //font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.box-form-kv-node,
+.wgt-box-form-kv-node{
+  
+  width: @block-size-single;    
+  label, 
+  label a{
+    width:180px;
+  }
+  
+  &>div {
+    width:490px;
+  }
+}
+
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    line-height: auto;
+}
+
+
+  

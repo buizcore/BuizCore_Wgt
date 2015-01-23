@@ -1,0 +1,90 @@
+.clear{
+    clear:both;
+}
+
+.bclear{
+    clear:both; 
+    height:1px;
+    line-height:1px;
+}
+
+div.clear{
+  height:1px;
+  line-height:1px;
+  clear:both;
+    
+  &.small{
+    height: @margin-xs;
+    line-height: @margin-xs;
+  }
+  
+  &.medium{
+    height: @margin-base;
+    line-height: @margin-base;    
+  }
+}
+
+div.space {
+    margin-top: @margin-vertical-small;
+    margin-bottom: @margin-vertical-small;
+}
+
+.pad-bot{
+    padding-bottom: @padding-base-vertical;
+}
+.pad-2-bot{
+    padding-bottom: @padding-large-vertical;
+}
+
+.pad-top{
+    padding-top: @padding-base-vertical;
+}
+.pad-2-top{
+    padding-top: @padding-large-vertical;
+}
+
+.marg-bot{
+    padding-bottom:@margin-vertical-small;
+}
+.marg-2-bot{
+    padding-bottom:@margin-base-vertical;
+}
+
+.marg-top{
+    padding-top:10px;
+}
+.marg-2-top{
+    padding-top:20px;
+}
+
+.btop,
+.bbot{
+    margin-top: @padding-large-vertical;
+    margin-bottom: @padding-large-vertical;    
+    padding-top: @padding-large-vertical;
+    padding-bottom: @padding-large-vertical;    
+}
+
+.btop{
+    border-top: @border-default;    
+}
+
+.bbot{
+    border-bottom: @border-default;    
+}  
+
+div.right{
+    float:right;
+    clear:right;  
+}
+
+
+div.left{
+    float:left;
+    clear:left;  
+}
+
+#wgt-print-header,
+.do-print {
+    display: none;
+}

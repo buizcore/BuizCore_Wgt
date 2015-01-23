@@ -1,0 +1,840 @@
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Layouting and positioning
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+.clear { // .clear deprecated
+  clear: both;
+}
+
+
+
+// ausrichtung der klasse
+
+.left { // .left deprecated
+  display:block;
+  clear: both;
+  float: left;
+  zoom: 1; /* FU IE */
+}
+
+.inline { // .inline deprecated
+  clear:none;
+  display:block; /* sicher ? */
+  float:left;
+  zoom: 1; /* FU IE */
+}
+
+.right { // .right deprecated
+  display:block;
+  float:right;
+  display:block;
+  zoom: 1; /* FU IE */
+}
+
+.rightline { // deprecated
+  float:right;
+  display:inline-block;
+  zoom: 1; /* FU IE */
+}
+
+.cl
+{
+  clear:left;
+}
+
+
+/* @imutable */
+div.auto
+{
+  width:auto !important;
+  height:auto !important;
+}
+
+/* @imutable */
+.full
+{
+  clear: both;
+  width:auto;
+  display:block;
+}
+
+table.full,
+ul.full
+{
+  display:table;
+  width:100%;
+}
+
+/* blockelemente auf 100% enforcen, aber sicher stellen, dass padding
+keinen strich durch die rechnung macht. */
+.forcefull
+{
+  padding:0px;
+  witdh:100%;
+}
+
+/* @imutable */
+.clear_line {
+  clear: both;
+  height:1px;
+}
+
+/* @imutable */
+.center {
+  margin: 0px auto;
+}
+
+/* @imutable */
+.text_center {
+  text-align: center;
+}
+
+.text-nb {
+  white-space: nowrap;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Layouting and positioning
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+
+.wgt-dyn-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* width und margin müssen selbst gesetzt werden
+  width: 200px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -100px;
+  */
+}
+
+/*
+  klasse zum erstellen von ausenabständen in box elementen
+  default margin sind 5px;
+  Änderungen nur in theme.css
+*/
+.wgt-space {
+  margin:25px !important;
+}
+
+
+.wgt-space.stop {
+  margin-top:25px !important;
+}
+
+.wgt-space.sbottom {
+  margin-bottom:25px !important;
+}
+
+.wgt-space-top {
+  margin-top:25px !important;
+}
+
+.wgt-space-bottom {
+  margin-bottom:25px !important;
+}
+
+.wgt-space p {
+  margin-left:0px;
+  padding-left:0px;
+}
+
+.wgt-bspace {
+  margin-bottom:9px;
+}
+
+.wgt-bspace-s {
+  margin-bottom:5px;
+}
+
+.wgt-padding {
+  padding:5px;
+}
+
+.wgt-scroll-y {
+  overflow-y:auto;
+}
+
+.wgt-ispace {
+  padding:5px !important;
+}
+
+.wgt-ispace-l {
+  padding:7px !important;
+}
+
+/* Boxes, Backgrounds & Borders
+------------------------------------------------------------------------------*/
+
+.wgt-border-bopen {
+  border:@wgt-border !important;
+  border-bottom:none !important;
+}
+
+.wgt-border-vert {
+  border-top:@wgt-border !important;
+  border-bottom:@wgt-border !important;
+}
+
+.wgt-border {
+  border:@wgt-border !important;
+  border-radius: @cornerRadius;
+}
+
+.wgt-border-top {
+  border-top:@wgt-border !important;
+}
+
+.wgt-border-bottom {
+  border-bottom:@wgt-border !important;
+}
+
+.wgt-border-left {
+  border-left:@wgt-border !important;
+}
+
+.wgt-border-right {
+  border-right:@wgt-border !important;
+}
+
+.wgt-bgbox {
+  background-color:#CBCBCB;
+  padding:4px;
+}
+
+.wgt-padding {
+  padding:3px;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Relativ sizes
+//////////////////////////////////////////////////////////////////////////////*/
+
+.nearly_full
+{
+  width:99%;
+  margin:0 auto;
+}
+
+.content .nearly_full
+{
+  width:98%;
+  margin:0 auto;
+}
+
+.behind
+{
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+}
+
+.half
+{
+  width:49.9%;
+}
+
+.half-b
+{
+  width:49%;
+}
+
+.third
+{
+  width:33.2%;
+}
+
+.two_third
+{
+  width:66.5%;
+}
+
+.fourth
+{
+  width:24.9%;
+}
+
+.tree_fourth
+{
+  width:74.9%;
+}
+
+.fith
+{
+  width:19.9%;
+}
+
+.two_fith
+{
+  width:39.8%;
+}
+
+.tree_fith
+{
+  width:59.7%;
+}
+
+.four_fith
+{
+  width:79.6%;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Absolute Größen
+//////////////////////////////////////////////////////////////////////////////*/
+
+
+.bw02,
+.bw-0_2 {
+  width:25px !important;
+}
+
+.bw04,
+.bw-0_4 {
+  width:50px !important;
+}
+
+.bw05
+{
+  width:62px !important;
+}
+
+.bw06
+{
+  width:75px !important;
+}
+
+.bw08
+{
+  width:100px !important;
+}
+
+.bw1,
+.bw-1 {
+  width:@blockWidth !important;
+}
+
+.bw12,
+.bw-1_2 {
+  width:150px !important;
+}
+
+.bw15,
+.bw-1_5{
+  width:190px !important;
+}
+
+
+.bw2,
+.bw-2 {
+  width:(@blockWidth * 2) !important;
+}
+
+.bw25,
+.bw-2_5
+{
+  width:310px !important;
+}
+
+.bw3,
+.bw-3 {
+  width:(@blockWidth * 3) !important;
+}
+
+.bw32
+{
+  width:400px !important;
+}
+
+.bw39
+{
+  width:490px !important;
+}
+
+.bw4
+{
+  width:(@blockWidth * 4) !important;
+}
+
+.bw41
+{
+  width:515px !important;
+}
+
+.bw42
+{
+  width:525px !important;
+}
+
+.bw45
+{
+  width:575px !important;
+}
+
+.bw58
+{
+  width:600px !important;
+}
+
+.bw5
+{
+  width:(@blockWidth * 5) !important;
+}
+
+.bw6
+{
+  width:(@blockWidth * 6) !important;
+}
+
+.bw61
+{
+  width:762px !important;
+}
+
+.bw62
+{
+  width:770px !important;
+}
+
+.bw63
+{
+  width:800px !important;
+}
+
+.bw7
+{
+  width:(@blockWidth * 7) !important;
+}
+
+.bw71
+{
+  width:887px !important;
+}
+
+.bw72
+{
+  width:893px !important;
+}
+
+.bw8
+{
+  width:(@blockWidth * 8) !important;
+}
+
+.bw81
+{
+  width:1012px !important;
+}
+
+.bw82
+{
+  width:1020px !important;
+}
+
+.bw9
+{
+  width:(@blockWidth * 9) !important;
+}
+
+.bh_1
+{
+  height:95px !important;
+  
+  &.no-marg{
+    height:110px;
+  }
+  
+}
+
+.bh_1,
+.bh1 {
+  height:125px !important;
+}
+
+.bh_2{
+  height:250px !important;
+}
+
+.bh_3{
+  height:330px !important;
+}
+
+.bh_4{
+  height:465px !important;
+}
+
+
+
+.bh15
+{
+  height:190px !important;
+}
+
+
+.bh2
+{
+  height:250px !important;
+}
+
+.bh3
+{
+  height:375px !important;
+}
+
+.bh4
+{
+  height:500px !important;
+}
+
+.bh42
+{
+  height:520px !important;
+}
+
+.bh5
+{
+  height:625px !important;
+}
+
+.bh6
+{
+  height:750px !important;
+}
+
+/* height range */
+.hr1_2x
+{
+  min-height:100px;
+  max-height:200px;  
+  overflow:auto;
+}
+
+.hr15_25x
+{
+  min-height:150px;
+  max-height:250px;  
+  overflow:auto;
+}
+
+.hr2_3x
+{
+  min-height:200px;
+  max-height:300px;  
+  overflow:auto;
+}
+
+
+.minh2x
+{
+  min-height:200px;
+}
+
+.bw_menu {
+  width:200px;
+}
+
+.cw_form {
+  width:1000px;
+}
+
+.bmarg_1
+{
+  margin-bottom:5px;
+}
+
+.bmarg_2
+{
+  margin-bottom:10px;
+}
+
+.bmarg_3
+{
+  margin-bottom:15px;
+}
+
+.bmarg_4
+{
+  margin-bottom:20px;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Elemente zum erzeugen von Abständen
+//////////////////////////////////////////////////////////////////////////////*/
+
+div.indention.small
+{
+  clear:both;
+  width:100%;
+  margin-right:-10px;
+}
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Boxes for layouting
+//////////////////////////////////////////////////////////////////////////////*/
+
+.wgt-box
+{
+  padding-top:4px;
+  padding-bottom:4px;
+  padding-right:4px;
+  height:100%;
+}
+
+.row.ng{
+  margin:0px;
+}
+
+
+/*
+  Einfacher Container zum platzieren von bestimmten inhalten,
+  zb container info
+  container video... etc.
+  Kann beliebig erweitert werden.
+*/
+div.wgt-container{
+  
+  float:left;
+  
+  &.pad1 {
+    padding:5px;  
+  }
+  
+  &.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* width und margin müssen selbst gesetzt werden
+    width: 200px;
+    height: 150px;
+    margin-top: -75px;
+    margin-left: -100px;
+    */
+  }
+}
+
+/*
+  Spezieller Container der die ganze zur verfügung stehende Breite
+  reserviert.
+  Ist fast identisch zu full, hat aber etwas mehr semantic.
+  Im Gegensatz zu full darf wgt-slice customized werden
+*/
+div.wgt-slice
+{
+  width:100%;
+  clear:both;
+}
+
+.wgt-center {
+  margin: 0px auto;
+}
+
+
+.wgt-box.center.small
+{
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
+.wgt-box.center.medium
+{
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+}
+
+.wgt-box.center.large
+{
+  width: 600px;
+  height: 600px;
+  margin-top: -300px;
+  margin-left: -300px;
+}
+
+
+div.wgt-seperator.vertical
+{
+  width:1px;
+  border-right:1px solid black;
+  height:98%;
+  float:left;
+}
+
+
+/* is only a piece, has no borders an nothing, can be used to structure elements
+* with no spaces togehter
+*/
+.wgt-piece
+{
+  height:100%;
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////
+// border
+//////////////////////////////////////////////////////////////////////////////*/
+
+/* @imutable */
+.wgt-border
+{
+  border:1px solid silver;
+  border-radius: 3px;
+}
+
+.wgt-border-light
+{
+  border:2px groove silver;
+  border-radius: 3px;
+}
+
+.wgt-bg-light
+{
+  background-color:#F2F2F2;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// rounded corners
+//////////////////////////////////////////////////////////////////////////////*/
+
+.wgt-corner
+{
+  border:@wgt-border;
+  border-radius: @cornerRadius;
+}
+
+.wgt-corner-top
+{
+  border:@wgt-border;
+  border-top-left-radius: @cornerRadius;
+  border-top-right-radius: @cornerRadius;
+}
+
+.wgt-corner-bottom
+{
+  border:@wgt-border;
+  border-bottom-left-radius: @cornerRadius;
+  border-bottom-right-radius: @cornerRadius;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Backgrounds
+//////////////////////////////////////////////////////////////////////////////*/
+
+.wgt-bg-head,
+.wgt-bg-foot
+{
+  /* Wird im Theme befüllt */
+  background-color:silver;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Scrolling
+//////////////////////////////////////////////////////////////////////////////*/
+
+.wgt-scroll {
+   overflow-y:auto;
+   overflow-x:auto;
+}
+
+.wgt-no-scroll {
+   overflow-y:hidden;
+   overflow-x:hidden;
+}
+
+.wgt-scroll-y {
+   overflow-y:auto;
+   overflow-x:hidden;
+}
+
+.wgt-scroll-x {
+   overflow-y:hidden;
+   overflow-x:auto;
+}
+
+.w_scrollh {
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////
+// Pointers
+//////////////////////////////////////////////////////////////////////////////*/
+
+.wgt-cursor-pointer{
+  cursor:pointer;
+}
+
+.wgt-cursor-wait{
+  cursor:wait;
+}
+
+.wgt-cursor-info{
+  cursor:help;
+}
+
+.wgt-cursor-crosshair{
+  cursor:crosshair;
+}
+
+.wgt-cursor-text{
+  cursor:text;
+}
+
+.wgt-cursor-move{
+  cursor:move;
+}
+
+/* Semantics
+------------------------------------------------------------------------------*/
+
+.wgt-hover,
+.wgt-selected {
+  color: @fc-hover;
+  font-weight: @fontWText;
+  -moz-transition:color 0.35s, background-color 0.35s;
+  -webkit-transition:color 0.35s, background-color 0.35s;
+  -o-transition:color 0.35s, background-color 0.35s;
+  transition:color 0.35s, background-color 0.35s;
+  a {
+    color: @fc-hover;
+    font-weight: @fontWText;   
+  }
+  strong {
+    a {
+      font-weight:bold;    
+    }
+  }
+}
+
+strong {
+  a {
+    font-weight:bold;    
+  }
+}
+
+.wgt-active.nb {
+  border: none;
+}
+
+
+pre {
+	overflow: visible !important;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

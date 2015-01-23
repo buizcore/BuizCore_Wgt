@@ -1,0 +1,42 @@
+.widget.wid-ced_list {
+  width: 420px;
+  margin-top: 15px;
+}
+.widget.wid-ced_list h3 {
+  border-bottom: 1px solid #D1D3D3;
+}
+.widget.wid-ced_list h3 a {
+  float: right;
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+}
+.widget.wid-ced_list li.entry {
+  float: left;
+  display: block;
+  width: 420px;
+  border-bottom: 1px dotted silver;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.widget.wid-ced_list span.check input {
+  width: auto;
+  height: auto;
+  line-height: 32px;
+}
+.widget.wid-ced_list.single-line li.entry {
+  padding-bottom: 7px;
+  margin-bottom: 7px;
+}
+.widget.wid-ced_list.single-line div.block.controls {
+  padding-top: 0px;
+  height: 17px;
+}
+div.n-cols-2.single .widget.wid-ced_list,
+div.n-cols-1.single .widget.wid-ced_list {
+  width: 690px;
+}
+div.n-cols-2.single .widget.wid-ced_list li.entry,
+div.n-cols-1.single .widget.wid-ced_list li.entry {
+  width: 690px;
+}

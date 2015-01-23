@@ -1,0 +1,39 @@
+// standard button, submit, oder reset element
+
+
+.wgt-button,
+input[type="submit"],
+input[type="reset"] {
+    
+    color: @button-text-color !important;
+    border: @button-border;
+    font-size: @font-size-base !important;    
+    
+    .border-radius(@border-radius-base);     
+    padding-left: @button-padding;
+    padding-right: @button-padding;
+    height: @button-height !important;
+    line-height: @button-height !important;
+    font-weight: bold;
+    
+    display: inline-block;
+    cursor:pointer;
+  
+    width: auto !important;
+    min-width: @button-min-width !important;
+    
+    /// TODO in variable?
+    .box-shadow(3px 2px 3px 0px rgba(50, 50, 50, 0.75));   
+
+    .button-background();
+       
+    &:hover{
+        color: @button-text-color-hover !important;
+        border: @button-border-hover;
+        .button-background-hover();
+    }
+  
+    &.has-text{
+        min-width: 90px;
+    }
+}
