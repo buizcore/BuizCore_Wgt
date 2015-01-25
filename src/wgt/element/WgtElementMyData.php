@@ -155,7 +155,7 @@ SQL;
 HTML;
     }
 
-    if (!WBF_SHOW_MOCKUP) {
+    if (!BUIZ_SHOW_MOCKUP) {
       return <<<HTML
 
   <li class="custom" >
