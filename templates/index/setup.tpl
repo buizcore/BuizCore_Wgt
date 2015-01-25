@@ -50,7 +50,7 @@
           <div id="wgt_tree_"  >
             <ul class="wcm wcm_ui_tree" >
               <li class="file" >
-                <a href="maintab.php?c=Webfrap.Setup.start" class="wcm wcm_req_win file" >
+                <a href="maintab.php?c=Buiz.Setup.start" class="wcm wcm_req_win file" >
                   <img src="../WebFrap_Icons_Default/icons/default/xsmall/control/folder.png" alt="Array"  class="icon xsmall" />
                   Start
                 </a>

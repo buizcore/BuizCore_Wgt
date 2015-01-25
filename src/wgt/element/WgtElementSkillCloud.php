@@ -38,17 +38,17 @@ class WgtElementSkillCloud extends WgtAbstract
   /**
    * @var string
    */
-  public $urlAutoComplete = 'ajax.php?c=Webfrap.Skill.autocomplete';
+  public $urlAutoComplete = 'ajax.php?c=Buiz.Skill.autocomplete';
 
   /**
    * @var string
    */
-  public $urlCreate = 'ajax.php?c=Webfrap.Skill.add';
+  public $urlCreate = 'ajax.php?c=Buiz.Skill.add';
 
   /**
    * @var string
    */
-  public $urlDisconnect = 'ajax.php?c=Webfrap.Skill.disconnect';
+  public $urlDisconnect = 'ajax.php?c=Buiz.Skill.disconnect';
 
   /**
    * Die ID des Datensatzes der getaggt werden soll

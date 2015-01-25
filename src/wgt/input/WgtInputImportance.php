@@ -40,7 +40,7 @@ class WgtInputImportance extends WgtSelectboxHardcoded
      * 
      * @var string
      */
-    public $i18nKey = 'wbfsys.base';
+    public $i18nKey = 'buiz.base';
 
     /**
      * Die Values
@@ -150,7 +150,7 @@ class WgtInputImportance extends WgtSelectboxHardcoded
 
         $i18n = BuizCore::$env->getI18n();
         
-        return isset(self::$labels[$key]) ? $i18n->l(self::$labels[$key], 'wbfsys.base') : null;
+        return isset(self::$labels[$key]) ? $i18n->l(self::$labels[$key], 'buiz.base') : null;
     
     } // end public static function getKeyLabel */
 

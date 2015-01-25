@@ -32,12 +32,12 @@ class WgtElementKnowhowNode extends WgtAbstract
   /**
    * @var string
    */
-  public $urlSave = 'ajax.php?c=Webfrap.KnowhowNode.save';
+  public $urlSave = 'ajax.php?c=Buiz.KnowhowNode.save';
 
   /**
    * @var string
    */
-  public $urlDelete = 'ajax.php?c=Webfrap.KnowhowNode.delete';
+  public $urlDelete = 'ajax.php?c=Buiz.KnowhowNode.delete';
 
   /**
    * Die ID des Containers an welchem der Node angehängt werden soll
@@ -46,7 +46,7 @@ class WgtElementKnowhowNode extends WgtAbstract
   public $containerId = null;
 
   /**
-   * @var WbfsysKnowhowNode_Entity
+   * @var BuizKnowhowNode_Entity
    */
   public $dataNode = null;
 
@@ -142,7 +142,7 @@ class WgtElementKnowhowNode extends WgtAbstract
   }//end public function setId */
 
   /**
-   * @param WbfsysKnowhowNode_Entity $dataNode
+   * @param BuizKnowhowNode_Entity $dataNode
    */
   public function setDataNode($dataNode)
   {

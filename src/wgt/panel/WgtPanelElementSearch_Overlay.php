@@ -42,7 +42,7 @@ class WgtPanelElementSearch_Overlay extends WgtPanelElement
    * Service mit dem eine aktuelle Filter / Suchkonfiguration gespeichert werden kann
    * @var string
    */
-  public $saveService = 'ajax.php?c=Webfrap.Settings_Search.save';
+  public $saveService = 'ajax.php?c=Buiz.Settings_Search.save';
 
   /**
    * the html id of the table object

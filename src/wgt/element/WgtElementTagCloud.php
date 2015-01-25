@@ -38,17 +38,17 @@ class WgtElementTagCloud extends WgtAbstract
   /**
    * @var string
    */
-  public $urlAutoComplete = 'ajax.php?c=Webfrap.Tag.autocomplete';
+  public $urlAutoComplete = 'ajax.php?c=Buiz.Tag.autocomplete';
 
   /**
    * @var string
    */
-  public $urlCreate = 'ajax.php?c=Webfrap.Tag.add';
+  public $urlCreate = 'ajax.php?c=Buiz.Tag.add';
 
   /**
    * @var string
    */
-  public $urlDisconnect = 'ajax.php?c=Webfrap.Tag.disconnect';
+  public $urlDisconnect = 'ajax.php?c=Buiz.Tag.disconnect';
 
   /**
    * Die ID des Datensatzes der getaggt werden soll

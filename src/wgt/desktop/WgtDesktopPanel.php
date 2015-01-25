@@ -104,7 +104,7 @@ abstract class WgtDesktopPanel extends WgtDesktopElement
       'name' =>  'switch_profile',
       'id' =>  'wgt-panel-switch-profile',
       'class' =>  'medium',
-      'onchange' => '$R.redirect(\'index.php\',{c:\'Webfrap.Profile.change\',profile:$S(\'#wgt-panel-switch-profile\').val()});'
+      'onchange' => '$R.redirect(\'index.php\',{c:\'Buiz.Profile.change\',profile:$S(\'#wgt-panel-switch-profile\').val()});'
     ));
 
     return $selectboxProfile->element();

@@ -105,7 +105,7 @@ HTML;
 \$S('#{$id} .wgac_remove').each(function() {
 	\$S(this).bind('click', function() {
 		var eid = \$S(this).attr('wgt_eid');
-		\$R.del('ajax.php?c=Webfrap.Announcement.archiveEntry&objid='+eid,{'success':function() {
+		\$R.del('ajax.php?c=Buiz.Announcement.archiveEntry&objid='+eid,{'success':function() {
 			\$S('#{$id}-entry-'+eid).remove();
   	}});
 	});

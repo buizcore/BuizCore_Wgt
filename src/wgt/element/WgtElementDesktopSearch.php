@@ -33,7 +33,7 @@ class WgtElementDesktopSearch extends WgtAbstract
   /**
    * @var string
    */
-  public $action = 'ajax.php?c=Webfrap.Search.search';
+  public $action = 'ajax.php?c=Buiz.Search.search';
 
   /**
    * @var string

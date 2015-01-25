@@ -42,7 +42,7 @@ class WgtProcessFormSlice_Responsibles extends WgtProcessFormSlice
       $respEntries = '';
 
       foreach ($responsibles as $responsible) {
-        $respEntries .= "<li><a class=\"wcm wcm_req_mtab\" href=\"maintab.php?c=Wbfsys.RoleUser.show&amp;objid={$responsible->userId}\" >{$responsible->lastname}, {$responsible->firstname}</a></li>".NL;
+        $respEntries .= "<li><a class=\"wcm wcm_req_mtab\" href=\"maintab.php?c=Buiz.RoleUser.show&amp;objid={$responsible->userId}\" >{$responsible->lastname}, {$responsible->firstname}</a></li>".NL;
       }
 
       $html .= <<<HTML

@@ -44,7 +44,7 @@ class WgtElementContextForm extends WgtAbstract
     $db = Db::getActive();
 
     $contextForm = new WgtFormBuilder(
-      'ajax.php?c=Webfrap.ProfileContext.updateProfile',
+      'ajax.php?c=Buiz.ProfileContext.updateProfile',
       'context-profile',
       'put',
       false

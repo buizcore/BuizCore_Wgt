@@ -121,7 +121,7 @@ class WgtPanelButtonLine_Dset extends WgtPanelButtonLine
   class="wgt-button wcm wcm_ui_dropform wcm_ui_tip"
   tooltip="{$this->i18n->l('Show the action history for this dataset','wbf.label')}"
   tabindex="-1" ><i class="fa fa-book" ></i>
-  <var>{"url":"ajax.php?c=Webfrap.Protocol.overlayDset&amp;objid={$this->entity}&amp;dkey={$this->dKey}{$this->accessPath}","size":"big","noBorder":"true"}</var>
+  <var>{"url":"ajax.php?c=Buiz.Protocol.overlayDset&amp;objid={$this->entity}&amp;dkey={$this->dKey}{$this->accessPath}","size":"big","noBorder":"true"}</var>
 </button>
 HTML;
         
@@ -143,7 +143,7 @@ HTML;
   class="wgt-button wcm wcm_ui_dropform wcm_ui_tip"
   tooltip="{$this->i18n->l('Show and edit the tags for this dataset','wbf.label')}"
   tabindex="-1" ><i class="fa fa-tags" ></i>
-  <var>{"url":"ajax.php?c=Webfrap.Tag.overlayDset&amp;objid={$this->entity}{$this->accessPath}","size":"medium","noBorder":"true"}</var>
+  <var>{"url":"ajax.php?c=Buiz.Tag.overlayDset&amp;objid={$this->entity}{$this->accessPath}","size":"medium","noBorder":"true"}</var>
 </button>
 HTML;
         
@@ -165,7 +165,7 @@ HTML;
   class="wgt-button wcm wcm_ui_dropform wcm_ui_tip"
   tooltip="{$this->i18n->l('Show and edit the comments for this dataset','wbf.label')}"
   tabindex="-1" ><i class="fa fa-comment" ></i>
-  <var>{"url":"ajax.php?c=Webfrap.Comment.overlayDset&amp;objid={$this->entity}&amp;dkey={$this->dKey}{$this->accessPath}","size":"big","noBorder":"true"}</var>
+  <var>{"url":"ajax.php?c=Buiz.Comment.overlayDset&amp;objid={$this->entity}&amp;dkey={$this->dKey}{$this->accessPath}","size":"big","noBorder":"true"}</var>
 </button>
 HTML;
         
@@ -189,7 +189,7 @@ HTML;
   class="wgt-button wcm wcm_ui_dropform wcm_ui_tip"
   tooltip="Show and edit the attachments for this dataset"
   tabindex="-1" >{$iconAttachment}
-  <var>{"url":"ajax.php?c=Webfrap.Attachment.overlayDset&amp;objid={$this->entity}&amp;dkey={$this->dKey}{$this->accessPath}","size":"big","noBorder":"true"}</var>
+  <var>{"url":"ajax.php?c=Buiz.Attachment.overlayDset&amp;objid={$this->entity}&amp;dkey={$this->dKey}{$this->accessPath}","size":"big","noBorder":"true"}</var>
 </button>
 HTML;
         
@@ -211,7 +211,7 @@ HTML;
   class="wgt-button wcm wcm_ui_dropform wcm_ui_tip"
   tooltip="Show the Communication in Relation to this dataset"
   tabindex="-1" ><i class="fa fa-envelope" ></i>
-  <var>{"url":"ajax.php?c=Webfrap.Protocol.overlayDset&amp;objid={$this->entity}&amp;dkey={$this->dKey}{$this->accessPath}","size":"big","noBorder":"true"}</var>
+  <var>{"url":"ajax.php?c=Buiz.Protocol.overlayDset&amp;objid={$this->entity}&amp;dkey={$this->dKey}{$this->accessPath}","size":"big","noBorder":"true"}</var>
 </button>
 HTML;
         

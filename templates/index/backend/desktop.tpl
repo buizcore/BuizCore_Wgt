@@ -19,7 +19,7 @@
                         <ul>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-folder-close"></i>Dominik Bonsch marked project 'WebFrap' as finished.
+                                    <i class="fa fa-folder-close"></i>Dominik Bonsch marked project 'BuizCore' as finished.
                                 </a>
                             </li>
                             <li>

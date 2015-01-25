@@ -42,14 +42,14 @@ class WgtElementMyData extends WgtAbstract
     $db = Db::getActive();
     $orm = $db->getOrm();
 
-    $userNode = $orm->get('WbfsysRoleUser', $user->getId()  );
+    $userNode = $orm->get('BuizRoleUser', $user->getId()  );
     $personNode = $orm->get('CorePerson', $userNode->id_person  );
 
     $iconDel = '<i class="fa fa-times-sign" ></i>';
 
     $userForm = new WgtFormBuilder
     (
-      'ajax.php?c=Webfrap.MyProfile.updateData',
+      'ajax.php?c=Buiz.MyProfile.updateData',
       null,
       'user_profile',
       'post',
@@ -58,7 +58,7 @@ class WgtElementMyData extends WgtAbstract
 
     $cItemForm = new WgtFormBuilder
     (
-      'ajax.php?c=Webfrap.MyProfile.updateData',
+      'ajax.php?c=Buiz.MyProfile.updateData',
       null,
       'user_profile_contact_item',
       'post',
@@ -76,7 +76,7 @@ class WgtElementMyData extends WgtAbstract
       'name' =>  'switch_profile',
       'id' =>  'wgt-panel-switch-profile',
       'class' =>  'medium',
-      'onchange' => '$R.redirect(\'index.php\',{c:\'Webfrap.Profile.change\',profile:$S(\'#wgt-panel-switch-profile\').val()});'
+      'onchange' => '$R.redirect(\'index.php\',{c:\'Buiz.Profile.change\',profile:$S(\'#wgt-panel-switch-profile\').val()});'
     ));
     $codeSelectboxProfile = WgtForm::decorateElement('Profile', 'wgt-panel-switch-profile', $selectboxProfile);
 
@@ -91,7 +91,7 @@ class WgtElementMyData extends WgtAbstract
       'name' =>  'switch_ui_theme',
       'id' =>  'wgt-panel-switch-ui_theme',
       'class' =>  'medium',
-      'onchange' => '$R.redirect(\'index.php\',{c:\'Webfrap.Profile.change\',profile:$S(\'#wgt-panel-switch-ui_theme\').val()});'
+      'onchange' => '$R.redirect(\'index.php\',{c:\'Buiz.Profile.change\',profile:$S(\'#wgt-panel-switch-ui_theme\').val()});'
     ));
     $codeSlctUiTheme = WgtForm::decorateElement('UI Theme', 'wgt-panel-switch-ui_theme', $slctUiTheme);
 
@@ -106,7 +106,7 @@ class WgtElementMyData extends WgtAbstract
       'name' =>  'switch_icon_theme',
       'id' =>  'wgt-panel-switch-icon_theme',
       'class' =>  'medium',
-      'onchange' => '$R.redirect(\'index.php\',{c:\'Webfrap.Profile.change\',profile:$S(\'#wgt-panel-switch-icon_theme\').val()});'
+      'onchange' => '$R.redirect(\'index.php\',{c:\'Buiz.Profile.change\',profile:$S(\'#wgt-panel-switch-icon_theme\').val()});'
     ));
     $codeSlctIconTheme = WgtForm::decorateElement('Icon Theme', 'wgt-panel-switch-icon_theme', $slctIconTheme);
 
@@ -121,7 +121,7 @@ class WgtElementMyData extends WgtAbstract
       'name' =>  'switch_language',
       'id' =>  'wgt-panel-switch_language',
       'class' =>  'medium',
-      'onchange' => '$R.redirect(\'index.php\',{c:\'Webfrap.Profile.change\',profile:$S(\'#wgt-panel-switch_language\').val()});'
+      'onchange' => '$R.redirect(\'index.php\',{c:\'Buiz.Profile.change\',profile:$S(\'#wgt-panel-switch_language\').val()});'
     ));
     $codeSlctLSw = WgtForm::decorateElement('Language', 'wgt-panel-switch_language', $slctLSw);
 
@@ -132,9 +132,9 @@ class WgtElementMyData extends WgtAbstract
     item.address_value,
     type.name as type
   FROM
-    wbfsys_address_item item
+    buiz_address_item item
   JOIN
-    wbfsys_address_item_type type
+    buiz_address_item_type type
     on item.id_type = type.rowid
 
   WHERE
@@ -217,13 +217,13 @@ HTML;
         <legend>My Data</legend>
 
         <div class="left bw3" >
-          {$userForm->input('Name','wbfsys_role_user[name]',$userNode->name,array('autocomplete'=>'off'))}
+          {$userForm->input('Name','buiz_role_user[name]',$userNode->name,array('autocomplete'=>'off'))}
           {$userForm->input('Firstname','core_person[firstname]',$personNode->firstname,array('autocomplete'=>'off'))}
           {$userForm->input('Lastname','core_person[lastname]',$personNode->lastname,array('autocomplete'=>'off'))}
         </div>
 
         <div class="inline bw3" >
-          {$userForm->password('Password','wbfsys_role_user[password]')}
+          {$userForm->password('Password','buiz_role_user[password]')}
         </div>
 
         <div class="do-clear small" >&nbsp;</div>

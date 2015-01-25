@@ -18,7 +18,7 @@
 /**
  * @package net.buizcore.wgt
  */
-class Wgt_Exception extends WebfrapSys_Exception
+class Wgt_Exception extends BuizSys_Exception
 {
 
 }

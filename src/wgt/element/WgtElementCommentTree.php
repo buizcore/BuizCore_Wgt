@@ -32,12 +32,12 @@ class WgtElementCommentTree extends WgtAbstract
   /**
    * @var string
    */
-  public $urlCreate = 'ajax.php?c=Webfrap.Comment.save';
+  public $urlCreate = 'ajax.php?c=Buiz.Comment.save';
 
   /**
    * @var string
    */
-  public $urlDelete = 'ajax.php?c=Webfrap.Comment.disconnect';
+  public $urlDelete = 'ajax.php?c=Buiz.Comment.disconnect';
 
   /**
    * Die ID des Datensatzes der getaggt werden soll
@@ -132,7 +132,7 @@ class WgtElementCommentTree extends WgtAbstract
 
     $this->name = $this->getId();
 
-    $this->context = new WebfrapComment_Context();
+    $this->context = new BuizComment_Context();
     $this->context->element = $this->name;
     $this->context->refMask = $this->refMask;
     $this->context->refField = $this->refField;

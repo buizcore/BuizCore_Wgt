@@ -386,7 +386,7 @@ class LibViewMaintab extends LibTemplatePublisher
           $menu->id = $this->id.'_dropmenu';
           $menu->buildMenu($params);
           
-      } catch (WebfrapSys_Exception $exc) {
+      } catch (BuizSys_Exception $exc) {
         
           // TODO was passiert hier?
 	  }

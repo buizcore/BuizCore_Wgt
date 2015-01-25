@@ -669,7 +669,7 @@ HTML;
       });
 
       process.data('paction-change-{$this->process->name}', function() {
-        \$R.get('modal.php?c=Webfrap.Maintenance_Process.formSwitchStatus&process_id={$this->process->processId}&vid={$entity->getId()}&dkey={$entity->getTable()}&active={$this->process->activStatus}');
+        \$R.get('modal.php?c=Buiz.Maintenance_Process.formSwitchStatus&process_id={$this->process->processId}&vid={$entity->getId()}&dkey={$entity->getTable()}&active={$this->process->activStatus}');
         \$S.fn.miniMenu.close();
       });
 
@@ -759,7 +759,7 @@ HTML;
       });
 
       process.data('paction-change-{$this->process->name}', function() {
-        \$R.get('modal.php?c=Webfrap.Maintenance_Process.formSwitchStatus&process_id={$this->process->processId}&vid={$entity->getId()}&dkey={$entity->getTable()}&active={$this->process->activStatus}');
+        \$R.get('modal.php?c=Buiz.Maintenance_Process.formSwitchStatus&process_id={$this->process->processId}&vid={$entity->getId()}&dkey={$entity->getTable()}&active={$this->process->activStatus}');
         \$S.fn.miniMenu.close();
       });
     }
@@ -840,7 +840,7 @@ HTML;
       });
 
       process.data('paction-change-{$this->process->name}', function() {
-        \$R.get('modal.php?c=Webfrap.Maintenance_Process.formSwitchStatus&process_id={$this->process->processId}&vid={$entity->getId()}&dkey={$entity->getTable()}&active={$this->process->activStatus}');
+        \$R.get('modal.php?c=Buiz.Maintenance_Process.formSwitchStatus&process_id={$this->process->processId}&vid={$entity->getId()}&dkey={$entity->getTable()}&active={$this->process->activStatus}');
       });
     } else {
       alert('Missing Process #wgt-process-{$this->process->name}-{$params->contextKey}');

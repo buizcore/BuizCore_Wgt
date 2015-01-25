@@ -19,7 +19,7 @@
  * @package net.buizcore.wgt
  *
  */
-class LibTemplate_Exception extends WebfrapSys_Exception
+class LibTemplate_Exception extends BuizSys_Exception
 {
 
 }

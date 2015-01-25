@@ -58,27 +58,27 @@ define( 'TPL_END',   '?>'  );
 
 <?php
 // TODO move that into a builder class?
-$slctBoolean = new WebfrapSearchTypeBoolean_Selectbox();
+$slctBoolean = new BuizSearchTypeBoolean_Selectbox();
 $slctBoolean->attributes['name'] = 'as[{$pos}][cond]';
 $slctBoolean->setId('wgt-select-astype-{$dkey}-{$pos}');
 
-$slctDate = new WebfrapSearchTypeDate_Selectbox();
+$slctDate = new BuizSearchTypeDate_Selectbox();
 $slctDate->attributes['name'] = 'as[{$pos}][cond]';
 $slctDate->setId('wgt-select-astype-{$dkey}-{$pos}');
 
-$slctId = new WebfrapSearchTypeId_Selectbox();
+$slctId = new BuizSearchTypeId_Selectbox();
 $slctId->attributes['name'] = 'as[{$pos}][cond]';
 $slctId->setId('wgt-select-astype-{$dkey}-{$pos}');
 
-$slctNumeric = new WebfrapSearchTypeNumeric_Selectbox();
+$slctNumeric = new BuizSearchTypeNumeric_Selectbox();
 $slctNumeric->attributes['name'] = 'as[{$pos}][cond]';
 $slctNumeric->setId('wgt-select-astype-{$dkey}-{$pos}');
 
-$slctText = new WebfrapSearchTypeText_Selectbox();
+$slctText = new BuizSearchTypeText_Selectbox();
 $slctText->attributes['name'] = 'as[{$pos}][cond]';
 $slctText->setId('wgt-select-astype-{$dkey}-{$pos}');
 
-$slctTextStrict = new WebfrapSearchTypeTextStrict_Selectbox();
+$slctTextStrict = new BuizSearchTypeTextStrict_Selectbox();
 $slctTextStrict->attributes['name'] = 'as[{$pos}][cond]';
 $slctTextStrict->setId('wgt-select-astype-{$dkey}-{$pos}');
 ?>

@@ -32,17 +32,17 @@ class WgtElementAttachmentList extends WgtAbstract
   /**
    * @var string
    */
-  public $urlSearch = 'ajax.php?c=Webfrap.Attachment.search&ltype=list';
+  public $urlSearch = 'ajax.php?c=Buiz.Attachment.search&ltype=list';
 
   /**
    * @var string
    */
-  public $urlDelete = 'ajax.php?c=Webfrap.Attachment.delete&ltype=list';
+  public $urlDelete = 'ajax.php?c=Buiz.Attachment.delete&ltype=list';
 
   /**
    * @var string
    */
-  public $urlEdit = 'modal.php?c=Webfrap.Attachment.edit&ltype=list';
+  public $urlEdit = 'modal.php?c=Buiz.Attachment.edit&ltype=list';
 
   /**
    * @var string
@@ -97,7 +97,7 @@ class WgtElementAttachmentList extends WgtAbstract
   protected $defAction = '';
 
   /**
-   * @var WebfrapAttachment_Request
+   * @var BuizAttachment_Request
    */
   public $context = null;
 
@@ -109,7 +109,7 @@ class WgtElementAttachmentList extends WgtAbstract
    * default constructor
    *
    * @param int $name the name of the wgt object
-   * @param WebfrapAttachment_Request $context
+   * @param BuizAttachment_Request $context
    * @param LibTemplate $view
    * @param array $flags
    */
@@ -285,7 +285,7 @@ class WgtElementAttachmentList extends WgtAbstract
 
         $codeButtonsAttach .= <<<HTML
         <a
-          onclick="\$R.get('modal.php?c=Webfrap.Attachment.formAddLink{$this->defUrl}&ltype=list');"
+          onclick="\$R.get('modal.php?c=Buiz.Attachment.formAddLink{$this->defUrl}&ltype=list');"
           class="wgtac-add_link wgt-control"
           tabindex="-1" ><i class="fa fa-plus-circle" ></i> Add Link</a> |
 HTML;
@@ -297,7 +297,7 @@ HTML;
 
         $codeButtonsAttach .= <<<HTML
         <a
-          onclick="\$R.get('modal.php?c=Webfrap.Attachment.formUploadFiles{$this->defUrl}&ltype=list');"
+          onclick="\$R.get('modal.php?c=Buiz.Attachment.formUploadFiles{$this->defUrl}&ltype=list');"
           tabindex="-1"
           class="wgtac-add_file wgt-control" ><i class="fa fa-plus-circle" ></i> Add File</a> |
 HTML;
@@ -424,8 +424,8 @@ HTML;
 
     // filetypes for the search
     if($this->context->maskFilter){
-      /* @var $queryFileTypes WebfrapAttachmentFileType_Selectbox_Query */
-      $queryFileTypes = BuizCore::$env->getDb()->newQuery('WebfrapAttachmentFileType_Selectbox');
+      /* @var $queryFileTypes BuizAttachmentFileType_Selectbox_Query */
+      $queryFileTypes = BuizCore::$env->getDb()->newQuery('BuizAttachmentFileType_Selectbox');
       $queryFileTypes->fetchSelectbox($this->context->maskFilter);
       $dataFileTypes = $queryFileTypes->getAll();
 
@@ -492,7 +492,7 @@ HTML;
       $fileSize = SFormatNumber::formatFileSize($entry['file_size']);
       $b64Name = base64_encode($fileName);
 
-      $link = "<a href=\"file.php?f=wbfsys_file-name-{$entry['file_id']}&amp;n={$b64Name}\" "
+      $link = "<a href=\"file.php?f=buiz_file-name-{$entry['file_id']}&amp;n={$b64Name}\" "
         ." target=\"wgt_dms\" rel=\"nofollow\" >{$fileIcon} {$fileName}</a>";
 
     } else {

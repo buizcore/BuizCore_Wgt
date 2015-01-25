@@ -67,30 +67,30 @@ class WgtElementMediathek extends WgtAbstract
    */
   public $urls = array
   (
-    'image_search' => 'ajax.php?c=Webfrap.Mediathek_Image.search',
-    'image_delete' => 'ajax.php?c=Webfrap.Mediathek_Image.delete',
-    'image_edit' => 'modal.php?c=Webfrap.Mediathek_Image.edit',
-    'image_add' => 'modal.php?c=Webfrap.Mediathek_Image.add',
+    'image_search' => 'ajax.php?c=Buiz.Mediathek_Image.search',
+    'image_delete' => 'ajax.php?c=Buiz.Mediathek_Image.delete',
+    'image_edit' => 'modal.php?c=Buiz.Mediathek_Image.edit',
+    'image_add' => 'modal.php?c=Buiz.Mediathek_Image.add',
 
-    'audio_search' => 'ajax.php?c=Webfrap.Mediathek_Audio.search',
-    'audio_delete' => 'ajax.php?c=Webfrap.Mediathek_Audio.delete',
-    'audio_edit' => 'modal.php?c=Webfrap.Mediathek_Audio.edit',
-    'audio_add' => 'modal.php?c=Webfrap.Mediathek_Audio.add',
+    'audio_search' => 'ajax.php?c=Buiz.Mediathek_Audio.search',
+    'audio_delete' => 'ajax.php?c=Buiz.Mediathek_Audio.delete',
+    'audio_edit' => 'modal.php?c=Buiz.Mediathek_Audio.edit',
+    'audio_add' => 'modal.php?c=Buiz.Mediathek_Audio.add',
 
-    'video_search' => 'ajax.php?c=Webfrap.Mediathek_Video.search',
-    'video_delete' => 'ajax.php?c=Webfrap.Mediathek_Video.delete',
-    'video_edit' => 'modal.php?c=Webfrap.Mediathek_Video.edit',
-    'video_add' => 'modal.php?c=Webfrap.Mediathek_Video.add',
+    'video_search' => 'ajax.php?c=Buiz.Mediathek_Video.search',
+    'video_delete' => 'ajax.php?c=Buiz.Mediathek_Video.delete',
+    'video_edit' => 'modal.php?c=Buiz.Mediathek_Video.edit',
+    'video_add' => 'modal.php?c=Buiz.Mediathek_Video.add',
 
-    'document_search' => 'ajax.php?c=Webfrap.Mediathek_Document.search',
-    'document_delete' => 'ajax.php?c=Webfrap.Mediathek_Document.delete',
-    'document_edit' => 'modal.php?c=Webfrap.Mediathek_Document.edit',
-    'document_add' => 'modal.php?c=Webfrap.Mediathek_Document.add',
+    'document_search' => 'ajax.php?c=Buiz.Mediathek_Document.search',
+    'document_delete' => 'ajax.php?c=Buiz.Mediathek_Document.delete',
+    'document_edit' => 'modal.php?c=Buiz.Mediathek_Document.edit',
+    'document_add' => 'modal.php?c=Buiz.Mediathek_Document.add',
 
-    'file_search' => 'ajax.php?c=Webfrap.Mediathek_File.search',
-    'file_delete' => 'ajax.php?c=Webfrap.Mediathek_File.delete',
-    'file_edit' => 'modal.php?c=Webfrap.Mediathek_File.edit',
-    'file_add' => 'modal.php?c=Webfrap.Mediathek_File.add',
+    'file_search' => 'ajax.php?c=Buiz.Mediathek_File.search',
+    'file_delete' => 'ajax.php?c=Buiz.Mediathek_File.delete',
+    'file_edit' => 'modal.php?c=Buiz.Mediathek_File.edit',
+    'file_add' => 'modal.php?c=Buiz.Mediathek_File.add',
   );
 
   /**
@@ -245,7 +245,7 @@ class WgtElementMediathek extends WgtAbstract
   }//end public function setId */
 
   /**
-   * @param WbfsysMedia_Entity $mediaNode
+   * @param BuizMedia_Entity $mediaNode
    */
   public function setMediaNode($mediaNode)
   {
@@ -623,11 +623,11 @@ HTML;
     $fileName = trim($entry['img_file']);
     $fileSize = SFormatNumber::formatFileSize($entry['img_size']);
     $b64Name = base64_encode($fileName);
-    $link = "<a href=\"image.php?f=wbfsys_image-file-{$entry['img_id']}&amp;s=medium&amp;n={$b64Name}&amp;version={$entry['img_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
-        ."<img style=\"max-width:100px;max-height:100px;\" src=\"thumb.php?f=wbfsys_image-file-{$entry['img_id']}&amp;s=medium&amp;n={$b64Name}&amp;version={$entry['img_version']}\" alt=\"{$fileName}\" />"
+    $link = "<a href=\"image.php?f=buiz_image-file-{$entry['img_id']}&amp;s=medium&amp;n={$b64Name}&amp;version={$entry['img_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
+        ."<img style=\"max-width:100px;max-height:100px;\" src=\"thumb.php?f=buiz_image-file-{$entry['img_id']}&amp;s=medium&amp;n={$b64Name}&amp;version={$entry['img_version']}\" alt=\"{$fileName}\" />"
       ."</a>";
 
-    $linkDownload = "<a href=\"image.php?f=wbfsys_image-file-{$entry['img_id']}&amp;s=medium&amp;n={$b64Name}&amp;version={$entry['img_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
+    $linkDownload = "<a href=\"image.php?f=buiz_image-file-{$entry['img_id']}&amp;s=medium&amp;n={$b64Name}&amp;version={$entry['img_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
       .$fileName." (download)"."</a>";
 
     $timeCreated = date('Y-m-d - H:i',  strtotime($entry['img_created'])  );
@@ -858,11 +858,11 @@ HTML;
     $fileSize = SFormatNumber::formatFileSize($entry['file_size']);
     $b64Name = base64_encode($fileName);
 
-    $link = "<a href=\"file.php?f=wbfsys_file-file-{$entry['file_id']}&amp;n={$b64Name}&amp;version={$entry['file_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
+    $link = "<a href=\"file.php?f=buiz_file-file-{$entry['file_id']}&amp;n={$b64Name}&amp;version={$entry['file_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
         .$entryIcon
       ."</a>";
 
-    $linkDownload = "<a href=\"file.php?f=wbfsys_image-file-{$entry['file_id']}&amp;n={$b64Name}&amp;version={$entry['file_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
+    $linkDownload = "<a href=\"file.php?f=buiz_image-file-{$entry['file_id']}&amp;n={$b64Name}&amp;version={$entry['file_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
       .$fileName.""."</a>";
 
     $timeCreated = date('Y-m-d - H:i',  strtotime($entry['file_created'])  );
@@ -1085,11 +1085,11 @@ HTML;
 
     $entryIcon = $this->icon('mimetype/'.$iconType.'.png', $keyType, 'medium');
 
-    $link = "<a href=\"file.php?f=wbfsys_document-file-{$entry['doc_id']}&amp;n={$b64Name}&amp;version={$entry['doc_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
+    $link = "<a href=\"file.php?f=buiz_document-file-{$entry['doc_id']}&amp;n={$b64Name}&amp;version={$entry['doc_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
       .$entryIcon
       ."</a>";
 
-    $linkDownload = "<a href=\"file.php?f=wbfsys_image-file-{$entry['doc_id']}&amp;s=medium&amp;n={$b64Name}&amp;version={$entry['doc_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
+    $linkDownload = "<a href=\"file.php?f=buiz_image-file-{$entry['doc_id']}&amp;s=medium&amp;n={$b64Name}&amp;version={$entry['doc_version']}\" target=\"wgt_dms\" rel=\"nofollow\" >"
       .$fileName."</a>";
 
     $timeCreated = date('Y-m-d - H:i',  strtotime($entry['doc_created'])  );

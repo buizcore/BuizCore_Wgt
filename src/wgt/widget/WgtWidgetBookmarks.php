@@ -36,10 +36,10 @@ class WgtWidgetBookmarks extends WgtWidget
     $user = $this->getUser();
     $view = $this->getView();
 
-    $query = $db->newQuery('WebfrapBookmark');
+    $query = $db->newQuery('BuizBookmark');
     $query->fetch($this->getUser()->getId());
 
-    $table = $view->newItem('widgetDesktopBookmark' , 'TableWebfrapBookmark');
+    $table = $view->newItem('widgetDesktopBookmark' , 'TableBuizBookmark');
     $table->setData($query);
     $table->setId('wbf_desktop_bookmark');
 

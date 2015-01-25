@@ -20,7 +20,7 @@
  * @author Dominik Bonsch <dominik.bonsch@webfrap.net>
  *
  */
-class WgtWidgetWebfrapProtocol extends WebfrapProtocol_Widget
+class WgtWidgetBuizProtocol extends BuizProtocol_Widget
 {
 
-}//end class WgtWidgetWebfrapProtocol
+}//end class WgtWidgetBuizProtocol

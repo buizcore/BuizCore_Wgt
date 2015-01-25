@@ -43,16 +43,16 @@ class WgtWidgetProtocol extends WgtWidget
     $params = new TArray();
 
     $db = $this->getDb();
-    $query = $db->newQuery('WbfsysProtocolMessage_Table');
+    $query = $db->newQuery('BuizProtocolMessage_Table');
 
     $params->order = array
     (
-      'wbfsys_protocol_message.m_time_created desc'
+      'buiz_protocol_message.m_time_created desc'
     );
 
     $query->fetch(null,$params);
 
-    $tableProtocol = $view->newItem('TableWbfsysProtocolMessage','TableWbfsysProtocolMessage');
+    $tableProtocol = $view->newItem('TableBuizProtocolMessage','TableBuizProtocolMessage');
     $tableProtocol->setId('wgt-table_widget_protocol');
     $tableProtocol->setData($query);
     $tableProtocol->addAttributes(array
@@ -70,7 +70,7 @@ class WgtWidgetProtocol extends WgtWidget
       <form
         id="wgt-form_widget_protocol_search"
         class="wcm wcm_req_ajax"
-        action="ajax.php?c=Wbfsys.ProtocolMessage.search&amp;targetId=wgt-table_widget_protocol" method="post" ></form>
+        action="ajax.php?c=Buiz.ProtocolMessage.search&amp;targetId=wgt-table_widget_protocol" method="post" ></form>
       <h2>Action Protocol</h2>
       {$tableProtocol}
       <div class="do-clear small"></div>
