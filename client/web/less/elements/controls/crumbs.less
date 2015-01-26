@@ -12,11 +12,16 @@
 
 .controls--crumbs {
     text-align: center;
+    background-color: #E8E8E8;
+    margin-bottom: 20px;
+    height: 65px;
 }
 
 .controls--crumbs-body {
     list-style: none;
-    display: inline-table;
+    display: block;
+    height: 65px;    
+    background-color: white;    
 }
 
 .controls--crumbs-node {
@@ -26,41 +31,49 @@
 .controls--crumbs-node a {
     display: block;
     float: left;
-    height: 50px;
-    background: #3498db;
+    height: 64px;
+    font-weight: bold;
+    background: #E8E8E8;
     text-align: center;
-    padding: 30px 40px 0 80px;
+    padding: 10px 20px 0 10px;
     position: relative;
     margin: 0 10px 0 0;
-    font-size: 20px;
+    font-size: 16px;
     text-decoration: none;
-    color: #fff;
+    color: #585858;
+    transition: none;    
+}
+
+.controls--crumbs-node strong {
+    padding-left: 30px;
+    font-size: 16px !important;
+}
+
+.controls--crumbs-node sub {
+    padding-left: 28px;
+    font-weight: normal;
+    color: #585858;    
 }
 
 .controls--crumbs-node a:after {
     content: "";
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    border-left: 40px solid #3498db;
+    border-top: 32px solid transparent;
+    border-bottom: 32px solid transparent;
+    border-left: 32px solid #E8E8E8;
     position: absolute;
-    right: -40px;
+    right: -32px;
     top: 0;
     z-index: 1;
 }
 
 .controls--crumbs-node a:before {
     content: "";
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    border-left: 40px solid #d4f2ff;
+    border-top: 32px solid transparent;
+    border-bottom: 32px solid transparent;
+    border-left: 32px solid white;
     position: absolute;
     left: 0;
     top: 0;
-}
-
-.controls--crumbs-node:first-child a {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
 
 .controls--crumbs-node:first-child a:before {
@@ -68,19 +81,36 @@
 }
 
 .controls--crumbs-node:last-child a {
-    padding-right: 80px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    padding-right: 40px;
 }
 
 .controls--crumbs-node:last-child a:after {
-    display: none;
+//    display: none;
+}
+
+.controls--crumbs-node.is-active a {
+    background: @color-1;
+    color:white;
+}
+.controls--crumbs-node.is-active sub,
+.controls--crumbs-node.is-active strong {
+    color:white !important;
+}
+
+.controls--crumbs-node.is-active a:after {
+    border-left-color: @color-1;
 }
 
 .controls--crumbs-node a:hover {
-    background: #fa5ba5;
+    background: lighten(@color-1, 15%);
+    color:white;
+    transition: none;
+}
+.controls--crumbs-node a:hover sub,
+.controls--crumbs-node a:hover strong {
+    color:white !important;
 }
 
 .controls--crumbs-node a:hover:after {
-    border-left-color: #fa5ba5;
+    border-left-color: lighten(@color-1, 15%);
 }
