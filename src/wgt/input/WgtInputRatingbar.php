@@ -93,13 +93,15 @@ class WgtInputRatingbar extends WgtInput
   {
 
     if ($min >= $max) {
-      Debug::console("Ratingbar: Max is not bigger than min! min:{$min} max:{$max} size:{$setSize}");
+      if (Log::$levelDebug)
+            Log::debug("Ratingbar: Max is not bigger than min! min:{$min} max:{$max} size:{$setSize}");
       $min = 0;
       $max = 5;
     }
 
     if (!$setSize) {
-      Debug::console("Stepsize is null or 0, i set it to 1");
+      if (Log::$levelDebug)
+            Log::debug("Stepsize is null or 0, i set it to 1");
       $setSize = 0.5;
     }
 

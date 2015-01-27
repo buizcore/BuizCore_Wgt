@@ -324,8 +324,8 @@ class LibTemplateAjax extends LibTemplateHtml
       if (Log::$levelVerbose)
         Log::verbose(__FILE__ , __LINE__, 'Parsing index: '.$filename);
 
-      if (DEBUG)
-        Debug::console('Parsing index: '.$filename);
+      if (Log::$levelDebug)
+            Log::debug('Parsing index: '.$filename);
 
       $stop = true; // block
       $VAR = $this->var;

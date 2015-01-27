@@ -84,7 +84,8 @@ class WgtElementMenu extends WgtMenu
   public function buildCrumbs()
   {
 
-    Debug::console('in build crumbs');
+    if (Log::$levelDebug)
+            Log::debug('in build crumbs');
 
     $crumbs = $this->data->crumbs;
 

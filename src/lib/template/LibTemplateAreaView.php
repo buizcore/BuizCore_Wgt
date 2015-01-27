@@ -263,7 +263,7 @@ class LibTemplateAreaView extends LibTemplateHtml
         'Failed to load the template :'.$template
       );
 
-      Debug::console('Failed to load the template :'.$template);
+      Log::error('Failed to load the template :'.$template);
 
       if (Log::$levelDebug)
         return "<p class=\"wgt-box error\">Template: {$template} does not exist.</p>";

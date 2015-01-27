@@ -224,8 +224,8 @@ class LibTemplateCli extends Pbase
 
       $this->object->content[$key] = $object;
 
-      if (DEBUG)
-        Debug::console('Created Item: '.$className .' key: '.$key);
+      if (Log::$levelDebug)
+            Log::debug('Created Item: '.$className .' key: '.$key);
 
       return $object;
 
@@ -257,8 +257,8 @@ class LibTemplateCli extends Pbase
         $object = new $className($key);
         $this->object->content[$key] = $object;
 
-        if (DEBUG)
-          Debug::console('Created Input: '.$className. ' key '.$key);
+        if (Log::$levelDebug)
+            Log::debug('Created Input: '.$className. ' key '.$key);
 
         return $object;
       }

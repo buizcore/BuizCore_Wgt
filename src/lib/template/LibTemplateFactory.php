@@ -38,8 +38,8 @@ class LibTemplateFactory
 
       $this->object->content[$key] = $object;
 
-      if (DEBUG)
-        Debug::console('Created Item: '.$className .' key: '.$key);
+      if (Log::$levelDebug)
+            Log::debug('Created Item: '.$className .' key: '.$key);
 
       return $object;
     }

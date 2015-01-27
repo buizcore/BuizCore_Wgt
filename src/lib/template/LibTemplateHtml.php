@@ -454,7 +454,7 @@ class LibTemplateHtml extends LibTemplatePublisher
   {
 
     if (is_null($this->subView)) {
-      Debug::console('NO SUBVIEW!!!!');
+      Log::warn('NO SUBVIEW!!!!');
     }
 
     if ($this->subView && 'page' == $this->subView->type) {
