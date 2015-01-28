@@ -63,6 +63,15 @@ class LibTemplateJson extends LibTemplateHtml
   {
     $this->data['body'] = $data;
   }//end public function setDataBody */
+  
+  /**
+   *
+   * @param array $data
+   */
+  public function setJson($data)
+  {
+      $this->data['body'] = $data;
+  }//end public function setJson */
 
   /**
    *
