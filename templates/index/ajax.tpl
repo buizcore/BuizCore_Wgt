@@ -114,3 +114,5 @@ HTML;
   <data type="<?php echo $this->returnType; ?>" ><![CDATA[<?php echo $this->jsonData; ?>]]></data>
 
 </wgt>
+
+<!-- wtf!  -->

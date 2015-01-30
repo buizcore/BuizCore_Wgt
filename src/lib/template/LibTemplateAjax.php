@@ -177,7 +177,7 @@ class LibTemplateAjax extends LibTemplateHtml
   {
 
     if (!$filename = $this->bodyPath($template)) {
-      Error::addError('failed to load the body template: '.$template);
+      Log::error('failed to load the body template: '.$template);
 
       return '<p class="wgt-box error">failed to load the body</p>';
     }
@@ -299,7 +299,7 @@ class LibTemplateAjax extends LibTemplateHtml
       $this->assembledBody = $content;
     } else {
       
-      Error::addError('failed to load the body');
+      Log::error('failed to load the body');
       $filename = BuizCore::templatePath('ajax_failed', 'index');
       
       $this->assembledBody = file_get_contents(
@@ -322,10 +322,10 @@ class LibTemplateAjax extends LibTemplateHtml
     if ($filename = BuizCore::templatePath($this->indexTemplate, 'index')) {
 
       if (Log::$levelVerbose)
-        Log::verbose(__FILE__ , __LINE__, 'Parsing index: '.$filename);
+        Log::verbose('Parsing index: '.$filename);
 
       if (Log::$levelDebug)
-            Log::debug('Parsing index: '.$filename);
+        Log::debug('Parsing index: '.$filename);
 
       $stop = true; // block
       $VAR = $this->var;
@@ -349,7 +349,7 @@ class LibTemplateAjax extends LibTemplateHtml
 
     } else {
 
-      Error::addError('Index Template does not exist: '.$filename);
+      Log::error('Index Template does not exist: '.$filename);
 
       if (Log::$levelDebug)
         $content = '<p class="wgt-box error">Wrong Index Template: '.$filename.' </p>';
