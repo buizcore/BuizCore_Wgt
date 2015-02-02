@@ -96,5 +96,6 @@ class WgtAjaxArea extends WgtTemplate
     return $this->not;
   }
 
+
 } // end class WgtAjaxArea
 

@@ -16,21 +16,36 @@ $R.addAction( 'req_search', function( jNode ){
     dropBox;
 
   if( !nForm ){
-    // ist als datavalue an eine form gebunden
-    formId = jNode.getActionClass('asgd',true,'-');
 
+
+    // ist als parameter an eine form gebunden
+    formId = jNode.getActionClass('up',true,'-');
+    
     if(!formId){
-      // ist als parameter an eine form gebunden
-      formId = jNode.getActionClass('fparam',true,'-');
+        // ist als parameter an eine form gebunden
+        formId = jNode.getActionClass('fparam',true,'-');
     }
-
+    
+    if(!formId){
+        // ist als parameter an eine form gebunden
+        formId = jNode.getActionClass('dp',true,'-');
+    }
+    
+    if(!formId){
+        // ist als parameter an eine form gebunden
+        formId = jNode.getActionClass('asgd',true,'-');
+    }
+    
     if( !formId ){
       console.log("found no form for the given search element");
       return;
     }
+    
     nForm = $S('form#'+formId);
 
     //console.log("found form "+formId);
+  } else {
+      formId = nForm.attr('id');
   }
 
   /*
@@ -52,15 +67,14 @@ $R.addAction( 'req_search', function( jNode ){
   };
 
   // custom event to trigger a search event
-  if( jNode.is('input[type=checkbox],input[type=hidden]') ){
+  if( jNode.is('input[type=checkbox],input[type=hidden],.search-trigger-onchange') ){
 
-    jNode.bind( 'change', evAction );
+    jNode.bind( 'change.wcm_search', evAction );
 
-  }
-  else{
+  } else {
 
     // on change & on return
-    jNode.bind( 'change', evAction ).keydown(function(e) {
+    jNode.bind( 'change.wcm_search', evAction ).keydown(function(e) {
 
       fTrigger = false;
       if(e.keyCode === $S.ui.keyCode.RETURN ) {
@@ -88,7 +102,7 @@ $R.addAction( 'req_search', function( jNode ){
     dropBox = jNode.attr('wgt_drop_trigger');
 
     if( dropBox ){
-      jNode.bind( 'click keydown', function(){
+      jNode.bind( 'click.wcm_search keydown.wcm_search', function(){
         $S('#'+dropBox).dropdown('open');
       });
     }

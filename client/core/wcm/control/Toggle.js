@@ -32,7 +32,7 @@ $R.addAction( 'control_toggle', function( jNode ){
   // wenn keine checkbox dann einfach toggle
   if (!jNode.is('input[type="checkbox"]')){
     
-    jNode.on('click',function(){
+    jNode.on('click.wcm_control_toggle',function(){
       
       if($S(trgtSrc).is(':visible')){
         $S(trgtSrc).hide();
@@ -134,7 +134,7 @@ $R.addAction( 'control_toggle', function( jNode ){
   $R.oneTimePostAjax(triggerA);
   
   // toggle vissibility on change of the state
-  jNode.bind( 'change', triggerA );
+  jNode.bind( 'change.wcm_control_toggle', triggerA );
     
   jNode.removeClass( "wcm_control_toggle" );
 
@@ -146,7 +146,7 @@ $R.addAction( 'control_close', function( jNode ){
 
   var trgtSrc = jNode.attr('data-target');
   
-	jNode.on('click',function(){
+	jNode.on('click.wcm_control_toggle',function(){
 		$S(trgtSrc).hide();
 	    return false;      
 	});

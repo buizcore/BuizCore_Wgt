@@ -583,7 +583,7 @@
 
 
       // check if there file inputs in the form
-      if( ( form.find(":file").length || $S(":file.asgd-"+formId).length  ) && $S.ajaxFileUpload ){
+      if( ( form.find(":file").length || $S(":file.asgd-"+formId+",:file.dp-"+formId).length  ) && $S.ajaxFileUpload ){
 
         response = $S.ajaxFileUpload({
           url       :formUrl+formParams.url+'&rqt=ajax'+'&csrf='+$S('#wgt-csrf-token').attr('id'),
@@ -623,7 +623,7 @@
         
       } else {
 
-        var formFields = form.find(":input").not(":submit").not(":reset").not(".wgt-ignore").not('.asgd-'+formId).not('.fparam-'+formId);
+        var formFields = form.find(":input").not(":submit").not(":reset").not(".wgt-ignore").not('.asgd-'+formId).not('.fparam-'+formId).not('.dp-'+formId).not('.up-'+formId);
         var formData = formFields.serialize();
         
 
@@ -650,7 +650,7 @@
           formData += '&'+externFields.serialize();
         */
 
-        var externFields = $S('.asgd-'+formId).not('.flag-template'),
+        var externFields = $S('.asgd-'+formId+',.dp-'+formId).not('.flag-template'),
             embededValues = externFields.not(':input').not('img'),
             imageValues = externFields.filter('img');
         
@@ -767,13 +767,13 @@
       }
 
       
-      var formSelect = ".fparam-"+formId;
+      var formSelect = ".fparam-"+formId+",.up-"+formId;
       
       if(formNs){
         
         //alert('formNs '+formNs);
         
-        formSelect += ",.fparam-"+formNs;
+        formSelect += ",.fparam-"+formNs+",.up-"+formNs;
       }
       
       // felder auslesen, die als zusätzliche parameter an eine form gehängt werden
@@ -870,7 +870,7 @@
       }
 
       // felder auslesen, die als zusätzliche parameter an eine form gehängt werden
-      var addParams = $S( ".fparam-"+formId );
+      var addParams = $S( ".fparam-"+formId+".up-"+formId );
       if( addParams.length ){
 
         url += '&'+addParams.serialize();

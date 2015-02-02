@@ -212,8 +212,26 @@ CODE;
    */
   public function asgd()
   {
-    return 'asgd-'.$this->id;
+    return 'dp-'.$this->id;
   }//end public function asgd */
+  
+  /**
+   * id zur suche
+   * @return string
+   */
+  public function dataParam()
+  {
+      return 'dp-'.$this->id;
+  }//end public function urlParam */
+
+  /**
+   * id zur suche
+   * @return string
+   */
+  public function urlParam()
+  {
+    return 'up-'.$this->id;
+  }//end public function urlParam */
 
   /**
    * Einfaches Inputfeld
@@ -558,6 +576,10 @@ CODE;
         $attributes['class'] = 'asgd-'.$this->id;
       else
         $attributes['class'] = '';
+      
+      if ($pNode->data_class) {
+          $attributes['class'] .= ' '.$pNode->data_class;
+      }
 
       if (!isset($attributes['name']))
         $attributes['name'] = $inpName;
