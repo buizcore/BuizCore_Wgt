@@ -1812,7 +1812,9 @@ abstract class LibTemplate extends BaseChild
             include $filename;
             $content = ob_get_contents();
             ob_end_clean();
+            
         } else {
+            
             Error::report('Index Template does not exist: '.$this->indexTemplate);
             
             // /TODO add some good error handler here
@@ -1859,7 +1861,9 @@ abstract class LibTemplate extends BaseChild
             include $filename;
             $content = ob_get_contents();
             ob_end_clean();
+            
         } else {
+            
             Error::report('Index Template does not exist: '.$this->indexTemplate);
             
             // /TODO add some good error handler here

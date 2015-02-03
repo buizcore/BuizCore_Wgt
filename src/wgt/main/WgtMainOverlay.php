@@ -262,7 +262,7 @@ CODE;
    */
   protected function reportXMLErrors($panel, $content, $bottom)
   {
-      if (DEBUG) {
+      if (defined('DEBUG_MARKUP')) {
           ob_start();
           $checkXml = new DOMDocument();
   

@@ -197,7 +197,7 @@ class LibViewOverlay extends LibTemplatePublisher
     ///TODO xml entitie replacement auslager
     $title = str_replace(array('&','<','>','"'), array('&amp;','&lt;','&gt;','&quot;'), $this->title);
 
-    if (DEBUG) {
+    if (defined('DEBUG_MARKUP')) {
       ob_start();
       $checkXml = new DOMDocument();
 
