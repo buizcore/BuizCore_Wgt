@@ -644,4 +644,6 @@ WgtClientException.prototype.constructor = WgtUserException;
 $S(document).ready(function(){
   "use strict";
   $WGT.eventInit();
+  
+  setInterval(function(){ $.fn.appear.run(); }, 750);
 });
