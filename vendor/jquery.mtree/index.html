@@ -45,7 +45,7 @@
 <h1 style="margin-top:150px;" align="center">jQuery mtree.js demos</h1>
 
 
-  <ul class="mtree transit">
+  <ul class="mtree jet">
     <li><a href="#">Africa</a>
       <ul>
         <li><a href="#">Algeria</a></li>
@@ -157,8 +157,45 @@
 <!--  -->
 <script src='http://cdnjs.cloudflare.com/ajax/libs/velocity/0.2.1/jquery.velocity.min.js'></script> 
 
-<script src="mtree.js"></script> 
+<script src="mtree.js"></script>
+
+
 <script>
+
+$(document).ready(function() {
+    
+  $('.mtree').mtree();
+    
+  var mtree = $('ul.mtree');
+  
+  // Skin selector for demo
+  mtree.wrap('<div class=mtree-demo></div>');
+  var skins = ['bubba','skinny','transit','jet','nix'];
+  mtree.addClass(skins[0]);
+  $('body').prepend('<div class="mtree-skin-selector"><ul class="button-group radius"></ul></div>');
+  var s = $('.mtree-skin-selector');
+  $.each(skins, function(index, val) {
+    s.find('ul').append('<li><button class="small skin">' + val + '</button></li>');
+  });
+  s.find('ul').append('<li><button class="small csl active">Close Same Level</button></li>');
+  s.find('button.skin').each(function(index){
+    $(this).on('click.mtree-skin-selector', function(){
+      s.find('button.skin.active').removeClass('active');
+      $(this).addClass('active');
+      mtree.removeClass(skins.join(' ')).addClass(skins[index]);
+    });
+  })
+  s.find('button:first').addClass('active');
+  s.find('.csl').on('click.mtree-close-same-level', function(){
+    $(this).toggleClass('active'); 
+  });
+});
+</script>
+
+ 
+<!--
+<script>
+
 $(document).ready(function() {
   var mtree = $('ul.mtree');
   
@@ -185,6 +222,7 @@ $(document).ready(function() {
   });
 });
 </script>
+-->
 
 
 </body>

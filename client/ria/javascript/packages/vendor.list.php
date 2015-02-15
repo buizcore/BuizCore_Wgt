@@ -51,12 +51,13 @@ $files[] = PATH_WGT.'js_src/vendor/jquery.chosen/chosen.jquery.js';
 
 $files[] = PATH_WGT.'vendor/jquery.month/jquery.monthpicker.js';
 $files[] = PATH_WGT.'vendor/jquery.selection/src/jquery.selection.js';
-$files[] = PATH_WGT.'vendor/jquery.nanoScroller/bin/javascripts/jquery.nanoscroller.js';
+$files[] = PATH_WGT.'vendor/jquery.nanoScroller/bin/javascripts/jquery.nanoscroller.js';  // custom scroll bar
 
-$files[] = PATH_WGT.'vendor/jquery.highlight/jquery.highlight.js'; // custom scroll bar
+$files[] = PATH_WGT.'vendor/jquery.highlight/jquery.highlight.js'; // << was genau war das nochmal?
 
-// Tags Input
-$files[] = PATH_WGT.'js_src/vendor/bootstrap.tagsinput/bootstrap-tagsinput.js';
+$files[] = PATH_WGT.'vendor/velocity/velocity.js';
+$files[] = PATH_WGT.'vendor/jquery.mtree/mtree.js';
+
 
 
 // add thirdparty jquery plugins
