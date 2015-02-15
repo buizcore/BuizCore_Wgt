@@ -7,6 +7,7 @@
         margin: 0px;
         padding: 0px;
         color: @content-header-font-color;
+        font-size: 22px;
     }
 }
 
@@ -14,16 +15,21 @@
 // verwendet standard h3 und p styles wenn nicht anders definiert
 .content--headed-list {
     
-    li{
+    li {
         padding-bottom: @padding-xs-horizontal;    
         margin-bottom: @margin-small; 
         border-bottom: 1px dotted #adb1b5;
     
-        &:last-child{
+        &:last-child {
             border-bottom: none;    
         }
+
     }
-    
+        
+    p {
+        line-height: 1.1 !important;
+    }
+        
     &.has-no-sep{
         li {
             border-bottom: none;        

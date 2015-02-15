@@ -30,36 +30,109 @@ $R.addAction( 'control_toggle', function( jNode ){
     trgtSrc = jNode.attr('data-target');// any valid jquery selector
   
   // wenn keine checkbox dann einfach toggle
-  if (!jNode.is('input[type="checkbox"]')){
-    
-    jNode.on('click.wcm_control_toggle',function(){
+  if (!jNode.is('input[type="checkbox"]')) {
       
-      if($S(trgtSrc).is(':visible')){
-        $S(trgtSrc).hide();
-        
-        if (jNode.attr('data-gc')) {
-          // schliesen des Menüs nach dem Request
-          $D.globalClick.tgcl = null;
-        }
-        
-      } else {
-        $S(trgtSrc).show();
-        
-        if (jNode.attr('data-gc')) {
-          // schliesen des Menüs nach dem Request
-          $D.globalClick.tgcl = function(evt){
+      
+      if (jNode.is('input[type="radio"]')) {
+          
+          jNode.on('click.wcm_control_toggle',function(){
+              
+              var evTNode, 
+                  actBox;
+              
+              if (jNode.attr('data-gc')) {
+                  // schliesen des Menüs nach dem Request
+                  $D.globalClick.tgcl = null;
+                }
+              
+              evTNode = $S(trgtSrc);
+              
+              if ($S(this).is(":checked" ) ){
+                  
+                  if(showNot){
+                      evTNode.each(function(){
+                          
+                          actBox = $S(this);
+                              if( actBox.is('[data-hidden="true"]') ){
+                                actBox.show();
+                              }else{
+                                actBox.hide();
+                              }
+                          });
+                      
+                  } else {
+                      
+                      evTNode.each(function(){
+                          
+                          actBox = $S(this);
+                              if( actBox.is('[data-hidden="true"]') ){
+                                actBox.hide();
+                              }else{
+                                actBox.show();
+                              }
+                          });
+                  }
+              } else {
+                  if(showNot) {
+                      
+                      evTNode.each(function(){
+                          
+                          actBox = $S(this);
+                              if( actBox.is('[data-hidden="true"]') ){
+                                actBox.hide();
+                              }else{
+                                actBox.show();
+                              }
+                          });
+                      
+                  } else {
+                      evTNode.each(function(){
+                          
+                          actBox = $S(this);
+                              if( actBox.is('[data-hidden="true"]') ){
+                                actBox.show();
+                              }else{
+                                actBox.hide();
+                              }
+                          });
+                  } 
+              }
+              
+              return true;
+              
+          });
+          
+      } else if ( !jNode.is('input[type="checkbox"]') ) {
+          
+          jNode.on('click.wcm_control_toggle',function(){
+          
+          if($S(trgtSrc).is(':visible')){
+            $S(trgtSrc).hide();
             
-            var theParent = $S(evt.target).parentX(trgtSrc);
-            
-            if (!(theParent || $S(evt.target).is(jNode))) {
-              $S(trgtSrc).hide();
+            if (jNode.attr('data-gc')) {
+              // schliesen des Menüs nach dem Request
+              $D.globalClick.tgcl = null;
             }
-          };
-        }
+            
+          } else {
+            $S(trgtSrc).show();
+            
+            if (jNode.attr('data-gc')) {
+              // schliesen des Menüs nach dem Request
+              $D.globalClick.tgcl = function(evt){
+                
+                var theParent = $S(evt.target).parentX(trgtSrc);
+                
+                if (!(theParent || $S(evt.target).is(jNode))) {
+                  $S(trgtSrc).hide();
+                }
+              };
+            }
+          }
+          
+          return false;      
+        });
       }
-      
-      return false;      
-    });
     
     return;
   }
@@ -88,8 +161,9 @@ $R.addAction( 'control_toggle', function( jNode ){
             actBox.hide();
           }
         });
-      }
-      else{
+        
+      } else {
+          
         evTNode.each(function(){
           
           actBox = $S(this);
@@ -101,15 +175,15 @@ $R.addAction( 'control_toggle', function( jNode ){
         });
       }
         
-    } else{
+    } else {
 
-      if( showNot ){
+      if ( showNot ) {
         evTNode.each(function(){
           
           actBox = $S(this);
-          if( actBox.is('[data-hidden="true"]') ){
+          if ( actBox.is('[data-hidden="true"]') ) {
             actBox.hide();
-          }else{
+          } else {
             actBox.show();
           }
         });
@@ -119,9 +193,9 @@ $R.addAction( 'control_toggle', function( jNode ){
         evTNode.each(function(){
           
           actBox = $S(this);
-          if( actBox.is('[data-hidden="true"]') ){
+          if ( actBox.is('[data-hidden="true"]') ) {
             actBox.show();
-          }else{
+          } else {
             actBox.hide();
           }
         });

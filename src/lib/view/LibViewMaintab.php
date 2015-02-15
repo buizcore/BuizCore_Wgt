@@ -65,6 +65,13 @@ class LibViewMaintab extends LibTemplatePublisher
 
   /**
    * @lang de:
+   * Der Inhalt des Title Panels
+   * @var string
+   */
+  public $icon = null ;
+
+  /**
+   * @lang de:
    * Kann das Tab Element vom User in Client später geschlossen werden
    * @var boolean
    */
@@ -374,7 +381,7 @@ class LibViewMaintab extends LibTemplatePublisher
   public function addMenuByKey($menuKey, $params = null)
   {
       
-      if(!$params)
+      if (!$params)
           $params = new TArray();
   
       try {
