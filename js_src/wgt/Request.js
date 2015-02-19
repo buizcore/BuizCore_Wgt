@@ -769,7 +769,7 @@
       
       var formSelect = ".fparam-"+formId+",.up-"+formId;
       
-      if(formNs){
+      if (formNs) {
         
         //alert('formNs '+formNs);
         
@@ -780,10 +780,14 @@
       var addParams = $S( formSelect );
       if( addParams.length ){
 
-        data.url += '&'+addParams.serialize();
+        data.url += '&'+addParams.not('.custom-p-name').serialize();
 
+        addParams.filter('.custom-p-name').each(function(){
+          data.url += '&'+$S(this).attr('data-p-name')+'='+$S(this).val();
+        });
+        
         addParams.filter('input[type="checkbox"]').not(":checked").each(function(){
-          data.url += '&'+$S(this).attr('name')+'=0';
+            data.url += '&'+$S(this).attr('name')+'=0';
         });
 
       }

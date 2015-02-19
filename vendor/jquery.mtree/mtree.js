@@ -62,7 +62,7 @@
                   isOpen = elPar.hasClass('mtree-open');
               
               // close other elements on same level if opening 
-              if((close_same_level || $('.csl').hasClass('active')) && !isOpen) {
+              if((close_same_level || localTree.find('.csl').hasClass('active')) && !isOpen) {
                   
                 var close_items = that.closest('ul').children('.mtree-open').not(elPar).children('ul');
                 
@@ -76,14 +76,14 @@
                     display: 'none',
                     delay: 100,
                     complete: function(){
-                      setNodeClass(elPar, true);
+                      setNodeClass($(this).parent(), true);
                     }
                   });
                   
                 // jQuery fallback
                 } else {
                   close_items.delay(100).slideToggle(duration, function(){
-                    setNodeClass(elPar, true);
+                    setNodeClass($(this).parent(), true);
                   });
                 }
               }

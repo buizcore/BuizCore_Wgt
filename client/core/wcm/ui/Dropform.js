@@ -6,6 +6,7 @@
 $R.addAction( 'ui_dropform', function( jNode ){
 
   var source = jNode.find( 'var:first' ),
+      confAddr = null;
     props = {};
   
   // entfernen der klasse
@@ -15,6 +16,19 @@ $R.addAction( 'ui_dropform', function( jNode ){
   if (source.is('var')) {
     props =  $WGT.robustParseJSON( source.text() );
     source.remove();
+  } else {
+      
+      confAddr = jNode.attr('data-conf-ui_dropform');
+      
+      if (confAddr) {
+          
+          source = $(confAddr);
+          
+          if (source.is('var')) {
+              props =  $WGT.robustParseJSON( source.text() );
+              source.remove();
+          }
+      }
   }
 
   if( undefined === props.button ){

@@ -118,6 +118,7 @@ $files[] = PATH_WGT.'client/core/wcm/form/Timepicker.js';
 $files[] = PATH_WGT.'client/core/wcm/form/MultiSelect.js';
 $files[] = PATH_WGT.'client/core/wcm/form/Month.js';
 $files[] = PATH_WGT.'client/core/wcm/form/Money.js';
+$files[] = PATH_WGT.'client/core/wcm/form/Treeselect.js';
 
   // Validation
 $files[] = PATH_WGT.'client/core/wcm/valid/Required.js';

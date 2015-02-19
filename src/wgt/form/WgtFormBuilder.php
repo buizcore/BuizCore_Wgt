@@ -232,6 +232,25 @@ CODE;
   {
     return 'up-'.$this->id;
   }//end public function urlParam */
+  
+  /**
+   * @param string $name
+   * @return string
+   */
+  public function getIdByName($name)
+  {
+      
+      $tmp = explode(',', $name);
+      
+      if (count($tmp) > 1) {
+          $id = $this->inpIdPrefix.$tmp[0]."-".$tmp[1];
+      } else {
+          $id = str_replace(['[',']'], ['-',''], $this->inpIdPrefix.$tmp[0]);
+      }
+      
+      return 'wgt-input-'.$id;
+      
+  }//end public function getIdByName */
 
   /**
    * Einfaches Inputfeld
