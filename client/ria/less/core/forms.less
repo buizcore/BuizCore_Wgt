@@ -373,11 +373,20 @@ select.search {
     font-weight: bold;
     line-height: @input-height;    
     text-align: right;
-    white-space: nowrap;
     padding-right: @padding-y-base;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;    
+    
     label{
         line-height: @input-height;
         text-align: right;    
+    
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    
     }
 }
         
