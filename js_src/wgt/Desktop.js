@@ -127,6 +127,8 @@
 
       $S('.wgt-tip').remove();
       this.setTitle( $C.windowTitle );
+      
+      $('.wgt-dropform-overlay').hide();
     };
 
     /**
@@ -465,6 +467,12 @@
       });
       
     };
+    
+    this.closeTab = function( tabId ){
+        $UI.tab.remove( 'wgt-maintab',  tabId);
+        $D.closeView();  
+    };
+
 
     /**
      *
@@ -474,6 +482,7 @@
      */
     this.getTabsWidth = function( tc ){
 
+        alert('getTabsWidth');
       return ( tc.find('.tab:last').position().left - tc.find('.tab:first').position().left + tc.find('.tab:last').outerWidth(true) + 6 );
 
     };//end this.getTabsWidth

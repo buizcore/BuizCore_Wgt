@@ -49,6 +49,7 @@
     /**
      * aktivieren und deaktivieren der lightbox
      * @param boolean activate
+     * @deprecated used Desktop:resetForm
      */
     this.resetForm = function( formId ){
       
@@ -71,7 +72,7 @@
       });
       
     };
-
+    
     
   }//end class WgtUi
 
