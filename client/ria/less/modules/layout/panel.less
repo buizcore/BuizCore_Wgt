@@ -5,7 +5,8 @@
 
     height: @panel-height-base;
     padding: @padding-x-xs @padding-y-xs;
-    padding-left: @padding-y-xl;
+    padding-left: @padding-y-base;
+    padding-right: @padding-y-base;    
     margin:0px !important;
     overflow:hidden;
     clear:both;
@@ -67,31 +68,31 @@
   
 
 
-  &.title {
-    //.v-gradient (@bgP2Light; @bgP2Dark);
-  }
+    &.title {
+        //.v-gradient (@bgP2Light; @bgP2Dark);
+    }
 
-  label.text {
-    display:block;
-    float:left;
-    min-width:80px;
-  }
+    label.text {
+        display:block;
+        float:left;
+        min-width:80px;
+    }
   
-  input {
-    height: @panel-elements-height !important;
-    line-height: @panel-elements-height  !important;
-    width:190px;
-    font: 500 13px @font-family-base;
-    
-    color: @input-fc;
-    border: @wgt-border;
-    //.box-shadow(~"0 0 3px rgba(0,0,0,.13)");
-  }
+    input {
+        height: @panel-elements-height !important;
+        line-height: @panel-elements-height  !important;
+        width:190px;
+        font: 500 13px @font-family-base;
+        
+        color: @input-fc;
+        border: @wgt-border;
+        //.box-shadow(~"0 0 3px rgba(0,0,0,.13)");
+    }
 
-  .buttons {
-    float:left;
-    padding-top:5px;
-  }
+    .buttons {
+        float:left;
+        padding-top:5px;
+    }
 
   .wgt-button,
   .wgt-button-set label,

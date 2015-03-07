@@ -99,8 +99,7 @@ td + td {
 // table & datagrid
 
 .wgt-table,
-.wgt-data-grid
-{
+.wgt-data-grid {
   padding:0px;
   margin:0px;
   clear:both;
@@ -113,8 +112,17 @@ td + td {
     overflow: hidden;
 }
 
-.wgt-table.categorized td:first-child
-{
+.wgt-table td:first-child,
+.wgt-grid td:first-child {
+  padding-left:15px;
+}
+
+.wgt-table td:last-child,
+.wgt-grid td:last-child  {
+  padding-right:15px;
+}
+
+.wgt-table.categorized td:first-child {
   padding-left:20px;
 }
 
@@ -127,8 +135,7 @@ td + td {
 .wgt-table th span,
 .wgt-table th a,
 .wgt-table tbody td,
-.wgt-table tfoot div
-{
+.wgt-table tfoot div {
   padding: 3px;
 }
 
