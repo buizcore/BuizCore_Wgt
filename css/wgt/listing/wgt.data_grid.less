@@ -186,15 +186,26 @@ div.wgt-grid {
       
       table-layout:fixed;
     
-      tbody td {
-        padding: 7px !important;
+
+    }
     
+    td {
+        padding: 7px;
+        overflow:hidden;
+      
+        &.pos.checked {
+            background-color:@wgt-controls-bgc;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-align:left;
+        }
+        
         ul {
           margin-left:15px;
-    
+        
           &.wgt-list {
             list-style-type:decimal;
-    
+        
             li {
               border-bottom: 1px dotted silver;
             }
@@ -213,22 +224,8 @@ div.wgt-grid {
           padding-top:0px !important;
           padding-bottom:0px !important;
         }
-      }
     }
-    
-    td {
-      //border-bottom: @border-box;
-      //border-right: none;  
-      
-      overflow:hidden;
-      
-      &.pos.checked {
-        background-color:@wgt-controls-bgc;
-        font-weight: bold;
-        color: #FFFFFF;
-        text-align:left;
-      }
-    }
+
     
     td.date,
     td.time,
@@ -271,50 +268,44 @@ div.wgt-grid {
     }
   }
   
-  div.wgt-grid-body,
-  div.wgt-grid-foot,
-  div.wgt-grid-body,
-  div.wgt-grid-head {
-    table {
+    div.wgt-grid-body,
+    div.wgt-grid-foot,
+    div.wgt-grid-body,
+    div.wgt-grid-head {
       
-      //border-right: @border-box;
-    
-      tbody td {
-        overflow: hidden !important;
-        //border-right: @border-box;
-        border-right: none;
-        padding:0px;
-      }
-      
-      thead th{
-        overflow: hidden !important;
-        //border-right: @border-box;
-        border-right: none;        
-        padding: 7px;      
-      }
-    }
-  
-  }
-  
-  div.wgt-grid-foot,
-  div.wgt-grid-head {
-    table {
-      
-      //border-right: @border-box;
+        td,
+        th {
+            overflow: hidden !important;
+            border-right: none;       
+            padding: 7px;    
+        }
         
-      thead th,
-      tbody td {
-        background-color: #F6F6F6;
-      }
-
+        td:first-child,
+        th:first-child {   
+            padding-left: 15px;    
+        }
+        
+        td:last-child,
+        th:last-child {   
+            padding-right: 15px;    
+        }        
+    
     }
   
-  }
+    div.wgt-grid-foot,
+    div.wgt-grid-head {
+      
+        th,
+        td {
+            background-color: #F6F6F6;
+        }
+    
+    }
   
-  div.wgt-grid-body table thead th,
-  div.wgt-grid-head table thead th {
-    white-space: nowrap;
-  }
+    div.wgt-grid-body th,
+    div.wgt-grid-head th {
+        white-space: nowrap;
+    }
   
   div.wgt-grid-head table thead th {
     
@@ -734,11 +725,13 @@ table.wgt-grid.no-hover tbody tr{
 }
 
 
-div.wgt-grid-body table.wgt-grid tfoot input,
-div.wgt-grid-body table.wgt-grid tfoot select,
-div.wgt-grid-body table.wgt-grid tfoot textarea {
-  border:1px solid black;
-  background-color:white;
+div.wgt-grid-body {
+    tfoot input,
+    tfoot select,
+    tfoot textarea {
+      border:1px solid black;
+      background-color:white;
+    }
 }
 
 
