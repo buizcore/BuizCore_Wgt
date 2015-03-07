@@ -36,11 +36,11 @@ div.wgt-grid.half {
   &.create-bar,
   &.search-bar{
     div.wgt-grid-head{
-      height:56px;    
+      height:62px;    
     }
     
     div.wgt-grid-body{
-      top:58px;
+      top:64px;
     }
   }
   
@@ -296,6 +296,21 @@ div.wgt-grid {
   
   }
   
+  div.wgt-grid-foot,
+  div.wgt-grid-head {
+    table {
+      
+      //border-right: @border-box;
+        
+      thead th,
+      tbody td {
+        background-color: #F6F6F6;
+      }
+
+    }
+  
+  }
+  
   div.wgt-grid-body table thead th,
   div.wgt-grid-head table thead th {
     white-space: nowrap;
@@ -343,12 +358,12 @@ table.wgt-grid {
 .wgt-grid tbody tr {
 
   &:nth-of-type(even) {
-    background-color:#F9F9F9;
+    background-color:#DDD;    
     //.background-image(~"linear-gradient(bottom, #f7f7f9 0%, #f7f7f7 26.32%, #f5f7f7 52.17%, #f5f5f7 85.82%, #f5f5f5 100%)");
   }
 
-  &:nth-of-type(odd) {
-    background-color:#DDD;    
+  &:nth-of-type(odd) {  
+    background-color:#F9F9F9;      
   }
   
   .ui-sortable td.pos {
@@ -488,15 +503,18 @@ div.wgt-grid-head {
       
       input,
       select {
-        height:24px;
-        width:100%;
+        
+        height: 24px;
+        width: 100%;
         font: 500 13px @font-family-base;
+        .border-radius(none);
         
         color: #656565;
       
-        border: none;      
+        border: none;    
+        border-right: 1px solid #F6F6F6;
         //border-top: 2px groove @wgt-border-color;
-        .box-shadow(~"0 0 3px rgba(0,0,0,.13)");
+        //.box-shadow(~"0 0 3px rgba(0,0,0,.13)");
         
         &:focus {
       	   border: 1px solid #90c6e9 !important;
