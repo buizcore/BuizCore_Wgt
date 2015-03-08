@@ -264,7 +264,7 @@ CODE;
     $label,
     $name,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -288,7 +288,7 @@ CODE;
       $attributes['id'] = "wgt-input-{$id}";
     }
 
-    $attributes['type'] = 'text';
+    $attributes['type'] = $pNode->inp_type;
 
     if (!isset($attributes['class']))
       $attributes['class'] = $pNode->size;
@@ -387,7 +387,7 @@ CODE;
     $label,
     $name,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -494,7 +494,7 @@ CODE;
   (
     $name,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -553,7 +553,7 @@ CODE;
     $name,
     $value = null,
     $loadUrl = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -715,7 +715,7 @@ CODE;
   public function decorateBuffer(
     $label,
     $id,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
       
@@ -762,7 +762,7 @@ CODE;
     $label,
     $id,
     $element,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -807,7 +807,7 @@ CODE;
     $label,
     $name,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -889,7 +889,7 @@ CODE;
     $label,
     $name,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -945,11 +945,11 @@ CODE;
     } else  if ($pNode->inp_only) {
         
         $html = <<<CODE
-
+<div id="wgt_box_{$id}" class="box-form-node has-clearfix" >
   <div class="box-form-node-element is-standalone is-textarea {$pNode->size} " >
     <textarea {$codeAttr}>{$value}</textarea>
   </div>
-        
+</div>
 CODE;
   
     } else {
@@ -984,7 +984,7 @@ CODE;
     $label,
     $name,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -1102,7 +1102,7 @@ CODE;
       $value = null,
       $textValue = null,
       $linkKey = null,
-      $attributes = array(),
+      $attributes = [],
       $params = null
   ) {
   
@@ -1229,7 +1229,7 @@ CODE;
     $label,
     $name,
     $checked,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -1311,8 +1311,8 @@ CODE;
     $label,
     $name,
     $active,
-    $data = array(),
-    $attributes = array(),
+    $data = [],
+    $attributes = [],
     $params = null
   ) {
 
@@ -1434,7 +1434,7 @@ HTML;
     $label,
     $name,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null,
     $check = true
   ) {
@@ -1618,7 +1618,95 @@ CODE;
 
   }//end public function input */
 
+  /**
+   * @param string $name
+   * @param string $value
+   * @param string $data
+   * @param string $active
+   * @param array $attributes
+   * @param array $params
+   */
+  public function selectbox
+  (
+      $label,
+      $name,
+      $data,
+      $active = null,
+      $attributes = [],
+      $params = null
+  ) {
+  
+      $pNode = $this->prepareParams($params);
+  
+      if (isset($attributes['id'])) {
+          
+          $id = $this->inpIdPrefix.$attributes['id'];
+          $inpName = $name;
+          
+      } else {
+  
+          $tmp = explode(',', $name);
+          $tmpId = str_replace(array('[',']'), array('-','-'), $tmp[0]);
+  
+          if (count($tmp) > 1) {
+  
+              $id = $this->inpIdPrefix.$tmpId."-".$tmp[1];
+              $inpName = $tmp[0]."[{$tmp[1]}]";
+          } else {
+              $id = $this->inpIdPrefix.$tmpId;
+              $inpName = $tmp[0];
+          }
+  
+          $attributes['id'] = "wgt-input-{$id}";
+      }
+  
+      if (!isset($attributes['name'])) {
+          $attributes['name'] = $name;
+      }
+  
+      if (!isset($attributes['class'])) {
+          $attributes['class'] = 'asgd-'.$this->id;
+      } else {
+          $attributes['class'] .= ' asgd-'.$this->id;
+      }
+  
+      if ($pNode->inp_only) {
+          $attributes['class'] .= ' is-standalone ';
+      }
 
+      $selectBoxNode = new WgtSelectbox();
+  
+  
+      if ($pNode->inp_only && !isset($attributes['placeholder'])) {
+          $attributes['placeholder'] = $label;
+          $selectBoxNode->setFirstFree($label);
+      }
+  
+      $selectBoxNode->addAttributes($attributes);
+  
+      $selectBoxNode->assignedForm = $this->id;
+  
+      $selectBoxNode->setActive($active);
+  
+      $selectBoxNode->setReadonly($pNode->readonly);
+      $selectBoxNode->setRequired($pNode->required);
+  
+      if ($data) {
+          $selectBoxNode->setData($data);
+      }
+  
+      $selectBoxNode->setLabel($label);
+  
+      $selectBoxNode->inpOnly = $pNode->inp_only;
+  
+      // set an empty first entry
+      if (!is_null($pNode->firstFree))
+          $selectBoxNode->setFirstFree($pNode->firstFree);
+  
+      return $this->out($selectBoxNode->build());
+  
+  }//end public function selectbox */
+  
 
   /**
    * @param string $name
@@ -1636,7 +1724,7 @@ CODE;
     $elementKey,
     $data,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -1721,14 +1809,13 @@ CODE;
    * @param array $attributes
    * @param array $params
    */
-  public function multiSelectByKey
-  (
+  public function multiSelectByKey(
     $label,
     $name,
     $elementKey,
     $data,
     $value = null,
-    $attributes = array(),
+    $attributes = [],
     $params = null
   ) {
 
@@ -1764,12 +1851,11 @@ CODE;
 
     $selectBoxNode = new $elementKey();
 
-    $selectBoxNode->addAttributes(
-      array(
+    $selectBoxNode->addAttributes([
         'name' => $name,
         'id' => $id,
         'class' => 'asgd-'.$this->id,
-      )
+      ]
     );
     $selectBoxNode->setWidth('small');
 
@@ -1835,7 +1921,7 @@ HTML
 
     foreach ($labels as $lang => $label) {
       $listLabels .= '<li class="lang-'.$lang.'" >'. WgtForm::input(
-        'Lang '.Wgt::icon('flags/'.$lang.'.png', 'xsmall', array(), ''),
+        'Lang '.Wgt::icon('flags/'.$lang.'.png', 'xsmall', [], ''),
         $this->domainKey.'-label-'.$lang,
         $label, array(
           'name' => $nodeKey.'[label]['.$lang.']',
@@ -2079,6 +2165,9 @@ CODE;
 
     if (!$pNode->size)
       $pNode->size = $size;
+    
+    if (!$pNode->inp_type)
+        $pNode->inp_type = 'text';
 
     if ($pNode->required)
       $pNode->requiredText = ' <span class="wgt-required" >*</span>';

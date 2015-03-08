@@ -60,7 +60,7 @@ class WgtFormBuilderElements extends WgtFormBuilder
       $attributes['id'] = "wgt-input-{$id}";
     }
 
-    $attributes['type'] = 'text';
+    $attributes['type'] = $pNode->input_type;
 
     if (!isset($attributes['class']))
       $attributes['class'] = $pNode->size;
