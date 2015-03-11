@@ -51,7 +51,7 @@ class WgtElementContentBox extends WgtAbstract
 <section class="wgt-content_box inline wgt-space">
 
   <header>
-    <h2>{$this->label}</h2>
+    <h2 class="wgt-header-l-2" >{$this->label}</h2>
   </header>
 
   <div class="content">

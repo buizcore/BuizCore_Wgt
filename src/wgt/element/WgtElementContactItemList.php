@@ -158,7 +158,7 @@ HTML;
               "initLoad": true
            }</var>
            
-        <h3>Kontaktdaten {$codeControls}</h3>
+        <h3 class="wgt-header-l-3" >Kontaktdaten {$codeControls}</h3>
         <div class="do-clear tiny" > </div>
         <ul class="root" ></ul>
         <div class="do-clear tiny" > </div>

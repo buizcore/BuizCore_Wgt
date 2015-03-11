@@ -16,6 +16,9 @@ $R.addAction( 'form_treeselect', function( jNode ){
       if ($(this).is('.value_node')) {
           $(jNode.attr('data-target-field')+'-text').val($(this).text());
           $(jNode.attr('data-target-field')).val($(this).attr('data-value'));
+          
+          $('.wgt-dropform-overlay').hide();
+          
       } else {
           $(jNode.attr('data-target-field')+'-text').val('');
           $(jNode.attr('data-target-field')).val('');
