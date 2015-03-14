@@ -947,8 +947,6 @@ abstract class LibTemplate extends BaseChild
     } // end public function newArea */
 
     /**
-     * Enter description here...
-     *
      * @param string $key            
      * @param string $content            
      * @return LibTemplatePhp
@@ -961,8 +959,6 @@ abstract class LibTemplate extends BaseChild
     } // end public function setArea */
 
     /**
-     * Enter description here...
-     *
      * @param string $key            
      * @param string $area            
      * @return LibTemplatePhp
@@ -1050,14 +1046,9 @@ abstract class LibTemplate extends BaseChild
         $type = $type ? ucfirst($type) : ($key);
         
         $className = $type.'_Form';
-        $classNameOld = 'WgtForm'.$type;
-        
-        if (! BuizCore::classExists($className)) {
-            // fall back to old name convention
-            $className = $classNameOld;
-            if (! BuizCore::classExists($className))
-                throw new LibTemplate_Exception('Requested noexisting form '.$type);
-        }
+    
+        if (!BuizCore::classExists($className))
+            throw new LibTemplate_Exception('Requested noexisting form '.$type);
         
         $form = new $className($this);
         

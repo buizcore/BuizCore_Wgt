@@ -174,6 +174,35 @@ abstract class WgtWidget extends PBase
         return $templateData;
         
     }//end public function getTplContent */
+    
+    /**
+     *
+     */
+    public function sendAsArea($selector, $action)
+    {
+    
+        $tpl = $this->getTpl();
+    
+        $area = $tpl->newArea($selector);
+    
+        $area->position = $selector;
+        $area->action = $action;
+        $area->setContent( $this->renderWidget() );
+    
+    }//end public function sendAsArea */
+    
+    /**
+     * kann implementiert werden, hat keine parameter
+     * Daten in dem fall vorher auf dem objekt setzen
+     *
+     * @return string
+     */
+    public function renderWidget()
+    {
+        return '';
+    }//end public function renderItem */
+    
+
 
     /**
      * Methode wir beim initialisieren des Widgest aufgerufen
