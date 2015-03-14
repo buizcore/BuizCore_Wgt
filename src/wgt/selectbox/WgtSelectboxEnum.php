@@ -261,7 +261,7 @@ HTML;
 
         $optClass = '';
 
-        if ($this->activ) {
+        if (!is_null($this->activ)) {
           $selected = ($this->activ == $id)
             ? 'selected="selected"'
             : '';
@@ -319,7 +319,7 @@ HTML;
         
                 $optClass = '';
         
-                if ($this->activ && in_array($id , $this->activ)) {
+                if (in_array($id , $this->activ)) {
                     $values[] = $value;
                 }
             }
@@ -331,7 +331,7 @@ HTML;
             $values = '';
             
             foreach ($this->data as $id => $value) {
-                if ($this->activ && $this->activ == $id) {
+                if (!is_null($this->activ) && $this->activ == $id) {
                     $values = $value;
                 }
             }
@@ -402,7 +402,7 @@ HTML;
 
         $optClass = '';
 
-        if ($this->activ) {
+        if (!is_null($this->activ)) {
           $selected = ($this->activ == $id)
             ? 'selected="selected"'
             : '';

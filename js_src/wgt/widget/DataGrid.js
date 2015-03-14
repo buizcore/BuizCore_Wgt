@@ -476,11 +476,11 @@
 
       jHeadTab.find('i.sort').each( function(){
 
-         var imgNode = $S(this);
+         var imgNode = $S(this)
 
-         imgNode.bind("click.grid", function() {
+         imgNode.parentX('th').bind("click.grid", function() {
 
-          var nIcon = $S(this),
+          var nIcon = $S(this).find('i.sort'),
             pIcon = nIcon.parent();
 
           if( pIcon.hasClass('sort-asc') ){
@@ -620,7 +620,7 @@
         headTab += "<p class=\"label\" >"+node.innerHTML+"</p>";
         headTab += "<p class=\"order"+sortClass+"\" >";
         headTab += "<i class=\""+sortIcon+" sort\" ></i>";
-        headTab += '<input type="hidden" name="'+nodeName+'" value="'+sortVal+'" class="wcm wcm_req_search wgt-no-save fparam-'+opt.search_form+'" />';
+        headTab += '<input type="hidden" data-parent-click="th" name="'+nodeName+'" value="'+sortVal+'" class="wcm wcm_req_search wgt-no-save fparam-'+opt.search_form+'" />';
         headTab += "</p>";
         headTab += "</div></th>";
 

@@ -13,7 +13,17 @@ $R.addAction( 'req_search', function( jNode ){
     formId,
     evAction,
     fTrigger,
+    parentSelector,
+    triggerNode,
     dropBox;
+  
+  parentSelector = jNode.attr('data-parent-click');
+  
+  if (parentSelector) {
+      triggerNode = jNode.parentX(parentSelector);
+  } else {
+      triggerNode = jNode;
+  }
 
   if( !nForm ){
 
@@ -67,14 +77,14 @@ $R.addAction( 'req_search', function( jNode ){
   };
 
   // custom event to trigger a search event
-  if( jNode.is('input[type=checkbox],input[type=hidden],.search-trigger-onchange') ){
+  if( triggerNode.is('input[type=checkbox],input[type=hidden],.search-trigger-onchange') ){
 
-    jNode.bind( 'change.wcm_search', evAction );
+      triggerNode.bind( 'change.wcm_search', evAction );
 
   } else {
 
     // on change & on return
-    jNode.bind( 'change.wcm_search', evAction ).keydown(function(e) {
+      triggerNode.bind( 'change.wcm_search', evAction ).keydown(function(e) {
 
       fTrigger = false;
       if(e.keyCode === $S.ui.keyCode.RETURN ) {
@@ -102,7 +112,7 @@ $R.addAction( 'req_search', function( jNode ){
     dropBox = jNode.attr('wgt_drop_trigger');
 
     if( dropBox ){
-      jNode.bind( 'click.wcm_search keydown.wcm_search', function(){
+        triggerNode.bind( 'click.wcm_search keydown.wcm_search', function(){
         $S('#'+dropBox).dropdown('open');
       });
     }

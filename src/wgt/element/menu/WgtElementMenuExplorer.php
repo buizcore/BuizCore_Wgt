@@ -148,5 +148,5 @@ class WgtElementMenuExplorer extends WgtElementMenu
 
   }//end protected function renderListEntry */
 
-} // end class WgtMenuFolder
+} // end class WgtElementMenuExplorer
 

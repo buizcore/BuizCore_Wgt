@@ -426,7 +426,7 @@ class Wgt
     $src = $path.$thumb.$idPath.$id.'.jpg';
 
     if (!file_exists($src)) {
-      $src = View::$themeWeb.'/images/wgt/not_available.png';
+      $src = PATH_WGT.'themes/classic/ria/images/placeholder/not_available.png';
       $attributes['alt'] = 'This is just a placeholder, cause there is no original pic';
     }
 
