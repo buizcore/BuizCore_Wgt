@@ -19,6 +19,11 @@
 
 $files[] = PATH_WGT.'js_src/i18n/i18n.de.js';
 
+
+// basis codes
+$files[] =   PATH_WGT.'client/core/form/Validator.js';
+
+
 // jquery ui extensions
 $files[] =   PATH_WGT.'js_src/ext/jquery.ui/accordion.js';
 

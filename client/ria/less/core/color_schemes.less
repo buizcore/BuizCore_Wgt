@@ -119,6 +119,21 @@
 
 // status 
 
+.state-emp,
+.is-required {
+    color: #7EC17E;    
+    background-image:none;
+    background-color: #7EC17E;
+    border: 1px solid #7EC17E;  
+}
+
+.is-proposed {
+    color: #FFB580;    
+    background-image:none;
+    background-color: #FFB580;
+    border: 1px solid #FFB580;  
+}
+
 .state-ok {
     background-image:none;
     background-color: @btn-primary-bg;
@@ -152,6 +167,24 @@
     background-image:none;
     background-color:@btn-success-bg;
     border: 1px solid @btn-success-border;    
+}
+
+input,
+textarea,
+select {
+    
+    &.state-emp,
+    &.is-required,
+    &.is-proposed,    
+    &.state-ok,
+    &.state-warn,
+    &.state-bad,
+    &.state-frozen,
+    &.state-completed {
+        background-color: white;
+        color: #5b626b;
+    }
+    
 }
 
 

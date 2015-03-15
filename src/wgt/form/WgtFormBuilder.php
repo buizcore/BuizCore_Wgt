@@ -912,7 +912,7 @@ CODE;
         $inpName = $tmp[0];
       }
 
-      $attributes['id'] = "wgt-textarea-{$id}";
+      $attributes['id'] = "wgt-input-{$id}";
     }
 
     $attributes['class'] = ''.$pNode->size;
@@ -2106,13 +2106,34 @@ HTML;
 
     if ($icon)
       $codeIcon = $this->view->icon($icon, $label).' ';
+    
+    $jsCode = '';
+    
+    if (!is_null($appendCode)) {
+        
+        if(false === $appendCode){
+            $jsCode = '';
+        } else {
+            $jsCode = <<<CODE
+onclick="\$R.form('{$this->id}');{$appendCode}"
+CODE;
+        }
+        
+    } else {
+        $jsCode = <<<CODE
+onclick="\$R.form('{$this->id}');{$appendCode}"
+CODE;
+    }
+    
+
 
     $html = <<<CODE
 
 <button 
     class="wgt-button bcs-d-submit" 
+    id="wgt-button-{$this->inpIdPrefix}-submit"
     tabindex="-1" 
-    onclick="\$R.form('{$this->id}');{$appendCode}"  >{$codeIcon}{$label}</button>
+    {$jsCode}  >{$codeIcon}{$label}</button>
 
 CODE;
 

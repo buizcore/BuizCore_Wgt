@@ -182,8 +182,17 @@
      * @param title
      * @param message
      */
-    this.errorWindow = function( title, message ){
+    this.errorWindow = function( title, message, dim ){
 
+        
+      var winWidth = 600,
+          winHeight= 480;
+        
+      if(dim){
+          winWidth = dim[0];
+          winHeight = dim[1];
+      }
+      
       if( console.trace ){
         console.trace();
       }
@@ -207,7 +216,8 @@
       $S(template).dialog({
         bgiframe: false,
         resizable: true,
-        height:200,
+        width:winWidth,
+        height:winHeight,
         modal: true,
         overlay:{
           backgroundColor: '#000',
