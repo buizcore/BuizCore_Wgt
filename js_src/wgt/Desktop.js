@@ -237,17 +237,27 @@
      * @param Confirm
      * @param callBack function to be called on confirm
      */
-    this.confirmWindow = function( title, message, Confirm, callBack ){
+    this.confirmWindow = function( title, message, Confirm, callBack, dim ){
 
       var templateNode = this.template(
         $S("#wgt-template-dialog").html(),
         {'title':title,'message':message}
       );
+      
+      var winWidth = 600,
+      winHeight= 480;
+    
+      if(dim){
+          winWidth = dim[0];
+          winHeight = dim[1];
+      }
+  
 
       $S(templateNode).dialog({
         bgiframe  : false,
         resizable : true,
-        height    : 200,
+        height    : winHeight,
+        width    : winWidth,
         modal     : true,
         overlay   :{
           backgroundColor: '#000',

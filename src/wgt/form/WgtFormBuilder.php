@@ -914,8 +914,12 @@ CODE;
 
       $attributes['id'] = "wgt-input-{$id}";
     }
+    
+    if (!isset($attributes['class'])) {
+        $attributes['class'] = '';
+    }
 
-    $attributes['class'] = ''.$pNode->size;
+    $attributes['class'] .= ' '.$pNode->size;
 
     if ($this->id)
       $attributes['class']  .= ' asgd-'.$this->id;
