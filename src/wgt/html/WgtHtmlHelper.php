@@ -34,7 +34,43 @@ class WgtHtmlHelper
             return '<i class="fa fa-square-o" ></i>';
         }
         
-    }
+    }//end public function booleanToCheckIcon */
+    
+    /**
+     * @param string $name
+     * @param string $alt
+     * @param string $size
+     */
+    public function icon($name, $alt, $size = 'xsmall', $attributes = array())
+    {
+    
+        $attributes['alt'] = $alt;
+    
+        return Wgt::icon($name, $size, $attributes);
+    
+    }//end public function icon */
+    
+    /**
+     * @param string $name
+     * @param string $alt
+     * @param string $size
+     */
+    public function iconUrl($name, $size = 'xsmall')
+    {
+        return Wgt::iconUrl($name, $size);
+    
+    }//end public function iconUrl */
+    
+    /**
+     * @param string $name
+     * @param string $param
+     * @param boolean $flag
+     */
+    public function image($name, $param, $flag = false)
+    {
+        return Wgt::image($name, array('alt'=>$param),true);
+    
+    }//end public function image */
 
 } // end class WgtHtmlHelper
 

@@ -5,6 +5,8 @@
  */
 $R.addAction( 'ui_dropform', function( jNode ){
 
+    console.log('found wcm_ui_dropform '+jNode.attr('id'));
+    
   var source = jNode.find( 'var:first' ),
       confAddr = null;
     props = {};
@@ -69,10 +71,10 @@ $R.addAction( 'ui_dropform', function( jNode ){
 
   if( props.url ){
 
-    jNode.click( function( event ){
+    jNode.on( 'click.overlay', function( event ){
 
-      nextNode = jNode.next();
-      nodeId = jNode.attr('id');
+      var nextNode = jNode.next();
+      var nodeId = jNode.attr('id');
 
       overlayData = jNode.data( 'mini-menu-overlay' );
 

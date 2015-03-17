@@ -268,7 +268,7 @@ $slctTextStrict->setId('wgt-select-astype-{$dkey}-{$pos}');
 </script>
 
 
-<div id="wgt_progress_bar" style="display:none;position:absolute;left:50%;top:400px;" >
+<div id="wgt_progress_bar" style="display:none;position:absolute;left:50%;margin-left:-50px;top:50%;margin-top:-50px;" >
   <?php echo Wgt::image('wgt/loader.gif',array('alt'=>'progress'),true); ?>
 </div>
 

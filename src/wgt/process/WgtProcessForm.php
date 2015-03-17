@@ -96,7 +96,6 @@ class WgtProcessForm extends WgtAbstract
     $statusData = $this->process->getActiveNode();
 
     $iconStatus = $this->icon($statusData->icon , $statusData->label);
-    $iconClose = $this->icon('control/close_overlay.png', 'Close', 'small');
 
     $statusHtml = $this->renderStatusDropdown($this->process, $params);
 
@@ -244,7 +243,6 @@ HTML;
 
     $iconStatus = $this->icon($statusData->icon , $statusData->label);
 
-    $iconClose = $this->icon('control/close_overlay.png', 'Close', 'small');
 
     /*
     <div class="wgt-panel" >
@@ -480,8 +478,6 @@ HTML;
 
     $html = '';
     $entity = $this->process->getEntity();
-
-    $iconInfo = $this->icon('control/info.png' , 'Info');
 
     foreach ($edges as $edge) {
 

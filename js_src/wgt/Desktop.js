@@ -405,8 +405,11 @@
      * hide the pogress bar
      */
     this.hideProgressBar = function(){
-
-      $S('#wgt_progress_bar').hide();
+        
+        window.setTimeout(function(){
+            $S('#wgt_progress_bar').fadeOut(300);
+        },150);
+      
     };
 
   
