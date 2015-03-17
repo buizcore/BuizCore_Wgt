@@ -897,6 +897,19 @@ abstract class LibTemplate extends BaseChild
         }
     
     } // end public function addVar */
+    
+    /**
+     * @param string $key
+     * @return string
+     */
+    public function getVar($key)
+    {
+        if (isset($this->var->content[$key])) {
+            return $this->var->content[$key];
+        } else {
+            return null;
+        }
+    }//end public function getVar */
 
     /**
      * Enter description here...
