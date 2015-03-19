@@ -112,13 +112,27 @@ td + td {
     overflow: hidden;
 }
 
+.wgt-table tr,
+.wgt-grid tr{
+    border-top: 1px solid grey;
+}
+
+.wgt-table tbody,
+.wgt-grid tbody{
+    border-top: 2px solid grey;
+}
+
 .wgt-table td:first-child,
-.wgt-grid td:first-child {
+.wgt-grid td:first-child,
+.wgt-table th:first-child,
+.wgt-grid th:first-child {
   padding-left:15px;
 }
 
 .wgt-table td:last-child,
-.wgt-grid td:last-child  {
+.wgt-grid td:last-child,
+.wgt-table th:last-child,
+.wgt-grid th:last-child  {
   padding-right:15px;
 }
 
