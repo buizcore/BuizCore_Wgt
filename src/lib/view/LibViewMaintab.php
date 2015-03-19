@@ -505,6 +505,43 @@ class LibViewMaintab extends LibTemplatePublisher
 /*////////////////////////////////////////////////////////////////////////////*/
 // Logic
 /*////////////////////////////////////////////////////////////////////////////*/
+  
+  /**
+   * Enter description here...
+   *
+   * @param string $template
+   * @param string $type
+   * @param array $PARAMS
+   * @return string
+   */
+  public function includeTemplate($template, $type = 'content', $PARAMS = [], $inCode = false)
+  {
+  
+      if (! $filename = $this->templatePath($template, $type, $inCode)) {
+  
+          throw new InternalError_Exception('Missing template '.$template);
+      }
+  
+      $VAR = $this->var;
+      $ITEM = $this->object;
+      $ELEMENT = $this->object;
+      $AREA = $this->area;
+      $FUNC = $this->funcs;
+      $I18N = $this->i18n;
+      $USER = $this->user;
+      $CONF = $this->getConf();
+  
+      if (Log::$levelVerbose)
+          Log::verbose("Include Template: $filename ");
+  
+      ob_start();
+      include $filename;
+      $content = ob_get_contents();
+      ob_end_clean();
+  
+      return $content;
+  
+  } // end public function includeTemplate */
 
     /** the buildr method
      * @return string
@@ -518,7 +555,17 @@ class LibViewMaintab extends LibTemplatePublisher
             $this->tabCId = $id.'-acc';
         }
     
-        $content = $this->includeTemplate($this->template);
+        try {
+            
+            $content = $this->includeTemplate($this->template);
+            
+        } catch( InternalError_Exception $exc){
+            
+            $response = $this->getResponse();
+            $response->addError($exc->getMessage());
+            return '';
+        }
+        
     
         $jsCode = '';
         if ($this->jsCode) {

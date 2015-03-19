@@ -1501,6 +1501,7 @@ abstract class LibTemplate extends BaseChild
                 $error = '<p class="wgt-box error">template '.$template.' not exists</p>';
                 $error .= '<pre>'.get_class($this).'<br />'.Debug::backtrace().'</pre>';
                 return $error;
+                
             } else {
                 
                 return '<p class="wgt-box error">template '.$template.' not exists</p>';
@@ -1940,16 +1941,27 @@ abstract class LibTemplate extends BaseChild
      *
      * @param string $file            
      * @param string $folder            
+     * @param @deprecated boolean $tplInCode            
      * @return string
      */
     public function templatePath($file, $type = 'content', $tplInCode = false)
     {
         // use the webfrap template
-        if ('content' === $type || $tplInCode)
-            return BuizCore::templatePath($file, $type, ($this->tplInCode || $tplInCode));
-        else
-            return BuizCore::templatePath($file, $type);
-    
+        if ('content' === $type)  {
+            
+            // globale templates gewinnen gegen lokale
+            // so ist ein theming möglich
+            $tplPath = BuizCore::templatePath($file, $type);
+            
+            if ($tplPath) {
+                return $tplPath;
+            }
+            
+            return BuizCore::templatePath($file, $type, true);
+        }
+        
+        return BuizCore::templatePath($file, $type);
+            
     } // end public function templatePath */
 
     /**
