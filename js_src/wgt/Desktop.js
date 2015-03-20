@@ -171,7 +171,7 @@
       if($S('#desktop-panel-message').is('a')){
         var tmp = this.timestamp;
         this.timestamp = Date.now();
-        $R.get( 'ajax.php?c=Webfrap.Desktop.refresh&timestamp='+tmp, {}, true );
+        $R.get( 'ajax.php?c=Buiz.Desktop.refresh&timestamp='+tmp, {}, true );
       }
 
     };

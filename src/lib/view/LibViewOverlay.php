@@ -51,6 +51,8 @@ class LibViewOverlay extends LibTemplatePublisher
    * @var string
    */
   public $type = 'overlay';
+  
+  public $selector = 'body';
 
   /**
    * Variable zum anhängen von Javascript Code
@@ -222,10 +224,12 @@ class LibViewOverlay extends LibTemplatePublisher
     }
     
     $id = $this->getId();
+    
+    
 
     return <<<CODE
       <htmlArea
-        selector="body"
+        selector="{$this->selector}"
         action="append"
         check="#{$id}"
         not="true"
