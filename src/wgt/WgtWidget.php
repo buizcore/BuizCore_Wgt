@@ -184,6 +184,10 @@ abstract class WgtWidget extends PBase
         $tpl = $this->getTpl();
     
         $area = $tpl->newArea($selector);
+        
+        if(is_null($selector)){
+            $selector = '#'.$this->id;
+        }
     
         $area->position = $selector;
         $area->action = $action;
