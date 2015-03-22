@@ -82,6 +82,15 @@ class WgtProcessForm extends WgtAbstract
   public function render($params = null)
   {
 
+      if(!$params){
+          $params = new TFlag();
+      }
+      
+      // shitty solution
+      if (!$params->formId) {
+          $params->formId = 'wgt-form-process-'.$this->process->name.'-'.$this->process->entity->getId();
+      }
+      
     $this->formId = $params->formId;
     $i18n = $this->getI18n();
 
@@ -216,6 +225,161 @@ HTML;
 
   }//end public function render */
 
+  /**
+   * @param string $formId
+   * @param TFlag $params
+   * @return string
+   */
+  public function renderTemplate($params = null)
+  {
+  
+      if(!$params){
+          $params = new TFlag();
+      }
+  
+      // shitty solution
+      if (!$params->formId) {
+          $params->formId = 'wgt-form-process-'.$this->process->name.'-'.$this->process->entity->getId();
+      }
+  
+      $this->formId = $params->formId;
+      $i18n = $this->getI18n();
+  
+      Debug::console("RENDER PROCESS", $this->process);
+  
+      if (!$this->process) {
+          Debug::console('MISSING PROCESS');
+  
+          return '';
+      }
+  
+      $statusData = $this->process->getActiveNode();
+  
+      $iconStatus = $this->icon($statusData->icon , $statusData->label);
+  
+      $statusHtml = $this->renderStatusDropdown($this->process, $params);
+  
+      $edges = $this->process->getActiveEdges();
+      $actionHtml = $this->renderEdgeActions($edges, $params);
+      $descriptionHtml = $this->renderEdgeDescriptions($edges, $params);
+  
+      Debug::console("Process Context key: wgt-process-{$this->process->name}-{$params->contextKey}");
+  
+      $codeButtons = '';
+  
+      if (isset($this->process->access) && $this->process->access->admin) {
+  
+          $codeButtons = <<<HTML
+  
+       <button
+        class="wgt-button"
+        tabindex="-1"
+        onclick="\$S('#wgt-process-{$this->process->name}-{$params->contextKey}').data('paction-change-{$this->process->name}')();" ><i class="fa fa-random" ></i> Change</button>
+  
+HTML;
+  
+      }
+  
+      $codePhases = $this->renderPhases($this->process);
+      $codePSteps = $this->renderPhaseSteps($this->process);
+      $codeStates = $this->renderStates($this->process);
+      $slidesHtml = $this->renderSlides($this->process);
+  
+  
+      $html = <<<HTML
+  
+  <div class="wgt-panel-control" >
+  
+    <form
+      method="put"
+      id="{$this->formId}"
+      action="ajax.php?c={$this->process->processUrl}.switchStatus&amp;objid={$this->process->activStatus}" ></form>
+  
+    <form
+        method="put"
+        id="{$this->formId}-states"
+        action="ajax.php?c={$this->process->processUrl}.saveStates&amp;objid={$this->process->activStatus}" ></form>
+  
+    <button
+        class="wcm wcm_ui_dropform wcm_ui_tip-top wgt-button"
+        id="wgt-process-{$this->process->name}-{$params->contextKey}"
+        title="Click to Change the Status"
+      ><div
+        class="left">{$iconStatus} Status: {$statusData->label} <i class="fa fa-angle-down" ></i></div><var>{"size":"big"}</var></button>
+  
+    <div class="wgt-process-{$this->process->name}-{$params->contextKey} hidden" >
+  
+      <div class="wgt-process-form" >
+  
+        <div
+          class="wcm wcm_ui_tip-top wgt-panel title"
+          tooltip="{$this->processLabel}" >
+          <h2>{$i18n->l('Status','wbf.label')}: {$statusData->label}</h2>
+          <div class="right" ><a class="wgt-button icon-only wgtac_close_overlay"  ><i class="fa fa-times" ></i></a></div>
+        </div>
+  
+{$codePhases}
+{$codePSteps}
+  
+        <div class="wgt-panel" >
+  
+          <button
+            class="wgt-button"
+            tabindex="-1"
+            onclick="\$S('#wgt-process-{$this->process->name}-{$params->contextKey}').data('paction-history-{$this->process->name}')();" ><i class="fa fa-book" ></i> Show History</button>
+  
+          <button
+            class="wgt-button"
+            tabindex="-1"
+            onclick="\$S('#wgt-process-{$this->process->name}-{$params->contextKey}').data('paction-graph-{$this->process->name}')()" ><i class="fa fa-sitemap" ></i> Process Graph</button>
+{$codeButtons}
+{$statusHtml}
+        </div>
+  
+  
+        <div class="do-clear small" ></div>
+  
+        <div class="description left" >
+          <h3>{$i18n->l('Description','wbf.label')}</h3>
+          <div class="description-active" >
+            {$statusData->description}
+          </div>
+{$descriptionHtml}
+        </div>
+  
+        <div class="form" >
+  
+{$slidesHtml}
+  
+          <div class="do-clear small" ></div>
+  
+          <div class="action" >
+            <h3>{$i18n->l('Action','wbf.label')}</h3>
+            <ul class="actions" >
+              {$actionHtml}
+            </ul>
+            <div class="do-clear" ></div>
+          </div>
+  
+          <div class="do-clear small" ></div>
+        </div>
+  
+        <div class="states" >
+          <h3>Checklist</h3>
+          {$codeStates}
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  
+HTML;
+  
+            return $html;
+  
+  }//end public function render */
 
   /**
    * @param TFlag $params
@@ -391,7 +555,7 @@ HTML;
   /**
    * @return string
    */
-  public function renderTemplate($view)
+  public function renderForm($view)
   {
 
     if (!$this->process) {
@@ -466,7 +630,7 @@ HTML;
 
     return $html;
 
-  }//end public function renderTemplate */
+  }//end public function renderForm */
 
   /**
    * @param array<LibProcess_Edge> $edges
@@ -719,6 +883,92 @@ HTML;
     return $html;
 
   }//end public function buildEdgeActionJs */
+  
+  /**
+   * @param TFlag $params
+   * @return string
+   */
+  public function buildTemplateJs($params, $callback = null)
+  {
+  
+      if (!$this->process) {
+          return '';
+      }
+  
+      $edges = $this->process->getActiveEdges();
+      $entity = $this->process->getEntity();
+  
+      $html = <<<HTML
+  
+    var process = $("#wgt-process-{$this->process->name}-{$params->contextKey}").not('flag-touch');
+  
+    if (process) {
+  
+      process.addClass('flag-touch');
+  
+      process.data('paction-history-{$this->process->name}', function() {
+        \$R.get('modal.php?c=Process.Base.showHistory&process={$this->process->activStatus}&objid={$entity}&entity={$entity->getTable()}');
+        \$S.fn.miniMenu.close();
+      });
+  
+      process.data('paction-graph-{$this->process->name}', function() {
+        \$R.get('maintab.php?c={$this->process->processUrl}.showNodeGraph&objid={$this->process->activStatus}');
+        \$S.fn.miniMenu.close();
+      });
+  
+      process.data('paction-change-{$this->process->name}', function() {
+        \$R.get('modal.php?c=Buiz.Maintenance_Process.formSwitchStatus&process_id={$this->process->processId}&vid={$entity->getId()}&dkey={$entity->getTable()}&active={$this->process->activStatus}');
+        \$S.fn.miniMenu.close();
+        {$callback}
+      });
+  
+      process.data('paction-stateChange-{$this->process->name}', function(state) {
+        \$R.form('{$params->formId}','&process_state='+state+'&reload=true',{append:true});
+      });
+  
+    } else {
+      alert("Missing Process Node!");
+    }
+  
+HTML;
+  
+      foreach ($edges as $edge) {
+  
+          if ($edge->confirm) {
+  
+              $html .= <<<HTML
+  
+    if (process) {
+  
+      process.data('paction-{$this->process->name}-{$edge->key}', function() {
+        if (!\$S('input#wgt-input-{$this->process->name}-confirm-{$entity}').is(':checked')) {
+          \$D.errorWindow('You have to confirm before trigger {$edge->label}');
+  
+          return false;
+        }
+        \$R.form('{$params->formId}','&process_edge={$edge->key}&reload=true',{append:true});
+      });
+    }
+  
+HTML;
+          } else {
+  
+              $html .= <<<HTML
+  
+    if (process) {
+      process.data('paction-{$this->process->name}-{$edge->key}', function() {
+        \$R.form('{$params->formId}','&process_edge={$edge->key}&reload=true',{append:true});
+      });
+    }
+  
+HTML;
+          }
+  
+      }
+  
+      return $html;
+  
+  }//end public function buildEdgeActionJs */
 
   /**
    * @param TFlag $params
@@ -816,13 +1066,19 @@ HTML;
 
     $edges = $this->process->getActiveEdges();
     $entity = $this->process->getEntity();
+    
+    if ($params->formId) {
+        $formId = $params->formId;
+    } else {
+        $formId = $this->formId;
+    }
 
     $html = <<<HTML
 
-    var process = self.getObject().find('#{$params->formId}').not('flag-touch');
+    var process = self.getObject().find('#{$formId}').not('flag-touch');
 
     if (process) {
-      console.log('Found Process #{$params->formId}');
+      console.log('Found Process #{$formId}');
 
       process.addClass('flag-touch');
 
@@ -860,7 +1116,7 @@ HTML;
 
           return false;
         }
-        \$R.form('{$params->formId}','&process_edge={$edge->key}',{append:true});
+        \$R.form('{$formId}','&process_edge={$edge->key}',{append:true});
       });
       console.log('Add pAction paction-{$this->process->name}-{$edge->key}');
     }
@@ -874,7 +1130,7 @@ HTML;
     if (process) {
 
       process.data('paction-{$this->process->name}-{$edge->key}', function() {
-        \$R.form('{$params->formId}','&process_edge={$edge->key}',{append:true});
+        \$R.form('{$formId}','&process_edge={$edge->key}',{append:true});
       });
       console.log('Add pAction paction-{$this->process->name}-{$edge->key}');
     }

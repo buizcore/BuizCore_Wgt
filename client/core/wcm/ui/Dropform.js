@@ -43,7 +43,7 @@ $R.addAction( 'ui_dropform', function( jNode ){
     props.noBorder = false;
   }
 
-  var menuWidth = '750px',
+  var menuWidth = '800px',
     menuItems = [],
     overlayData,
     nextNode,
@@ -52,7 +52,7 @@ $R.addAction( 'ui_dropform', function( jNode ){
       'xsmall':'250px',
       'small':'350px',
       'medium':'500px',
-      'big':'750px',
+      'big':'800px',
       'huge':'90%'
     };
 

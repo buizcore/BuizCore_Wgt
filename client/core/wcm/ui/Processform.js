@@ -18,7 +18,7 @@ $R.addAction( 'ui_processform', function( jNode ){
       var theContentNode = $S( '.'+nodeId );
       var theContent = $S( '<div>'+theContentNode.html()+'</div>' );
       
-      var menuWidth = menuWidth = 450;
+      var menuWidth = 450;
 
       var menuItems = [];
       
