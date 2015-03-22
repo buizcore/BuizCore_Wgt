@@ -264,7 +264,7 @@ class LibViewModal extends LibTemplatePublisher
     $title = str_replace(array('&','<','>','"'), array('&amp;','&lt;','&gt;','&quot;'), $this->title);
     $label = str_replace(array('&','<','>','"'), array('&amp;','&lt;','&gt;','&quot;'), $this->label);
 
-    if (defined('DEBUG_MARKUP')) {
+    if (defined('DEBUG_MARKUP') && DEBUG_MARKUP) {
       ob_start();
       $checkXml = new DOMDocument();
 

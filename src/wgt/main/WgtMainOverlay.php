@@ -262,7 +262,7 @@ CODE;
    */
   protected function reportXMLErrors($panel, $content, $bottom)
   {
-      if (defined('DEBUG_MARKUP')) {
+      if (defined('DEBUG_MARKUP') && DEBUG_MARKUP) {
           ob_start();
           $checkXml = new DOMDocument();
   
@@ -277,13 +277,13 @@ CODE;
               $this->getResponse()->addWarning('Invalid XML Response');
   
               SFiles::write(
-              PATH_GW.'log/maintab_xml_errors.html',
-              $errors.'<pre>'.htmlentities("{$panel}<div class=\"wgt-content maintab\" >{$content}</div>{$bottom}").'</pre>'
-                  );
+                  PATH_GW.'log/maintab_xml_errors.html',
+                  $errors.'<pre>'.htmlentities("{$panel}<div class=\"wgt-content maintab\" >{$content}</div>{$bottom}").'</pre>'
+              );
               SFiles::write(
-              PATH_GW.'log/maintab_xml_errors_'.date('Y-md-H-i_s').'.html',
-              $errors.'<pre>'.htmlentities("{$panel}<div class=\"wgt-content maintab\" >{$content}</div>{$bottom}").'</pre>'
-                  );
+                  PATH_GW.'log/maintab_xml_errors_'.date('Y-md-H-i_s').'.html',
+                  $errors.'<pre>'.htmlentities("{$panel}<div class=\"wgt-content maintab\" >{$content}</div>{$bottom}").'</pre>'
+              );
           }
       }
   }

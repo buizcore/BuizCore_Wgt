@@ -577,7 +577,7 @@ class LibTemplateHtml extends LibTemplatePublisher
 
     $this->buildPage();
 
-    if (defined('DEBUG_MARKUP')) {
+    if (defined('DEBUG_MARKUP') && DEBUG_MARKUP) {
       ob_start();
       $checkXml = new DOMDocument();
 

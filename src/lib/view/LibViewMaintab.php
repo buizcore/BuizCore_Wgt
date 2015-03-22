@@ -774,7 +774,7 @@ CODE;
    */
   protected function reportXMLErrors($panel, $content, $bottom)
   {
-      if (defined('DEBUG_MARKUP')) {
+      if (defined('DEBUG_MARKUP') && DEBUG_MARKUP) {
           ob_start();
           $checkXml = new DOMDocument();
   
@@ -799,6 +799,35 @@ CODE;
           }
       }
   }
+  
+  /**
+   * Default actions für die schliesenfunktion
+   *
+   * @param TFlag $params the named parameter object that was created in
+   *   the controller
+   * {
+   *   string formId: the id of the form;
+   * }
+   */
+  public function addActions($params)
+  {
+  
+      // add the button actions for create in the window
+      // the code will be binded direct on a window object and is removed
+      // on close
+      // all buttons with the class save will call that action
+      $code = <<<BUTTONJS
+  
+// close tab
+self.getObject().find(".wgtac_close").click(function() {
+  self.close();
+});
+  
+BUTTONJS;
+  
+      $this->addJsCode($code);
+  
+  }//end public function addActions */
   
 /*////////////////////////////////////////////////////////////////////////////*/
 // emppty default methodes, more or less optional
