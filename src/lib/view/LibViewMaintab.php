@@ -378,7 +378,7 @@ class LibViewMaintab extends LibTemplatePublisher
    * @param string $menuKey 
    * @param Context $params 
    */
-  public function addMenuByKey($menuKey, $params = null)
+  public function addMenuByKey($menuKey, $params = null, $addJs = false)
   {
       
       if (!$params)
@@ -392,6 +392,10 @@ class LibViewMaintab extends LibTemplatePublisher
           );
           $menu->id = $this->id.'_dropmenu';
           $menu->buildMenu($params);
+          
+          if ($addJs) {
+              $menu->addActions($params);
+          }
           
       } catch (BuizSys_Exception $exc) {
         

@@ -34,163 +34,164 @@ class WgtDropmenu
 // attributes
 /*////////////////////////////////////////////////////////////////////////////*/
 
-  /**
-   * @var string
-   */
-  public $content;
-
-  /**
-   * @var LibTemplate
-   */
-  public $view;
-
-  /**
-   * @var Model
-   */
-  public $model;
-
-  /**
-   * @var User
-   */
-  public $user;
-
-  /**
-   * de:
-   * Das ACL Objekt für eine saubere verwaltung der Rechte
-   * @var LibAclAdapter
-   */
-  public $acl;
-
-  /**
-   * de:
-   * Die Html Id des Menü Elements
-   * @var string
-   */
-  public $id;
-
-  /**
-   * @var Context
-   */
-  public $rqtContext = null;
-
-  /**
-   * @var WgtControlMaskSwitcher
-   */
-  public $maskSwitcher = null;
+    /**
+    * @var string
+    */
+    public $content;
+    
+    /**
+    * @var LibTemplate
+    */
+    public $view;
+    
+    /**
+    * @var Model
+    */
+    public $model;
+    
+    /**
+    * @var User
+    */
+    public $user;
+    
+    /**
+    * de:
+    * Das ACL Objekt für eine saubere verwaltung der Rechte
+    * @var LibAclAdapter
+    */
+    public $acl;
+    
+    /**
+    * de:
+    * Die Html Id des Menü Elements
+    * @var string
+    */
+    public $id;
+    
+    /**
+    * @var Context
+    */
+    public $rqtContext = null;
+    
+    /**
+    * @var WgtControlMaskSwitcher
+    */
+    public $maskSwitcher = null;
 
 /*////////////////////////////////////////////////////////////////////////////*/
 // construct
 /*////////////////////////////////////////////////////////////////////////////*/
 
-  /**
-   * de:
-   * Konstruktor halt, keine Besonderheiten, beide Parameter optional
-   * @param string $id
-   * @param LibTemplate $view
-   */
-  public function __construct($id = null, $view = null)
-  {
-    $this->id = $id;
-    $this->view = $view;
-  }//end public function __construct */
+    /**
+    * de:
+    * Konstruktor halt, keine Besonderheiten, beide Parameter optional
+    * @param string $id
+    * @param LibTemplate $view
+    */
+    public function __construct($id = null, $view = null)
+    {
+        $this->id = $id;
+        $this->view = $view;
+    }//end public function __construct */
 
 /*////////////////////////////////////////////////////////////////////////////*/
 // methodes
 /*////////////////////////////////////////////////////////////////////////////*/
 
-  /**
-   * @setter WgtDropmenu::$id
-   * @param int $id
-   */
-  public function setId($id)
-  {
-    $this->id = $id;
-  }//end public function setId */
-
-  /**
-   * @getter WgtDropmenu::$user
-   * @return User
-   */
-  public function getUser()
-  {
-    if (!$this->user)
-      $this->user = User::getActive();
-
-    return $this->user;
-  }//end public function getUser */
-
-  /**
-   * @setter WgtDropmenu::$view LibTemplate
-   * @param LibTemplate $view
-   */
-  public function setView($view)
-  {
-    $this->view = $view;
-  }//end public function setView */
-
-  /**
-   *
-   */
-  public function getView()
-  {
-    if (!$this->view)
-      $this->view = View::getActive();
-
-    return $this->view;
-
-  }//end public function getView */
-
-  /**
-   * @setter WgtDropmenu::$model Model
-   * @param Model $model
-   */
-  public function setModel($model)
-  {
-    $this->model = $model;
-  }//end public function setModel */
-
-  /**
-   * @return Model
-   */
-  public function getModel()
-  {
-    return $this->model;
-
-  }//end public function getModel */
-
-  /**
-   * @setter WgtDropmenu::$acl LibAclAdapter
-   * @param LibTemplate $acl
-   */
-  public function setAcl($acl)
-  {
-    $this->acl = $acl;
-  }//end public function setAcl */
-
-  /**
-   * @return LibAclAdapter
-   */
-  public function getAcl()
-  {
-
-    if (!$this->acl)
-      $this->acl = Acl::getActive();
-
-    return $this->acl;
-
-  }//end public function getAcl */
+    /**
+    * @setter WgtDropmenu::$id
+    * @param int $id
+    */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }//end public function setId */
+    
+    /**
+    * @getter WgtDropmenu::$user
+    * @return User
+    */
+    public function getUser()
+    {
+        if (!$this->user)
+          $this->user = User::getActive();
+        
+        return $this->user;
+    }//end public function getUser */
+    
+    /**
+    * @setter WgtDropmenu::$view LibTemplate
+    * @param LibTemplate $view
+    */
+    public function setView($view)
+    {
+        $this->view = $view;
+    }//end public function setView */
+    
+    /**
+    *
+    */
+    public function getView()
+    {
+        if (!$this->view)
+          $this->view = View::getActive();
+        
+        return $this->view;
+    
+    }//end public function getView */
+    
+    /**
+    * @setter WgtDropmenu::$model Model
+    * @param Model $model
+    */
+    public function setModel($model)
+    {
+        $this->model = $model;
+    }//end public function setModel */
+    
+    /**
+    * @return Model
+    */
+    public function getModel()
+    {
+        
+        return $this->model;
+    
+    }//end public function getModel */
+    
+    /**
+    * @setter WgtDropmenu::$acl LibAclAdapter
+    * @param LibTemplate $acl
+    */
+    public function setAcl($acl)
+    {
+        $this->acl = $acl;
+    }//end public function setAcl */
+    
+    /**
+    * @return LibAclAdapter
+    */
+    public function getAcl()
+    {
+    
+        if (!$this->acl)
+            $this->acl = Acl::getActive();
+        
+        return $this->acl;
+    
+    }//end public function getAcl */
 
 /*////////////////////////////////////////////////////////////////////////////*/
 // Die Build Methoden
 /*////////////////////////////////////////////////////////////////////////////*/
 
-  /**
-   * @return string
-   */
-  public function build()
-  {
-    return '<button type="menu" ><![CDATA['.$this->content.']]></button>';
-  }//end public function build */
+    /**
+    * @return string
+    */
+    public function build()
+    {
+        return '<button type="menu" ><![CDATA['.$this->content.']]></button>';
+    }//end public function build */
 
   /**
    * @return string
@@ -215,6 +216,48 @@ class WgtDropmenu
   {
     return $this->content;
   }//end public function buildMaintab */
+  
+  
+
+    /**
+    * this method is for adding the buttons in a create window
+    * per default there is only one button added: save with the action
+    * to save the window onclick
+    *
+    * @param TFlag $params the named parameter object that was created in
+    *   the controller
+    * {
+    *   string formId: the id of the form;
+    * }
+    */
+    public function addActions($params)
+    {
+  
+        // add the button actions for create in the window
+        // the code will be binded direct on a window object and is removed
+        // on close
+        // all buttons with the class save will call that action
+        $code = <<<BUTTONJS
+  
+// close tab
+self.getObject().find(".wgtac_close").click(function() {
+  self.close();
+});
+  
+BUTTONJS;
+  
+        $this->addJsCode($code);
+  
+    }//end public function addActions */
+  
+  
+    /**
+    * @param string $jsCode
+    */
+    public function addJsCode($jsCode) 
+    {
+        $this->view->addJsCode($jsCode);
+    }//end public function addJsCode */
 
 }// end class WgtDropmenu
 
