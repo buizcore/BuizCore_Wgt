@@ -182,7 +182,7 @@ abstract class LibTemplate extends BaseChild
     protected $var = [];
 
     /**
-     *
+     * @deprecated kann eigentlich alles über VAR gemacht werden
      * @var TDataObject
      */
     protected $object = [];
