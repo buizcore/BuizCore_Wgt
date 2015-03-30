@@ -205,6 +205,39 @@ CODE;
     return $this->out('</form>');
 
   }//end public static function close */
+  
+  
+  /**
+   * @param [] $attributes
+   * @return string
+   */
+  public function searchForm($attributes)
+  {
+  
+      $code = <<<CODE
+<form method="{$this->method}" action="{$this->action}" id="{$this->id}" accept-charset="utf-8" ></form>
+
+CODE;
+
+      
+      $urlParam = $this->urlParam();
+      
+      foreach ($attributes as $name => $attribute) {
+          
+          $id = "wgt-input-".str_replace(['[',']'], ['-',''], $this->inpIdPrefix.$name);
+        
+          $code .= <<<CODE
+    <input type="hidden" class="{$urlParam}" name="{$name}" id="{$id}" value="{$attribute}"  />
+
+CODE;
+          
+          
+      }
+  
+      return $this->out($code);
+  
+  }//end public static function form */
+  
 
   /**
    * rückgabe der assign klasse für das form
@@ -1250,7 +1283,7 @@ CODE;
         $id = $this->inpIdPrefix.$tmp[0]."-".$tmp[1];
         $inpName = $tmp[0]."[{$tmp[1]}]";
       } else {
-        $id = $this->inpIdPrefix.$tmp[0];
+        $id = str_replace(['[',']'], ['-',''], $this->inpIdPrefix.$tmp[0]);
         $inpName = $tmp[0];
       }
 
@@ -1650,7 +1683,7 @@ CODE;
       } else {
   
           $tmp = explode(',', $name);
-          $tmpId = str_replace(array('[',']'), array('-','-'), $tmp[0]);
+          $tmpId = str_replace(array('[',']'), array('-',''), $tmp[0]);
   
           if (count($tmp) > 1) {
   
@@ -1740,7 +1773,7 @@ CODE;
     } else {
 
       $tmp = explode(',', $name);
-      $tmpId = str_replace(array('[',']'), array('-','-'), $tmp[0]);
+      $tmpId = str_replace(array('[',']'), array('-',''), $tmp[0]);
 
       if (count($tmp) > 1) {
 
@@ -1829,22 +1862,26 @@ CODE;
       $pNode->firstFree = ' ';
 
     if (isset($attributes['id'])) {
-      $id = $this->inpIdPrefix.$attributes['id'];
-      $inpName = $name;
-    } else {
-
-      $tmp = explode(',', $name);
-
-      if (count($tmp) > 1) {
-        $id = $this->inpIdPrefix.$tmp[0]."-".$tmp[1];
-        $inpName = $tmp[0]."[{$tmp[1]}]";
+          
+          $id = $this->inpIdPrefix.$attributes['id'];
+          $inpName = $name;
+          
       } else {
-        $id = $this->inpIdPrefix.$tmp[0];
-        $inpName = $tmp[0];
+  
+          $tmp = explode(',', $name);
+          $tmpId = str_replace(array('[',']'), array('-',''), $tmp[0]);
+  
+          if (count($tmp) > 1) {
+  
+              $id = $this->inpIdPrefix.$tmpId."-".$tmp[1];
+              $inpName = $tmp[0]."[{$tmp[1]}]";
+          } else {
+              $id = $this->inpIdPrefix.$tmpId;
+              $inpName = $tmp[0];
+          }
+  
+          $attributes['id'] = "wgt-input-{$id}";
       }
-
-      $attributes['id'] = "wgt-input-{$id}";
-    }
     
     if ($pNode->inp_only && !isset($attributes['placeholder'])) {
         $attributes['placeholder'] = $label;

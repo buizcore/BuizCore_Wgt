@@ -81,6 +81,7 @@ $files[] = PATH_WGT.'client/core/wcm/control/Toggle.js';
 $files[] = PATH_WGT.'client/core/wcm/control/ToggleAccordion.js';
 $files[] = PATH_WGT.'client/core/wcm/control/ToggleTab.js';
 $files[] = PATH_WGT.'client/core/wcm/control/SelectSwitch.js';
+$files[] = PATH_WGT.'client/core/wcm/control/Filter.js';
 
   // sparkline
 $files[] = PATH_WGT.'client/core/wcm/graph/SparklinePie.js';

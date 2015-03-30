@@ -518,7 +518,7 @@ class LibViewMaintab extends LibTemplatePublisher
    * @param array $PARAMS
    * @return string
    */
-  public function includeTemplate($template, $type = 'content', $PARAMS = [], $inCode = false)
+  public function includeTemplate($template, $type = 'module', $PARAMS = [], $inCode = false)
   {
   
       if (! $filename = $this->templatePath($template, $type, $inCode)) {

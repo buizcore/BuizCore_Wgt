@@ -574,6 +574,16 @@ abstract class LibTemplate extends BaseChild
         }
     
     } // end public function isType */
+    
+    /**
+     * @param LibTemplateWidget $child
+     */
+    public function assignSubview($child) 
+    {
+        
+        $child->injectResources($this->var, $this->object, $this->area);
+        
+    }//end public function assignSubview */
 
     /**
      *
@@ -1477,7 +1487,7 @@ abstract class LibTemplate extends BaseChild
     public function includeContentTemplate($template, $inCode = false, $PARAMS = [])
     {
 
-        return $this->includeTemplate($template, 'content', $PARAMS, $inCode);
+        return $this->includeTemplate($template, 'module', $PARAMS, $inCode);
     
     } // end public function includeContentTemplate */
 
@@ -1489,7 +1499,7 @@ abstract class LibTemplate extends BaseChild
      * @param array $PARAMS            
      * @return string
      */
-    public function includeTemplate($template, $type = 'content', $PARAMS = [], $inCode = false)
+    public function includeTemplate($template, $type = 'module', $PARAMS = [], $inCode = false)
     {
 
         if (! $filename = $this->templatePath($template, $type, $inCode)) {
@@ -1535,7 +1545,7 @@ abstract class LibTemplate extends BaseChild
      * @param string $type            
      * @param array $PARAMS            
      */
-    public function includeAll($template, $type = 'content', $PARAMS = [])
+    public function includeAll($template, $type = 'module', $PARAMS = [])
     {
 
         if (! $listTemplates = $this->allTemplatePaths($template, $type)) {
@@ -1575,7 +1585,7 @@ abstract class LibTemplate extends BaseChild
      * @param array $PARAMS            
      * @return string
      */
-    public function conditionTemplate($template, $type = 'content', $condition = [], $PARAMS = [])
+    public function conditionTemplate($template, $type = 'module', $condition = [], $PARAMS = [])
     {
 
         if ($condition)
@@ -1710,7 +1720,7 @@ abstract class LibTemplate extends BaseChild
      * @param string $folder            
      * @return string
      */
-    public function getPath($file, $type = 'content')
+    public function getPath($file, $type = 'module')
     {
         // use the webfrap template
         return BuizCore::templatePath($file, $type, true);
@@ -1752,7 +1762,7 @@ abstract class LibTemplate extends BaseChild
      * @param array $condition            
      * @param array $PARAMS            
      */
-    public function buildMainContent($template, $condition = null, $PARAMS = [], $tplType = 'content')
+    public function buildMainContent($template, $condition = null, $PARAMS = [], $tplType = 'module')
     {
 
         if ($this->assembledMainContent)
@@ -1769,6 +1779,43 @@ abstract class LibTemplate extends BaseChild
         return $this->assembledMainContent;
     
     } // end public function buildMainContent */
+    
+
+    /**
+     * @param [] $row
+     * @param string $template
+     */
+    public function loopTemplate($row, $template)
+    {
+    
+        if ($filename = $this->templatePath($template , 'module')) {
+    
+            $VAR = $this->var;
+            $ITEM = $this->object;
+            $ELEMENT = $this->object;
+            $AREA = $this->area;
+            $I18N = $this->i18n;
+            $user = $this->user;
+            $CONF = $this->getConf();
+    
+            if (Log::$levelVerbose)
+                Log::verbose("Load Index Template: $filename ");
+    
+            ob_start();
+            include $filename;
+            $content = ob_get_contents();
+            ob_end_clean();
+    
+        } else {
+    
+            Error::report('Loop Template does not exist: '.$template);
+            $content = '<p class="wgt-box error">Wrong loop Template '.$template.' </p>';
+    
+        }
+    
+        return $content;
+    
+    }//end public function loopTemplate */
 
     /**
      *
@@ -1944,10 +1991,10 @@ abstract class LibTemplate extends BaseChild
      * @param @deprecated boolean $tplInCode            
      * @return string
      */
-    public function templatePath($file, $type = 'content', $tplInCode = false)
+    public function templatePath($file, $type = 'module', $tplInCode = false)
     {
         // use the webfrap template
-        if ('content' === $type)  {
+        if ('module' === $type)  {
             
             // globale templates gewinnen gegen lokale
             // so ist ein theming möglich
@@ -1975,7 +2022,7 @@ abstract class LibTemplate extends BaseChild
      * @param string $folder            
      * @return string
      */
-    public function allTemplatePaths($file, $type = 'content')
+    public function allTemplatePaths($file, $type = 'module')
     {
 
         $templates = [];
@@ -2015,7 +2062,7 @@ abstract class LibTemplate extends BaseChild
      * @param array $condition            
      * @return string
      */
-    public function conditionPath($template, $type = 'content', $condition = [])
+    public function conditionPath($template, $type = 'module', $condition = [])
     {
 
         foreach (View::$searchPathTemplate as $folder) {
@@ -2104,7 +2151,7 @@ abstract class LibTemplate extends BaseChild
     public function loadCachedPage($key)
     {
 
-        if ($content = $this->getCache()->get('content/'.$key, Cache::WEEK)) {
+        if ($content = $this->getCache()->get('module/'.$key, Cache::WEEK)) {
             $this->compiled = $content;
             
             return true;
@@ -2134,7 +2181,7 @@ abstract class LibTemplate extends BaseChild
     public function writeCachedPage($key, $content)
     {
 
-        $this->getCache()->add('content/'.$key, $content);
+        $this->getCache()->add('module/'.$key, $content);
     
     } // end public function writeCachedPage
 
@@ -2261,7 +2308,7 @@ abstract class LibTemplate extends BaseChild
 
         $cache = $this->getCache();
         
-        $key = 'content/'.$key;
+        $key = 'module/'.$key;
         
         if ($cached = $cache->get($key, $time)) {
             $this->assembledMainContent = $cached;
@@ -2288,7 +2335,7 @@ abstract class LibTemplate extends BaseChild
         if (! $this->assembledMainContent)
             $this->buildMainContent($template, $condition, $PARAMS);
         
-        $key = 'content/'.$key;
+        $key = 'module/'.$key;
         
         return $cache->add($key, $this->assembledMainContent);
     
@@ -2304,7 +2351,7 @@ abstract class LibTemplate extends BaseChild
 
         $cache = $this->getCache();
         
-        $key = 'content/'.$key;
+        $key = 'module/'.$key;
         
         $cache->remove($key);
     
@@ -2442,21 +2489,6 @@ abstract class LibTemplate extends BaseChild
     
     } // end public function setFormAction */
     
-/*
- * //////////////////////////////////////////////////////////////////////////////
- * // Abstract Methods
- * //////////////////////////////////////////////////////////////////////////////
- */
-    
-    /**
-     *
-     * @return void
-     */
-    abstract public function compile();
-
-    /**
-     */
-    abstract protected function buildMessages();
 
 }//end abstract class LibTemplate
 

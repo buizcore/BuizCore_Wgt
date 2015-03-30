@@ -533,6 +533,8 @@ class LibTemplateHtml extends LibTemplatePublisher
 
   }//end public function buildBody */
 
+
+
   /**
    * Ausgabe Komprimieren
    */

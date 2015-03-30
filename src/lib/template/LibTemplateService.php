@@ -102,7 +102,7 @@ class LibTemplateService extends LibTemplate
 
     $this->buildMessages();
 
-    if ($filename = $this->templatePath($this->template , 'content', true)) {
+    if ($filename = $this->templatePath($this->template , 'module', true)) {
 
       $VAR = $this->var;
       $ITEM = $this->object;

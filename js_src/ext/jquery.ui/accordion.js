@@ -147,3 +147,22 @@
   
 }(jQuery));
 
+
+
+//store original so we can call it inside our overriding method
+$.datepicker._generateMonthYearHeader_original = $.datepicker._generateMonthYearHeader;
+
+$.datepicker._generateMonthYearHeader = function(inst, dm, dy, mnd, mxd, s, mn, mns) {
+    var header = $($.datepicker._generateMonthYearHeader_original(inst, dm, dy, mnd, mxd, s, mn, mns)),
+        years = header.find('.ui-datepicker-year'),
+        months = header.find('.ui-datepicker-month');
+        
+    
+    // reverse the years
+    years.html(Array.prototype.reverse.apply(years.children()));
+    months.html(Array.prototype.reverse.apply(months.children()));
+    
+    // return our new html
+    return $('<div />').append(header).html();
+};
+

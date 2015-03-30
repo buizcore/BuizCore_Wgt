@@ -120,3 +120,39 @@ $R.addAction( 'req_search', function( jNode ){
   }
 
 });
+
+
+/**
+ * @author dominik alexander bonsch <db@webfrap.net>
+ */
+$R.addAction( 'list_filter', function( jNode ){
+
+    "use strict";
+
+    jNode.removeClass('wcm_list_filter');
+  
+    try {
+        
+        var settingsNode = jNode.find('var.list_filter'),
+            settings;
+        
+        settings = settingsNode.is('var.list_filter')
+            ? $WGT.robustParseJSON(settingsNode.text())
+            : {};
+            
+    } catch( err ) {
+        
+        $D.errorWindow( 'Failed to read settings '+jNode.getNodePath('/') , err.description );
+    }
+
+    jNode.find('.search-param').on('click', function(){ 
+        
+        /*
+         *  form
+            param
+            param_name
+         */
+        
+    });
+
+});

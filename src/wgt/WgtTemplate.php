@@ -288,7 +288,7 @@ abstract class WgtTemplate
    * @param string $folder
    * @return string
    */
-  public function subTemplate($file , $type = 'content')
+  public function subTemplate($file , $type = 'module')
   {
     // use the webfrap template
     return BuizCore::templatePath( $file , $type, true);
@@ -305,7 +305,7 @@ abstract class WgtTemplate
    * @param string $folder
    * @return string
    */
-  public function templatePath($file , $type = 'content')
+  public function templatePath($file , $type = 'module')
   {
     // use the webfrap template
     return BuizCore::templatePath( $file , $type, $this->tplInCode);

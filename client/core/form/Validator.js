@@ -39,10 +39,15 @@
      */
     this.checkRequired = function(selector){
         
+        
         var jNode = $(selector);
+        
+        console.log('checkRequired:  '+selector+ ' '+jNode.length);
+        
+
         var isEmpty = this.isEmpty(jNode, true);
         
-        if (jNode.not('input[type="checkbox"],input[type="radio"]').is('input') || jNode.is('textarea')) {
+        if (jNode.not('input[type="checkbox"],input[type="radio"]').is('input') || jNode.is('textarea') || jNode.is('select')) {
             
           if (isEmpty) { 
             jNode.addClass( 'state-warn' ).removeClass('state-ok');
@@ -64,7 +69,7 @@
         
         $(selectorList).each(function(key, val){
             
-            if (!that.isEmpty(val)) {
+            if (!that.isEmpty(val, false)) {
                 return true;
             }
             
@@ -86,7 +91,12 @@
         if (isNode) {
             jNode = selector;
         } else {
-            jNode= $(selector);
+            jNode = $(selector);
+        }
+        
+        if (0==jNode.lenght) {
+            console.warn( 'got no matching element in is empty '+selector );
+            return true;
         }
         
         
@@ -106,16 +116,29 @@
                 return true;
             }
             
-        }  else if( jNode.is('input') || jNode.is('textarea') ){
+        }  else if( jNode.is('input') || jNode.is('textarea')  ){
 
    
             if ( '' == ''+jNode.val().trim() ){
-              jNode.addClass( 'state-warn' ).removeClass('state-ok');
               return false;
             } else {
-              jNode.addClass( 'state-ok' ).removeClass( 'state-warn' );
               return true;
             }
+            
+        }  else if( jNode.is('select')  ){
+                
+            console.log('IN SELECT');
+   
+            if ( 0 == jNode.find('option:selected').length || '' == $.trim(jNode.val()) ){
+              return false;
+            } else {
+              console.log( 'find '+jNode.attr('id')+' '+jNode.find('option:selected').length+' val:'+jNode.val() );
+              return true;
+            }
+            
+        } else {
+            console.error('required on a non supported element '+jNode.prop("tagName"));
+            return true;
         }
         
     };

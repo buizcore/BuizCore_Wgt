@@ -91,6 +91,7 @@ $files = array(
   PATH_WGT.'client/core/wcm/control/ToggleAccordion.js',
   PATH_WGT.'client/core/wcm/control/ToggleTab.js',
   PATH_WGT.'client/core/wcm/control/SelectSwitch.js',
+  PATH_WGT.'client/core/wcm/control/Filter.js',
 
   // sparkline
   PATH_WGT.'client/core/wcm/graph/SparklinePie.js',

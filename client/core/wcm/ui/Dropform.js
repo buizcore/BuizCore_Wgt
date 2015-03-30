@@ -5,8 +5,6 @@
  */
 $R.addAction( 'ui_dropform', function( jNode ){
 
-    console.log('found wcm_ui_dropform '+jNode.attr('id'));
-    
   var source = jNode.find( 'var:first' ),
       confAddr = null,
       props = {};

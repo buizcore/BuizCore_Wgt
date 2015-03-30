@@ -581,7 +581,7 @@ class Wgt
    * Get a Template Area
    * @return string
    */
-  public static function getTemplate($file, $type = 'content')
+  public static function getTemplate($file, $type = 'module')
   {
 
     // Zuerst den Standard Pfad checken
@@ -614,7 +614,7 @@ class Wgt
    * Get a Template Area
    * @return string
    */
-  public static function getTemplateContent($file, $type = 'content')
+  public static function getTemplateContent($file, $type = 'module')
   {
 
     if (! $path = self::getTemplate($file, $type))

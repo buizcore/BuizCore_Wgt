@@ -64,6 +64,9 @@ class LibTemplatePage extends LibTemplateHtml
     parent::__construct();
 
   }// end public function __construct */
+  
+
+
 
 } // end class LibTemplateDocument
 
