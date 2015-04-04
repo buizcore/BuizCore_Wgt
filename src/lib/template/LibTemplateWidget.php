@@ -44,6 +44,8 @@ class LibTemplateWidget extends LibTemplatePublisher
         $this->getAcl();
         $this->getI18n();
         $this->getCache();
+        
+        $this->init();
     
     }// end public function __construct */
     
@@ -61,14 +63,39 @@ class LibTemplateWidget extends LibTemplatePublisher
 
 	}//end public function injectResources */
 
+	/**
+	 * 
+	 */
+	public function init() 
+	{
+	    
+	}//end public function init */
+	
+	/**
+	 *
+	 */
+	public function beforeRender()
+	{
+	     
+	}//end public function beforeRender */
 
+	/**
+	 *
+	 */
+	public function afterRender()
+	{
+	
+	}//end public function afterRender */
+	
 
 	/**
 	 */
 	public function render( )
 	{
-	
+	   
+	    $this->beforeRender();
 	    return $this->includeTemplate($this->template);
+	    $this->afterRender();
 	
 	}
 	
