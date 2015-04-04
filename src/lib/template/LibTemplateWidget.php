@@ -36,7 +36,7 @@ class LibTemplateWidget extends LibTemplatePublisher
         
         $view->assignSubview($this);
         
-        if (!$env ) {
+        if (!$env) {
             $env = Buizcore::$env;
         }
         
@@ -45,7 +45,7 @@ class LibTemplateWidget extends LibTemplatePublisher
         $this->getI18n();
         $this->getCache();
         
-        $this->init();
+        $this->___init();
     
     }// end public function __construct */
     
@@ -66,7 +66,7 @@ class LibTemplateWidget extends LibTemplatePublisher
 	/**
 	 * 
 	 */
-	public function init() 
+	public function ___init() 
 	{
 	    
 	}//end public function init */
@@ -74,7 +74,7 @@ class LibTemplateWidget extends LibTemplatePublisher
 	/**
 	 *
 	 */
-	public function beforeRender()
+	public function ___beforeRender()
 	{
 	     
 	}//end public function beforeRender */
@@ -82,7 +82,7 @@ class LibTemplateWidget extends LibTemplatePublisher
 	/**
 	 *
 	 */
-	public function afterRender()
+	public function ___afterRender()
 	{
 	
 	}//end public function afterRender */
@@ -93,11 +93,21 @@ class LibTemplateWidget extends LibTemplatePublisher
 	public function render( )
 	{
 	   
-	    $this->beforeRender();
+	    $this->___beforeRender();
 	    return $this->includeTemplate($this->template);
-	    $this->afterRender();
+	    $this->___afterRender();
 	
-	}
+	}//end public function render */
+	
+	/**
+	 * @return string
+	 */
+	public function __toString() 
+	{ 
+
+	    return $this->render();
+
+	}//end public function __toString */
 	
 
 } // end class LibTemplateWidget */
