@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+	<buildpathentry combineaccessrules="false" kind="prj" path="/BuizCore_Base"/>
 	<buildpathentry combineaccessrules="false" kind="prj" path="/BuizCore_Hmod_Cms"/>
 	<buildpathentry combineaccessrules="false" kind="prj" path="/BuizCore"/>
 	<buildpathentry kind="src" path=""/>

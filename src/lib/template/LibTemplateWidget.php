@@ -80,11 +80,11 @@ class LibTemplateWidget extends LibTemplatePublisher
 	}//end public function beforeRender */
 
 	/**
-	 *
+	 * zum nachbearbeiten des contents soweit gewünscht
 	 */
-	public function ___afterRender()
+	public function ___afterRender($content)
 	{
-	
+	   return $content;
 	}//end public function afterRender */
 	
 
@@ -93,9 +93,12 @@ class LibTemplateWidget extends LibTemplatePublisher
 	public function render( )
 	{
 	   
-	    $this->___beforeRender();
-	    return $this->includeTemplate($this->template);
-	    $this->___afterRender();
+	    if ($error = $this->___beforeRender()) {
+	        return $error;
+	    }
+	    
+	    $content = $this->includeTemplate($this->template);
+	    return $this->___afterRender($content);
 	
 	}//end public function render */
 	
