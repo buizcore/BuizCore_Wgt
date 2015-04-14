@@ -135,6 +135,8 @@ class WgtControlDateList
         
         $active = $this->active;
         
+        $this->yearBefore = $active-1;
+        $this->yearAfter = $active+1;
         
         // ok ganz simple
         if (count($this->allYears) > 5) {
@@ -164,14 +166,14 @@ class WgtControlDateList
     }//end public function processData */
   
     /**
-     * 
+     * @return string
      */
     public function render() 
     {
       
-      $this->processData();
+        $this->processData();
     
-      $code = <<<CODE
+        $code = <<<CODE
 <div class="wcm wcm_list_filter do-align" style="margin-right:20px;" >
     <var class="list_filter" >{"form":"{$this->searchForm}","param":"{$this->searchParam}","param_name":"{$this->searchParamName}"}</var>
     <ul class="wgt-controls-list" >
@@ -182,7 +184,7 @@ CODE;
      foreach ($this->showYears as $year) { 
          
          $isActive = '';
-         if($this->active == $year){
+         if ($this->active == $year) {
              $isActive = ' action-is-active ';
          }
          
@@ -202,11 +204,11 @@ CODE;
     <select class="wcm wcm_widget_selectbox" style="width:90px;" >
 CODE;
 
-    foreach($this->allYears as $year) {
+    foreach ($this->allYears as $year) {
         
         $selected = '';
         
-        if($this->active == $year){
+        if ($this->active == $year) {
             $selected = ' selected="selected" ';
         }
         

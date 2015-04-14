@@ -133,7 +133,8 @@ $R.addAction( 'list_filter', function( jNode ){
   
     try {
         
-        var settingsNode = jNode.find('var.list_filter'),
+        var 
+            settingsNode = jNode.find('var.list_filter'),
             settings;
         
         settings = settingsNode.is('var.list_filter')
@@ -143,15 +144,20 @@ $R.addAction( 'list_filter', function( jNode ){
     } catch( err ) {
         
         $D.errorWindow( 'Failed to read settings '+jNode.getNodePath('/') , err.description );
+        return;
     }
 
     jNode.find('.search-param').on('click', function(){ 
         
+        var searchNode = $(this);
         /*
          *  form
             param
             param_name
          */
+        
+        $('#'+settings.param).val(searchNode.attr('data-val'));
+        $R.form(settings.form);
         
     });
 

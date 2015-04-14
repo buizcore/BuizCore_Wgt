@@ -326,7 +326,7 @@ CODE;
     if (!isset($attributes['class']))
       $attributes['class'] = $pNode->size;
 
-    if ($this->id)
+    if ($this->id && !isset($params['un_assigned']))
       $attributes['class']  .= ' asgd-'.$this->id;
 
     if (!isset($attributes['name']))
