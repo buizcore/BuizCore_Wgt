@@ -1,0 +1,10 @@
+DONE
+- create,update,delete VCALENDAR
+- Konvertierung nach JSON für fullCalendar
+- CalDAV Anbindung Sabre
+
+TODO
+- Ereignisse, Prüfe nach Änderungen (http://sabre.io/dav/building-a-caldav-client/ - "Finding out if anything changed", fällt Weg wenn Sabre CalDav Plugin fertig gestellt wurde. ENTSCHEIDUNG: Pull oder Push)
+- Kalenderinformationen auslesen (http://sabre.io/dav/building-a-caldav-client/ - "Retrieving calendar information")
+- Liste aller Kalender
+- Authentifizierungs Plugin für SabreDAV (Radius, LDAP, Properitär?)
