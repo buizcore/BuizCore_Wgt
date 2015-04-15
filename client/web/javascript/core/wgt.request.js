@@ -876,7 +876,7 @@ $(document).request();
 /**
  * WGT Web Gui Toolkit
  *
- * Copyright (c) 2009 webfrap.net
+ * Copyright (c) 2014 BuizCore GmbH
  *
  * http://buizcore.net/WGT
  *
