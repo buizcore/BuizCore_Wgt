@@ -198,6 +198,10 @@ HTML;
    */
   public function element($attributes = array())
   {
+      
+
+      // ist immer ein text attribute
+      $this->attributes['type'] = 'checkbox';
   
       if ($this->renderInput) {
   
