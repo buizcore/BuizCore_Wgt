@@ -33,6 +33,13 @@ class LibTemplateService extends LibTemplate
   public $type = 'service';
 
   /**
+   * Enter description here...
+   *
+   * @var string
+   */
+  public $plain = false;
+  
+  /**
    *
    * @var string
    */
@@ -97,6 +104,7 @@ class LibTemplateService extends LibTemplate
   public function buildBody()
   {
 
+
     if ($this->assembledBody)
       return $this->assembledBody;
 
@@ -123,6 +131,7 @@ class LibTemplateService extends LibTemplate
       ob_end_clean();
 
     } else {
+
       Error::report('Service Template does not exist: '.$this->template.' '. ($this->tplInCode?'local tpl':'global tpl'));
 
       ///TODO add some good error handler here
