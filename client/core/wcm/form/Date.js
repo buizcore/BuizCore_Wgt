@@ -88,6 +88,28 @@ $R.addAction( 'ui_date', function( jNode ){
 
     jNode.datepicker(settings);
   }
+  
+  
+  if(settings.min_field_for){
+      jNode.on('change.range_min', function(){ 
+          if ('' != ''+jNode.val()) {
+              $( settings.min_field_for ).datepicker( "option", "minDate", jNode.val() );
+          } else {
+              $( settings.min_field_for ).datepicker( "option", "minDate", null );
+          }
+      });
+  }
+  
+  if(settings.max_field_for){
+      jNode.on('change.range_max', function(){ 
+          if ('' != ''+jNode.val()) {
+              $( settings.max_field_for ).datepicker( "option", "maxDate",  jNode.val() );
+          } else {
+              $( settings.max_field_for ).datepicker( "option", "maxDate",  null );
+          }
+      });
+  }
+
 
   if( $S( '#'+jNode.attr('id')+'-ap-button' ).is('button') ){
     $S( '#'+jNode.attr('id')+'-ap-button' ).click( function(){

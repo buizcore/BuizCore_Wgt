@@ -56,7 +56,7 @@ class BuizAnnouncement_Widget extends WgtAbstract
     $html = <<<HTML
 
 <section class="wgt-content_box form" >
-        <header><h2>{$i18n->l('Message','wbf.label')}</h2></header>
+        <header class="wgt-header-2" ><h2>{$i18n->l('Message','wbf.label')}</h2></header>
         <div class="content" >
             <fieldset>
                 <div class="left n-cols-2" >

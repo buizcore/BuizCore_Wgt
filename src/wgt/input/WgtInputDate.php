@@ -22,6 +22,26 @@
 class WgtInputDate extends WgtInput
 {
 
+    /**
+     * @var string die id für das Start feld
+     */
+    public $isEndFor = null;
+    
+    /**
+     * @var string die id für das End feld
+     */
+    public $isStartFor = null;
+    
+    /**
+     * @var int Die Anzahl Monate die angezeigt werden sollen (am besten irgendetwas zwischen 1 und 3)
+     */
+    public $numMonth = 1;
+
+    /**
+     * @var Die Range der Jahre
+     */
+    public $yearRange = null;
+    
   /**
    * @param array $attributes
    * @return string
@@ -31,8 +51,9 @@ class WgtInputDate extends WgtInput
 
     $id = $this->getId();
 
-    if ($attributes)
+    if ($attributes) {
       $this->attributes = array_merge($this->attributes,$attributes);
+    }
 
     // add the date validator for datepicker
     if (!isset($this->attributes['class'])) {
@@ -78,9 +99,26 @@ class WgtInputDate extends WgtInput
             $this->classes['has-button'] = 'has-button';
         }
         
+        
+        
+        
+        $settings = [];
+        $settings["button"] = "{$id}-ap-button";
+        
+        if ($this->isStartFor) {
+            $settings["min_field_for"] = $this->isStartFor;
+        }
+        
+        if ($this->isEndFor) {
+            $settings["max_field_for"] = $this->isEndFor;
+        }
+        
+        $jsonSettings = json_encode($settings);
+        
+        
         return <<<HTML
       <input {$this->asmAttributes($attributes)} />
-        <var>{"button":"{$id}-ap-button"}</var>
+        <var>{$jsonSettings}</var>
         <button
           id="{$id}-ap-button"
           class="wgt-button append-inp"

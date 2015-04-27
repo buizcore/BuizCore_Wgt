@@ -102,9 +102,9 @@ HTML;
     
     <?php if( $this->subView ){ echo $this->subView->build(); }?>
 
-    <?php /* if( defined('DEBUG_CONSOLE') &&  DEBUG_CONSOLE) { ?>
+    <?php  if( defined('DEBUG_CONSOLE') &&  DEBUG_CONSOLE) { ?>
       <htmlArea selector="div#wgt_debug_console div.content" action="html" ><![CDATA[<?php echo Debug::consoleHtml()?>]]></htmlArea>
-    <?php } */ ?>
+    <?php } ?>
 
     </body>
   </gui>

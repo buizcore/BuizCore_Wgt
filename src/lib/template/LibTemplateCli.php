@@ -150,8 +150,12 @@ class LibTemplateCli extends Pbase
   public function setScope($scope)
   {
 
-    $this->scope = $scope;
-    $this->scopeData = $this->tplConf['scopes'][$scope];
+      $this->scope = $scope;
+      // brauchen wir im cli scopes?
+      if (isset($this->tplConf['scopes'][$scope])) {
+          $this->scopeData = $this->tplConf['scopes'][$scope];
+      }
+
 
   }//end public function setScope*/
 
